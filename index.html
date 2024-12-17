@@ -11,25 +11,70 @@
             height: 100%;
         }
         .floor1{
-            background-image: url(/1floor/1floor-back.png);
             width: 100vw;
             height: 100vh;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            position: relative;
+        }
+        .floor1 .img-flex{
+            width: 100%;
+            height: 100%;
+        }
+        .floor1 .back-img{
+            width: 100%;
+            height: 980px;
+            background-image: url(/1floor/dip1.png);
+            background-repeat: repeat;
+            background-position: center bottom;
+        }
+        .floor1 .backimgL{
+            width: 100%;
+            height: 100%;
+            background-image: url(/1floor/dip1L.png);
+        }
+        .floor1 .backimgR{
+            width: 100%;
+            height: 100%;
+            background-image: url(/1floor/dip1R.png);
+        }
+        .floor1 .back-img .backimg{
+            width: 100%;
+            height: 100%;
+        }
+        .floor1 .box{
+            display: flex;
+            position: absolute;
+            top: 75%;
+            left: 20%;
+            width: 60%;
+            justify-content: space-between;
         }
     </style>
 </head>
 <body>
-    <section>
+    <main>
         <div class="floor1">
             <div class="img-flex">
-                <img src="/1floor/1floor-img2.png" alt="">
-                <img src="/1floor/1floor-img.png" alt="">
+                <div class="back-img">
+                    <!-- <div class="backimgL"></div> -->
+                    <div class="backimg"></div>
+                    <!-- <div class="backimgR"></div> -->
+                    
+                </div>
+                <div class="box">
+                    <div class="L-box">
+                        <img src="/1floor/1floor-L-img.png" alt="">
+                        <img src="/1floor/1floor-L-box.png" alt="">
+                    </div>
+                    <div class="R-box">
+                        <div class="R-img-hover">
+                            <img src="/1floor/1floor-R-img.png" alt="">
+                            <img src="/1floor/1floor-R-img-hover.png" alt="">
+                        </div>
+                        <img src="/1floor/1floor-R-box.png" alt="">
+                    </div>
+                </div>
             </div>
 
         </div>
-    </section>
+    </main>
 </body>
 </html>
