@@ -44,7 +44,7 @@
 
         .L-img {
             position: absolute;
-            top: 57%;
+            top: 56%;
             left: 22%;
             display: flex;
             align-items: center;
@@ -68,11 +68,12 @@
             display: none;
         }
 
-        .img-shadow {
-            border-radius: 50%;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
-            height: 2px;
-            width: 62px;
+        .shadow {
+            position: absolute;
+            top: 90%;
+            left: 12%;
+            width: 115px;
+            height: 48px;
         }
     </style>
 </head>
@@ -82,6 +83,14 @@
         <div class="floor1">
             <div class="img-flex">
                 <div class="back-img">
+                    <div class="up">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                        </svg>
+                    </div>
                     <div class="backimg"></div>
                 </div>
                 <div class="L-box">
@@ -89,7 +98,7 @@
                 </div>
                 <div class="L-img">
                     <img src="/1floor/1floor-L-img.png" alt="">
-                    <div class="img-shadow"></div>
+                    <img class="shadow" src="/1floor/shadow.png" alt="">
                 </div>
                 <div class="R-box">
                     <img src="/1floor/1floor-R-box.png" alt="">
