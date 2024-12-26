@@ -7,118 +7,50 @@
     <title>MicroPage</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="reset.css">
-    <style>
-        body {
-            height: 100%;
-        }
-
-        .floor1 .img-flex {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .floor1 .back-img {
-            width: 100%;
-            height: 980px;
-            background-image: url(/1floor/dip1.png);
-            background-repeat: repeat;
-            background-position: center bottom;
-        }
-
-        .L-box {
-            position: absolute;
-            top: 74%;
-            left: 20%;
-        }
-
-        .L-img {
-            position: absolute;
-            top: 56%;
-            left: 22%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .R-box {
-            position: absolute;
-            top: 74%;
-            right: 20%;
-        }
-
-        .R-img-hover {
-            position: absolute;
-            top: 32.5%;
-            right: 17%;
-        }
-
-        .hover-fire {
-            display: none;
-        }
-
-        .shadow {
-            position: absolute;
-            top: 90%;
-            left: 12%;
-            width: 115px;
-            height: 48px;
-        }
-
-        .up-down {
-            position: absolute;
-            top: 53%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .arrow {
-            width: 100px;
-            height: 100px;
-            transform: rotate(-45deg);
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .arrow svg {
-            background: #fff;
-            cursor: pointer;
-        }
-        .arrow svg path{
-            stroke: aliceblue;
-        }
-    </style>
 </head>
 
 <body>
-    <section>
+    <section class="floor-2">
+        <div class="floor2">
+            <div class="img-flex-2">
+                <div class="back-img2">
+                    <div class="up-down">
+                    </div>
+                </div>
+                <div class="L-up">
+                    <img src="/2floor/L-up-1/first.png" alt="">
+                    <img src="/2floor/L-up-2/위에칸2.png" alt="">
+                </div>
+                <div class="L-down">
+                    <div class="L-down1">
+                        <img class="hover-light" src="/2floor/hover/hover-light.png" alt="">
+                        <img src="/2floor/L-under-1/아래칸1.png" alt="">
+                    </div>
+                    <img class="L-down2" src="/2floor/L-under-2/아래칸2.png" alt="">
+                    <img class="L-down3" src="/2floor/L-under-3/doson.png" alt="">
+                </div>
+                <div class="R-img">
+                    <img src="/2floor/R-1/R-1.png" alt="">
+                    <img src="/2floor/R-2/R-2.png" alt="">
+                    <img src="/2floor/R-3/R-3.png" alt="">
+                    <img src="/2floor/R-4/R-4.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="floor1-2"></section>
+    <section class="floor-1">
         <div class="floor1">
-            <div class="img-flex">
+            <div class="img-flex-1">
                 <div class="back-img">
                     <div class="up-down">
-                        <div class="arrow">
-                            <div></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                                <path fill-rule="evenodd" d="M4.22 11.78a.75.75 0 0 1 0-1.06L9.44 5.5H5.75a.75.75 0 0 1 0-1.5h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V6.56l-5.22 5.22a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd" />
-                              </svg>
-                              
-                              
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                                <path fill-rule="evenodd" d="M11.78 4.22a.75.75 0 0 1 0 1.06L6.56 10.5h3.69a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75v-5.5a.75.75 0 0 1 1.5 0v3.69l5.22-5.22a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
-                              </svg>
-                              
-
-                            <div></div>
-                        </div>
                     </div>
-                    <div class="backimg"></div>
                 </div>
                 <div class="L-box">
                     <img src="/1floor/1floor-L-box.png" alt="">
                 </div>
                 <div class="L-img">
-                    <img src="/1floor/1floor-L-img.png" alt="">
+                    <img class="L-img1" src="/1floor/1floor-L-img.png" alt="">
                     <img class="shadow" src="/1floor/shadow.png" alt="">
                 </div>
                 <div class="R-box">
