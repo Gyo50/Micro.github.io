@@ -259,8 +259,9 @@ opacity: 0.9;
 }
 
 .L-img {
+    height: 250px;
     position: absolute;
-    top: 59%;
+    top: 56%;
     left: 23%;
     display: flex;
     align-items: center;
@@ -269,7 +270,10 @@ opacity: 0.9;
 }
 
 .L-img1 {
-    margin: -20px;
+    position: absolute;
+    top: 57%;
+    left: 22%;
+    cursor: pointer;
 }
 
 .R-box {
@@ -291,6 +295,9 @@ opacity: 0.9;
 .shadow {
     width: 115px;
     height: 48px;
+    position: absolute;
+    top: 73%;
+    left: 23.5%;
 }
 
 .up-down {
@@ -307,4 +314,12 @@ opacity: 0.9;
 
 .arrow svg path {
     stroke: aliceblue;
+}
+.L-img:hover ~ .shadow {
+    transition: width 0.3s ease;
+}
+
+.L-img:hover {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
 }

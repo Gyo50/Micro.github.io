@@ -84,10 +84,8 @@
                 <div class="L-box">
                     <img src="/1floor/1floor-L-box.png" alt="">
                 </div>
-                <div class="L-img">
-                    <img class="L-img1" src="/1floor/1floor-L-img.png" alt="">
-                    <img class="shadow" src="/1floor/shadow.png" alt="">
-                </div>
+                <img class="L-img1" src="/1floor/1floor-L-img.png" alt="">
+                <img class="shadow" src="/1floor/shadow.png" alt="">
                 <div class="R-box">
                     <img src="/1floor/1floor-R-box.png" alt="">
                 </div>
@@ -96,10 +94,27 @@
                     <img class="hover-fire" src="/1floor/1floor-R-img-hover.png" alt="">
                 </div>
             </div>
-
         </div>
     </section>
-    <section></section>
+    <script>
+
+const lImg = document.querySelector('.L-img1');
+const shadow = document.querySelector('.shadow');
+
+
+lImg.addEventListener('mouseenter', () => {
+    lImg.style.transform = 'translateY(-20px)';
+    lImg.style.transition = 'transform 0.3s ease';
+    shadow.style.width = '80px';
+    shadow.style.transition = 'width 0.3s ease';
+});
+
+lImg.addEventListener('mouseleave', () => {
+    lImg.style.transform = 'translateY(0)';
+    shadow.style.width = '115px';
+});
+
+    </script>
 </body>
 
 </html>
