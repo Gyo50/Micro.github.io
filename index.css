@@ -1,41 +1,63 @@
-body {
+html ,body {
     height: 100%;
 }
 /*----------------------------floor3-----------------------------------*/
-.floor3 .img-flex-3 {
-    width: 100%;
-    height: 100%;
+.floor3{
     position: relative;
+    width: 1920px;
+    height: 980px;
+    margin: 0 auto;
 }
-.floor3 .back-img3 {
-    width: 100%;
+.floor3 .img-flex-3 {
+    width: 1920px;
     height: 980px;
     background-image: url(/3floor/dip3.png);
-    background-repeat: repeat;
-    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
 
 /*-----------------------------floor2----------------------------------*/
 .floor2-3{
-    width: 100%;
+    position: relative;
+    width: 1920px;
+    height: 800px;
+    margin: 0 auto;
+}
+.floor2-3 .img{
+    width: 1920px;
     height: 800px;
     background-image: url(/2-3floor.png);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-position: center bottom;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.floor2 .back-img2 {
-    width: 100%;
+.floor2{
+    position: relative;
+    width: 1920px;
     height: 980px;
-    background-image: url(/2floor/dip2.png);
-    background-repeat: repeat;
-    background-position: center bottom;
+    margin: 0 auto;
 }
 
 .floor2 .img-flex-2 {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    width: 1920px;
+    height: 980px;
+    background-image: url(/2floor/dip2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .floor2 .L-up1 {
@@ -189,16 +211,27 @@ opacity: 0.9;
 
 /*------------------------------floor1-----------------------------*/
 .floor1-2 .img{
-    width: 100%;
+    width: 1920px;
     height: 800px;
     background-image: url(/1-2floor.png);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-position: center bottom;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .floor1-2{
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 1920px;
+    height: 800px;
+    margin: 0 auto;
+}
+.floor-1{
+    width: 1920px;
+    height: 980px;
+    margin: 0 auto;
 }
 .floor1{
     position: relative;
@@ -207,17 +240,12 @@ opacity: 0.9;
 }
 
 .floor1 .img-flex-1 {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.floor1 .back-img {
-    width: 1980px;
+    width: 1920px;
     height: 980px;
     background-image: url(/1floor/dip1.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     position: absolute;
     top: 50%;
     left: 50%;
