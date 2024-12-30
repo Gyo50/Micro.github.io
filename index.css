@@ -51,8 +51,8 @@ html ,body {
 }
 
 .lightHolder {
-	width: 140px;
-	height: 140px;
+    width: 130px;
+    height: 137px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -108,12 +108,6 @@ html ,body {
 
 
 
-
-
-
-
-
-
 .floor2{
     position: relative;
     width: 1920px;
@@ -136,10 +130,12 @@ html ,body {
 
 .floor2 .L-up1 {
     position: absolute;
-    top: 164px;
-    left: 95px;
+    top: 167px;
+    left: 110px;
     display: flex;
     flex-direction: column;
+    height: 231px;
+    justify-content: flex-end;
 }
 
 .floor2 .L-up1 .hover-light {
@@ -151,10 +147,13 @@ html ,body {
 
 .floor2 .L-up2 {
     position: absolute;
-    top: 176px;
-    left: 285px;
+    top: 179px;
+    left: 300px;
     display: flex;
+    height: 222px;
+    align-items: center;
     flex-direction: column;
+    justify-content: flex-end;
 }
 
 .floor2 .L-up2 .hover-light {
@@ -170,6 +169,8 @@ html ,body {
     left: 50px;
     display: flex;
     flex-direction: column;
+    height: 265px;
+    justify-content: flex-end;
 }
 
 .L-down .L-down1 .hover-light {
@@ -183,6 +184,8 @@ html ,body {
     left: 210px;
     display: flex;
     flex-direction: column;
+    height: 255px;
+    justify-content: flex-end;
 }
 
 .L-down .L-down2 .hover-light {
@@ -196,32 +199,58 @@ html ,body {
     left: 369px;
     display: flex;
     flex-direction: column;
+    height: 247px;
+    justify-content: flex-end;
 }
-
-.L-down .L-down3 .hover-light {
-    margin-bottom: -158px;
-    opacity: 0;
+.L-down .L-down3 img{
+    width: 125px;
 }
 
 .R-img .R-img1 {
     position: absolute;
-    top: 180px;
-    right: 378px;
-    display: flex;
+    top: 181px;
+    right: 392px;
+    display: flex
+;
     flex-direction: column;
+    height: 220px;
+    justify-content: flex-end;
 }
-
-.R-img .R-img1 .hover-light {
-    margin-bottom: -170px;
-    opacity: 0;
+.R-img .R-img1 .lightHolder,
+.R-img .R-img3 .lightHolder{
+    width: 110px;
+    height: 137px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+}
+.R-img .R-img2 .lightHolder{
+    width: 110px;
+    height: 137px;
+    position: absolute;
+    top: 106px;
+    left: 0;
+    display: inline-block;
+    transform: rotate(180deg);
+}
+.R-img .R-img4 .lightHolder{
+    width: 110px;
+    height: 137px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+    transform: rotate(180deg);
 }
 
 .R-img .R-img2 {
     position: absolute;
-    top: 410px;
-    right: 265px;
-    display: flex;
-    flex-direction: column;
+    top: 412px;
+    right: 279px;
+    display: flex
+;
+    justify-content: flex-end;
 }
 
 .R-img .R-img2 .hover-light {
@@ -233,14 +262,12 @@ html ,body {
 .R-img .R-img3 {
     position: absolute;
     top: 165px;
-    right: 137px;
-    display: flex;
+    right: 152px;
+    display: flex
+;
     flex-direction: column;
-}
-
-.R-img .R-img3 .hover-light {
-    margin-bottom: -154px;
-    opacity: 0;
+    justify-content: flex-end;
+    height: 217px;
 }
 
 .R-img .R-img4 {
