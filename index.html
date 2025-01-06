@@ -139,7 +139,7 @@
                     </div>
                     <div class="R-img-hover">
                         <img src="/1floor/1floor-R-img.png" alt="">
-                        <img class="hover-fire" src="/1floor/1floor-R-img-hover.png" alt="">
+                        <div class="fire"></div>
                     </div>
                 </div>
             </div>
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollBlocked = false;
     });
 
-    // Up 버튼 클릭 시 floor-2로 이동
+    //이동
     upButton1.addEventListener('click', () => {
         floor2.scrollIntoView({ behavior: 'smooth' });
     });
