@@ -11,6 +11,15 @@
 
 <body>
     <main class="main-section">
+        <!-- 팝업창 배경 -->
+    <div id="popupBackground" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+
+    <!-- 팝업창 구조 -->
+    <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; padding: 20px; background: white; border: 1px solid black; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000;">
+        <h2>안녕하세요</h2>
+        <p>안녕 나는 gpt야</p>
+        <button id="closePopup" style="margin-top: 10px; padding: 5px 10px; background: red; color: white; border: none; cursor: pointer;">닫기</button>
+    </div>
         <div class="floor-3 section">
             <div class="floor3 ">
                 <div class="img-flex-3">
@@ -204,7 +213,32 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 });
 
- 
+document.addEventListener('DOMContentLoaded', function () {
+        // 팝업 및 배경 요소 가져오기
+        const popup = document.getElementById('popup');
+        const popupBackground = document.getElementById('popupBackground');
+        const closePopup = document.getElementById('closePopup');
+        const lImg1 = document.querySelector('.L-img1');
+
+        // L-img1 클릭 시 팝업 및 배경 표시
+        lImg1.addEventListener('click', function () {
+            popup.style.display = 'block';
+            popupBackground.style.display = 'block';
+        });
+
+        // 닫기 버튼 클릭 시 팝업 및 배경 숨기기
+        closePopup.addEventListener('click', function () {
+            popup.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
+
+        // 배경 클릭 시 팝업 및 배경 숨기기
+        popupBackground.addEventListener('click', function () {
+            popup.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
+    }); 
+
     </script>
 </body>
 
