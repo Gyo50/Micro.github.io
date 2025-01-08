@@ -100,6 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const Ldown1 = document.querySelector('.L-down1');
         // const Ldown2 = document.querySelector('.L-down2');
         // const Ldown3 = document.querySelector('.L-down3');
+        const clickswiper = document.querySelector('.clickswiper');
+        const popupBackground = document.getElementById('popupBackground');
+
+        Ldown1.addEventListener('click',function() {
+            clickswiper.style.display='block';
+            popupBackground.style.display = 'block';
+        })
 
 
     });
