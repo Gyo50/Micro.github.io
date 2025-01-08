@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroPage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="reset.css">
 </head>
 
 <body>
     <main class="main-section">
+<!-------------------------------------------------- 팝업 창들 ------------------------------------->
     <!-- 팝업창 배경 -->
     <div id="popupBackground" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
 
@@ -48,7 +50,21 @@
         <img src="/history/history5.png" alt="">
         <p style="margin-top: 100px; font-size: 26px; line-height: 1.2;">인위적이지 않은 자연스러운 향이면서도 풍부하고 고급스러운</br>딥티크는 전 세계적으로 사랑받은 향수로 자리 잡았고,</br>딥티크는 현재도 끊임없이 연구하고 새로운 제품들을 선보이면서</br>독창적이면서도 유니크한 향을 선보이고 있습니다.</p>
     </div>
-    
+    <div class="swiper mySwiper">
+        <div class="back"">
+            <img src="/2floor/hover/2floor-hover-box.png" alt="">
+            <div>
+                <img class="img1" src="/2floor/hover/2floor-hover-L-flower.png" alt="">
+                <img class="img2" src="/2floor/hover/2floor-hover-R-flower.png" alt="">
+            </div>
+        </div>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
         <div class="floor-3 section">
             <div class="floor3 ">
                 <div class="img-flex-3">
@@ -185,7 +201,7 @@
             </div>
         </div>
     </main>
-    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
 </body>
 
