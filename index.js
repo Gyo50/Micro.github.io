@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const floor3 = document.querySelector('.floor-3');
 
     // 초기 스크롤 설정
-    floor1.scrollIntoView({ behavior: 'smooth' });
+    floor1.scrollIntoView();
     // 스크롤 방지 설정
     let scrollBlocked = true;
 
