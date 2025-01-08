@@ -476,6 +476,7 @@ position: relative;
     position: absolute;
     top: 58.5%;
     right: 22.5%;
+    cursor: pointer;
 }
 
 .hover-fire {
@@ -513,3 +514,69 @@ position: relative;
     transform: translateY(-20px);
     transition: transform 0.3s ease;
 }
+/* 불의 기본 스타일 */
+.fire {
+    display: none;
+    position: absolute;
+    top: -40px;
+    bottom: 10px; /* 불의 위치 */
+    left: 49%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 100, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 50%;
+    animation: flameFlicker 1.5s infinite ease-in-out, moveUp 1.5s infinite ease-in-out;
+    z-index: 10;
+}
+
+/* 불 활성화 */
+.R-img-fire:hover .fire {
+    display: block;
+}
+
+/* 불꽃 깜빡임 효과 */
+@keyframes flameFlicker {
+    0%, 100% {
+        transform: translateX(-50%) scale(0.3);
+        background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 80, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+    50% {
+        transform: translateX(-50%, -50%) scale(0.5);
+        background: radial-gradient(circle, rgba(255, 255, 100, 1) 0%, rgba(255, 50, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+
+/* 불꽃 위로 움직임 */
+@keyframes moveUp {
+    0% {
+        bottom: 10px;
+    }
+    50% {
+        bottom: 15px;
+    }
+    100% {
+        bottom: 10px;
+    }
+}
+.inner-fire {
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 100, 1) 0%, rgba(255, 150, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 50%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: innerFlame 1s infinite ease-in-out;
+}
+
+@keyframes innerFlame {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+

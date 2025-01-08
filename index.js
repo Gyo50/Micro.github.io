@@ -90,3 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
             popupBackground.style.display = 'none';
         });
     });
+    const fireElement = document.querySelector('.fire');
+    const fireContainer = document.querySelector('.R-img-fire');
+    
+    // 마우스 오버 시 불꽃 활성화
+    fireContainer.addEventListener('mouseenter', () => {
+        fireElement.style.display = 'block';
+    });
+    
+    // 마우스 아웃 시 불꽃 비활성화
+    fireContainer.addEventListener('mouseleave', () => {
+        fireElement.style.display = 'none';
+    });
+    
+    
