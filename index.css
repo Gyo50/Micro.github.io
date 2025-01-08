@@ -134,8 +134,8 @@ position: relative;
 /*-----------------------------floor2----------------------------------*/
 .floor2-3{
     position: relative;
-    width: 1920px;
-    height: 800px;
+    width: 100%;
+    height: 100vh;
     margin: 0 auto;
 }
 .floor2-3 .img{
@@ -418,19 +418,17 @@ position: relative;
 }
 .floor1-2{
     position: relative;
-    width: 1920px;
-    height: 800px;
+    width: 100%;
+    height: 100vh;
     margin: 0 auto;
 }
 .floor-1{
-    width: 1920px;
-    height: 980px;
     margin: 0 auto;
 }
 .floor1{
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 1920px;
+    height: 980px;
 }
 
 .floor1 .img-flex-1 {
