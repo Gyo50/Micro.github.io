@@ -12,8 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 초기 스크롤 설정
     floor1.scrollIntoView({ behavior: 'smooth' });
+    // 스크롤 방지 설정
+    let scrollBlocked = true;
 
-    // L-img hover 이벤트
+    function preventScroll(e) {
+        if (scrollBlocked) {
+            e.preventDefault();
+        }
+    }
+
     lImg.addEventListener('mouseenter', () => {
         lImg.style.transform = 'translateY(-20px)';
         lImg.style.transition = 'transform 0.3s ease';
@@ -24,15 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
         lImg.style.transform = 'translateY(0)';
         shadow.style.width = '115px';
     });
+    const fireElement = document.querySelector('.fire');
+    const fireContainer = document.querySelector('.R-img-fire');
+    
+    fireContainer.addEventListener('mouseenter', () => {
+        fireElement.style.display = 'block';
+    });
 
-    // 스크롤 방지 설정
-    let scrollBlocked = true;
-
-    function preventScroll(e) {
-        if (scrollBlocked) {
-            e.preventDefault();
-        }
-    }
+    fireContainer.addEventListener('mouseleave', () => {
+        fireElement.style.display = 'none';
+    });
 
     $body.addEventListener('wheel', preventScroll, { passive: false });
 
@@ -56,51 +64,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-        const popupl = document.getElementById('popupL');
-        const popupr = document.getElementById('popupR');
+        const intro = document.getElementById('intro');
+        const history = document.getElementById('history');
         const popupBackground = document.getElementById('popupBackground');
-        const closePopupl = document.getElementById('closePopupL');
-        const closePopupr = document.getElementById('closePopupR');
+        const closeintro = document.getElementById('closeintro');
+        const closehistory = document.getElementById('closehistory');
         const lImg1 = document.querySelector('.L-img1');
         const rImg1 = document.querySelector('.R-img-fire');
 
         lImg1.addEventListener('click', function () {
-            popupl.style.display = 'block';
+            intro.style.display = 'block';
             popupBackground.style.display = 'block';
         });
         rImg1.addEventListener('click', function () {
-            popupr.style.display = 'block';
+            history.style.display = 'block';
             popupBackground.style.display = 'block';
         });
 
-        // X 버튼 클릭 시 팝업 및 배경 숨기기
-        closePopupl.addEventListener('click', function () {
-            popupl.style.display = 'none';
-            popupBackground.style.display = 'none';
-        });
-        closePopupr.addEventListener('click', function () {
-            popupr.style.display = 'none';
-            popupBackground.style.display = 'none';
-        });
 
-        // 배경 클릭 시 팝업 및 배경 숨기기
+        closeintro.addEventListener('click', function () {
+            intro.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
+        closehistory.addEventListener('click', function () {
+            history.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
         popupBackground.addEventListener('click', function () {
-            popupl.style.display = 'none';
-            popupr.style.display = 'none';
+            intro.style.display = 'none';
+            history.style.display = 'none';
             popupBackground.style.display = 'none';
         });
     });
-    const fireElement = document.querySelector('.fire');
-    const fireContainer = document.querySelector('.R-img-fire');
-    
-    // 마우스 오버 시 불꽃 활성화
-    fireContainer.addEventListener('mouseenter', () => {
-        fireElement.style.display = 'block';
+    document.addEventListener('DOMContentLoaded', function () {
+        const Ldown1 = document.querySelector('.L-down1');
+        // const Ldown2 = document.querySelector('.L-down2');
+        // const Ldown3 = document.querySelector('.L-down3');
+
+
     });
-    
-    // 마우스 아웃 시 불꽃 비활성화
-    fireContainer.addEventListener('mouseleave', () => {
-        fireElement.style.display = 'none';
-    });
-    
-    
