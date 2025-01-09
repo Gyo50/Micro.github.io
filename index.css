@@ -52,7 +52,11 @@ body {
     width: 285px;
     height: 480px;
 }
-
+.hoverboxL,
+.hoverboxR{
+    width: 285px;
+    height: 480px;
+}
 .lightContainer3 {
     position: relative;
     width: 100%;
@@ -116,10 +120,6 @@ body {
     cursor: pointer;
 }
 
-.L-click:hover .wallSpot3,
-.R-click:hover .wallSpot3 {
-    display: block;
-}
 
 /*---------------------------------------------------------------------*/
 

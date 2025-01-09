@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lImg = document.querySelector('.L-img1');
     const shadow = document.querySelector('.shadow');
     const $body = document.querySelector('body');
-    const upButton1 = document.querySelector('.up1');   
-    const upButton2 = document.querySelector('.up2');   
+    const upButton1 = document.querySelector('.up1');
+    const upButton2 = document.querySelector('.up2');
     const downButton1 = document.querySelector('.down1');
     const downButton2 = document.querySelector('.down2');
     const floor1 = document.querySelector('.floor-1');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const fireElement = document.querySelector('.fire');
     const fireContainer = document.querySelector('.R-img-fire');
-    
+
     fireContainer.addEventListener('mouseenter', () => {
         fireElement.style.display = 'block';
     });
@@ -55,72 +55,219 @@ document.addEventListener('DOMContentLoaded', () => {
     upButton2.addEventListener('click', () => {
         floor3.scrollIntoView({ behavior: 'smooth' });
     });
-    downButton1.addEventListener('click',()=>{
+    downButton1.addEventListener('click', () => {
         floor1.scrollIntoView({ behavior: 'smooth' });
     })
-    downButton2.addEventListener('click',()=>{
+    downButton2.addEventListener('click', () => {
         floor2.scrollIntoView({ behavior: 'smooth' });
     })
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-        const intro = document.getElementById('intro');
-        const history = document.getElementById('history');
-        const popupBackground = document.getElementById('popupBackground');
-        const closeintro = document.getElementById('closeintro');
-        const closehistory = document.getElementById('closehistory');
-        const lImg1 = document.querySelector('.L-img1');
-        const rImg1 = document.querySelector('.R-img-fire');
+    const intro = document.getElementById('intro');
+    const history = document.getElementById('history');
+    const popupBackground = document.getElementById('popupBackground');
+    const closeintro = document.getElementById('closeintro');
+    const closehistory = document.getElementById('closehistory');
+    const lImg1 = document.querySelector('.L-img1');
+    const rImg1 = document.querySelector('.R-img-fire');
 
-        lImg1.addEventListener('click', function () {
-            intro.style.display = 'block';
-            popupBackground.style.display = 'block';
-        });
-        rImg1.addEventListener('click', function () {
-            history.style.display = 'block';
-            popupBackground.style.display = 'block';
-        });
-
-
-        closeintro.addEventListener('click', function () {
-            intro.style.display = 'none';
-            popupBackground.style.display = 'none';
-        });
-        closehistory.addEventListener('click', function () {
-            history.style.display = 'none';
-            popupBackground.style.display = 'none';
-        });
-        popupBackground.addEventListener('click', function () {
-            intro.style.display = 'none';
-            history.style.display = 'none';
-            popupBackground.style.display = 'none';
-        });
+    lImg1.addEventListener('click', function () {
+        intro.style.display = 'block';
+        popupBackground.style.display = 'block';
     });
-    document.addEventListener('DOMContentLoaded', function () {
-        const Ldown1 = document.querySelector('.L-down1');
-        const Ldown2 = document.querySelector('.L-down2');
-        const Ldown3 = document.querySelector('.L-down3');
-        const clickswiper = document.querySelector('.clickswiper');
-        const popupBackground = document.getElementById('popupBackground');
-
-        Ldown1.addEventListener('click',function() {
-            clickswiper.style.display='block';
-            popupBackground.style.display = 'block';
-        })
-        Ldown2.addEventListener('click', () => {
-            clickswiper.style.display='block';
-            swiper.slideTo(1); // 두 번째 슬라이드로 이동 (인덱스 2, 루프가 활성화되면 +1 필요)
-        });
-        Ldown3.addEventListener('click', () => {
-            clickswiper.style.display='block';
-            swiper.slideTo(2); // 두 번째 슬라이드로 이동 (인덱스 2, 루프가 활성화되면 +1 필요)
-        });
-
-
+    rImg1.addEventListener('click', function () {
+        history.style.display = 'block';
+        popupBackground.style.display = 'block';
     });
-    var swiper = new Swiper(".mySwiper", {
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
+
+
+    closeintro.addEventListener('click', function () {
+        intro.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+    closehistory.addEventListener('click', function () {
+        history.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+    popupBackground.addEventListener('click', function () {
+        intro.style.display = 'none';
+        history.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+});
+/*----------------------------down------------------------*/
+document.addEventListener('DOMContentLoaded', function () {
+    const Ldown1 = document.querySelector('.L-down1');
+    const Ldown2 = document.querySelector('.L-down2');
+    const Ldown3 = document.querySelector('.L-down3');
+    const clickunder = document.querySelector('.clickunder');
+    const popupBackground = document.getElementById('popupBackground');
+    const underclose = document.getElementById('2floor-hover-L-under');
+
+    Ldown1.addEventListener('click', function () {
+        clickunder.style.display = 'block';
+        swiper.slideTo(0);
+        popupBackground.style.display = 'block';
+    })
+    Ldown2.addEventListener('click', () => {
+        clickunder.style.display = 'block';
+        swiper.slideTo(1);
+        popupBackground.style.display = 'block';
+    });
+    Ldown3.addEventListener('click', () => {
+        clickunder.style.display = 'block';
+        swiper.slideTo(2);
+        popupBackground.style.display = 'block';
+    });
+    popupBackground.addEventListener('click', function () {
+        clickunder.style.display = 'none';
+    });
+    underclose.addEventListener('click', function () {
+        clickunder.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+
+});
+/*-----------------------------up -----------------------------*/
+document.addEventListener('DOMContentLoaded', function () {
+    const Lup1 = document.querySelector('.L-up1');
+    const Lup2 = document.querySelector('.L-up2');
+    const popupBackground = document.getElementById('popupBackground');
+    const clickup = document.querySelector('.clickup');
+    const underup = document.getElementById('2floor-hover-L-up');
+
+
+    Lup1.addEventListener('click', function () {
+        clickup.style.display = 'block';
+        swiper.slideTo(0);
+        popupBackground.style.display = 'block';
+    })
+    Lup2.addEventListener('click', function () {
+        clickup.style.display = 'block';
+        swiper.slideTo(1);
+        popupBackground.style.display = 'block';
+    })
+    underup.addEventListener('click', function () {
+        clickup.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+    popupBackground.addEventListener('click', function () {
+        clickup.style.display = 'none';
+    });
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+    const Rimg1 = document.querySelector('.R-img1')
+    const Rimg2 = document.querySelector('.R-img2')
+    const Rimg3 = document.querySelector('.R-img3')
+    const Rimg4 = document.querySelector('.R-img4')
+    const popupBackground = document.getElementById('popupBackground');
+    const clickR = document.querySelector('.clickR');
+    const underR = document.getElementById('2floor-hover-R');
+
+    Rimg1.addEventListener('click', function () {
+        clickR.style.display = 'block';
+        swiper.slideTo(0);
+        popupBackground.style.display = 'block';
+    })
+    Rimg2.addEventListener('click', function () {
+        clickR.style.display = 'block';
+        swiper.slideTo(1);
+        popupBackground.style.display = 'block';
+    })
+    Rimg3.addEventListener('click', function () {
+        clickR.style.display = 'block';
+        swiper.slideTo(2);
+        popupBackground.style.display = 'block';
+    })
+    Rimg4.addEventListener('click', function () {
+        clickR.style.display = 'block';
+        swiper.slideTo(3);
+        popupBackground.style.display = 'block';
+    })
+
+    underR.addEventListener('click', function () {
+        clickR.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+    popupBackground.addEventListener('click', function () {
+        clickR.style.display = 'none';
+    });
+
+})
+
+var swiper = new Swiper(".mySwiper1", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+
+
+var swiper = new Swiper(".mySwiper2", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+
+var swiper = new Swiper(".mySwiper3", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const Lclick = document.querySelector('.L-click');
+    const Rclick = document.querySelector('.R-click');
+    const street = document.querySelector('.street');
+    const holywater = document.querySelector('.holywater')
+    const popupBackground = document.getElementById('popupBackground');
+    const floor3close = document.getElementById('floor3-close');
+
+
+    Lclick.addEventListener('click', function () {
+        street.style.display = 'block';
+        floor3close.style.display = 'block';
+        popupBackground.style.display = 'block';
+    })
+    Rclick.addEventListener('click', function () {
+        holywater.style.display = 'block';
+        floor3close.style.display = 'block';
+        popupBackground.style.display = 'block';
+    })
+    floor3close.addEventListener('click', function () {
+        street.style.display = 'none';
+        holywater.style.display = 'none';
+        floor3close.style.display = 'none';
+        popupBackground.style.display = 'none';
+    });
+    popupBackground.addEventListener('click', function () {
+        street.style.display = 'none';
+        holywater.style.display = 'none';
+        floor3close.style.display = 'none';
+    });
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+    const boxL = document.querySelector('.hoverboxL');
+    const boxR = document.querySelector('.hoverboxR');
+    const Llight = document.querySelector('.Llight');
+    const Rlight = document.querySelector('.Rlight');
+
+    boxL.addEventListener('mouseover', function(){
+        Llight.style.display='block';
+    })
+    boxL.addEventListener('mouseout', function(){
+        Llight.style.display='none';
+    })
+    boxR.addEventListener('mouseover', function(){
+        Rlight.style.display='block';
+    })
+    boxR.addEventListener('mouseout', function(){
+        Rlight.style.display='none';
+    })
+})
