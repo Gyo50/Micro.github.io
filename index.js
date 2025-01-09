@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         Ldown1.addEventListener('click',function() {
             clickswiper.style.display='block';
-            popupBackground.style.display = 'block';
+            // popupBackground.style.display = 'block';
         })
 
 
