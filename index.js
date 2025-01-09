@@ -98,20 +98,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     document.addEventListener('DOMContentLoaded', function () {
         const Ldown1 = document.querySelector('.L-down1');
-        // const Ldown2 = document.querySelector('.L-down2');
-        // const Ldown3 = document.querySelector('.L-down3');
+        const Ldown2 = document.querySelector('.L-down2');
+        const Ldown3 = document.querySelector('.L-down3');
         const clickswiper = document.querySelector('.clickswiper');
         const popupBackground = document.getElementById('popupBackground');
 
         Ldown1.addEventListener('click',function() {
             clickswiper.style.display='block';
-            // popupBackground.style.display = 'block';
+            popupBackground.style.display = 'block';
         })
+        Ldown2.addEventListener('click', () => {
+            clickswiper.style.display='block';
+            swiper.slideTo(1); // 두 번째 슬라이드로 이동 (인덱스 2, 루프가 활성화되면 +1 필요)
+        });
+        Ldown3.addEventListener('click', () => {
+            clickswiper.style.display='block';
+            swiper.slideTo(2); // 두 번째 슬라이드로 이동 (인덱스 2, 루프가 활성화되면 +1 필요)
+        });
 
 
     });
     var swiper = new Swiper(".mySwiper", {
         pagination: {
           el: ".swiper-pagination",
+          clickable: true,
         },
       });
