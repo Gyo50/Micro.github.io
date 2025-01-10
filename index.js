@@ -21,25 +21,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    lImg.addEventListener('mouseenter', () => {
+    lImg.addEventListener('mouseover', () => {
         lImg.style.transform = 'translateY(-20px)';
         lImg.style.transition = 'transform 0.3s ease';
         shadow.style.width = '80px';
     });
 
-    lImg.addEventListener('mouseleave', () => {
+    lImg.addEventListener('mouseout', () => {
         lImg.style.transform = 'translateY(0)';
         shadow.style.width = '115px';
     });
     const fireElement = document.querySelector('.fire');
     const fireContainer = document.querySelector('.R-img-fire');
+    const fireimg = document.querySelector('.fire-img');
+    const firehover = document.querySelector('.fire-hover');
 
-    fireContainer.addEventListener('mouseenter', () => {
+    fireContainer.addEventListener('mouseover', () => {
         fireElement.style.display = 'block';
+        firehover.style.display='block'
+        fireimg.style.display='none'
     });
 
-    fireContainer.addEventListener('mouseleave', () => {
+    fireContainer.addEventListener('mouseout', () => {
         fireElement.style.display = 'none';
+        firehover.style.display='none'
+        fireimg.style.display='block'
     });
 
     $body.addEventListener('wheel', preventScroll, { passive: false });
