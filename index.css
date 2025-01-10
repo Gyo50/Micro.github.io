@@ -51,6 +51,7 @@ body {
     left: 0;
     width: 285px;
     height: 480px;
+    overflow: hidden;
 }
 .hoverboxL,
 .hoverboxR{
@@ -78,7 +79,7 @@ body {
 .wallSpot3 {
     display: none;
     content: "";
-    width: 95%;
+    width: 60%;
     height: 79%;
     position: absolute;
     top: -48.5px;
@@ -130,6 +131,7 @@ body {
     right: 0;
     width: 285px;
     height: 480px;
+    overflow: hidden;
 }
 
 .R-click .lightHolder3 {
@@ -252,6 +254,7 @@ body {
     flex-direction: column;
     height: 231px;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .floor2 .L-up1 .hover-light {
@@ -270,6 +273,7 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .floor2 .L-up2 .hover-light {
@@ -287,6 +291,7 @@ body {
     flex-direction: column;
     height: 265px;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .L-down .L-down1 .hover-light {
@@ -302,6 +307,7 @@ body {
     flex-direction: column;
     height: 255px;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .L-down .L-down2 .hover-light {
@@ -317,6 +323,7 @@ body {
     flex-direction: column;
     height: 247px;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .L-down .L-down3 img {
@@ -331,6 +338,7 @@ body {
     flex-direction: column;
     height: 220px;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .R-img .R-img1 .lightHolder,
@@ -344,10 +352,10 @@ body {
 }
 
 .R-img .R-img2 .lightHolder {
-    width: 110px;
+    width: 130px;
     height: 137px;
-    position: absolute;
-    top: 106px;
+    position: relative;
+    top: -65px;
     left: 0;
     display: inline-block;
     transform: rotate(180deg);
@@ -356,8 +364,8 @@ body {
 .R-img .R-img4 .lightHolder {
     width: 110px;
     height: 137px;
-    position: absolute;
-    top: 111px;
+    position: relative;
+    top: -60px;
     left: 0px;
     display: inline-block;
     transform: rotate(180deg);
@@ -366,9 +374,12 @@ body {
 .R-img .R-img2 {
     position: absolute;
     top: 412px;
-    right: 279px;
+    right: 267px;
+    overflow: hidden;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 .R-img .R-img2 .hover-light {
@@ -385,14 +396,16 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     height: 217px;
+    overflow: hidden;
 }
 
 .R-img .R-img4 {
     position: absolute;
     top: 426px;
-    right: 28px;
+    right: 27px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    overflow: hidden;
 }
 
 .R-img .R-img4 .hover-light {
@@ -467,22 +480,14 @@ body {
     left: 20%;
 }
 
-.L-img {
-    height: 250px;
-    position: absolute;
-    top: 56%;
-    left: 23%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.L-img1 {
+.L-img{
     position: absolute;
     top: 57%;
     left: 22%;
     cursor: pointer;
+}
+.L-img1 {
+    display: none;
 }
 
 .R-box {
@@ -524,15 +529,6 @@ body {
 
 .arrow svg path {
     stroke: aliceblue;
-}
-
-.L-img:hover~.shadow {
-    transition: width 0.3s ease;
-}
-
-.L-img:hover {
-    transform: translateY(-20px);
-    transition: transform 0.3s ease;
 }
 
 /* 불의 기본 스타일 */

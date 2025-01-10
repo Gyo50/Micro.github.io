@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const lImg = document.querySelector('.L-img1');
+    const lImg = document.querySelector('.L-img');
+    const lImg1 = document.querySelector('.L-img1');
+    const lImg2 = document.querySelector('.L-img2');
     const shadow = document.querySelector('.shadow');
     const $body = document.querySelector('body');
     const upButton1 = document.querySelector('.up1');
@@ -21,31 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    lImg.addEventListener('mouseover', () => {
-        lImg.style.transform = 'translateY(-20px)';
-        lImg.style.transition = 'transform 0.3s ease';
+    lImg.addEventListener('mouseenter', () => {
+        lImg1.style.display='block';
+        lImg2.style.display='none';
+        lImg1.style.transform = 'translateY(-20px)';
+        lImg1.style.transition = 'transform 0.3s ease';
         shadow.style.width = '80px';
     });
 
-    lImg.addEventListener('mouseout', () => {
-        lImg.style.transform = 'translateY(0)';
+    lImg.addEventListener('mouseleave', () => {
+        lImg1.style.display='none';
+        lImg2.style.display='block';
+        lImg1.style.transform = 'translateY(0)';
         shadow.style.width = '115px';
     });
     const fireElement = document.querySelector('.fire');
     const fireContainer = document.querySelector('.R-img-fire');
-    const fireimg = document.querySelector('.fire-img');
-    const firehover = document.querySelector('.fire-hover');
 
-    fireContainer.addEventListener('mouseover', () => {
+    fireContainer.addEventListener('mouseenter', () => {
         fireElement.style.display = 'block';
-        firehover.style.display='block'
-        fireimg.style.display='none'
     });
 
-    fireContainer.addEventListener('mouseout', () => {
+    fireContainer.addEventListener('mouseleave', () => {
         fireElement.style.display = 'none';
-        firehover.style.display='none'
-        fireimg.style.display='block'
     });
 
     $body.addEventListener('wheel', preventScroll, { passive: false });
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     Lclick.addEventListener('click', function () {
-        street.style.display = 'block';
+        street.style.display = 'flex';
         floor3close.style.display = 'block';
         popupBackground.style.display = 'block';
     })
@@ -279,22 +279,21 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
-// 가속도
 document.addEventListener("DOMContentLoaded", () => {
     const background = document.getElementById("animatedBackground");
-    let positionY = 0;
-    const animationSpeed = 10;
-    const maxPositionY = 600;
+    let positionY = 0; // 초기 Y 위치
+    const animationSpeed = 0.8; // 이동 속도
+    const maxPositionY = 600; // 최대 이동 거리
 
     function animateBackground() {
         if (positionY < maxPositionY) {
-            positionY += animationSpeed;
+            positionY += animationSpeed; // Y 위치를 증가
             background.style.backgroundPosition = `center -${positionY}px`;
-            requestAnimationFrame(animateBackground);
+            requestAnimationFrame(animateBackground); // 다음 프레임 요청
         }
     }
 
-
+    // 애니메이션 시작
     animateBackground();
 });
 
