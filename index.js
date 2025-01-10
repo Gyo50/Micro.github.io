@@ -273,10 +273,11 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
+// 가속도
 document.addEventListener("DOMContentLoaded", () => {
     const background = document.getElementById("animatedBackground");
     let positionY = 0;
-    const animationSpeed = 0.8;
+    const animationSpeed = 10;
     const maxPositionY = 600;
 
     function animateBackground() {
