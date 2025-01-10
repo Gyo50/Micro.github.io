@@ -271,3 +271,23 @@ document.addEventListener('DOMContentLoaded', function () {
         Rlight.style.display='none';
     })
 })
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const background = document.getElementById("animatedBackground");
+    let positionY = 0; // 초기 Y 위치
+    const animationSpeed = 0.8; // 이동 속도
+    const maxPositionY = 600; // 최대 이동 거리
+
+    function animateBackground() {
+        if (positionY < maxPositionY) {
+            positionY += animationSpeed; // Y 위치를 증가
+            background.style.backgroundPosition = `center -${positionY}px`;
+            requestAnimationFrame(animateBackground); // 다음 프레임 요청
+        }
+    }
+
+    // 애니메이션 시작
+    animateBackground();
+});
+
