@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- <div style="width: 100%; height: 100vh;">
+    <div style="width: 100%; height: 100vh;">
         <div id="animatedBackground" style="
             background: url(/start.jpg);
             width: 100%;
@@ -24,17 +24,28 @@
             background-position: top;
             background-size: cover;
         ">
-            <div style="position: absolute;
+            <div style="    position: relative;
             top: 37%;
             left: 50%;
             z-index: 2001;
-            transform: translate(-50%, -50%);" class="gradaition">
-                <p>diptyque</p>
-                <p>paris</p>
-                <button>START THE EXPERIENCERIS</button>
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, blue, white);
+            border-radius: 50%;
+            width: 500px;
+            height: 500px;
+            opacity: 0.6;" class="gradaition">
+                <div style="    position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;">
+                    <p>diptyque</p>
+                    <p>paris</p>
+                    <button>START THE EXPERIENCERIS</button>
+                </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <main class="main-section">
         <!-------------------------------------------------- 팝업 창들 ------------------------------------->
         <div id="popupBackground"></div>
@@ -576,6 +587,7 @@
                     <div class="R-img-fire">
                         <img class="fire-img" src="/1floor/1floor-R-img.png" alt="">
                         <img class="fire-hover" src="/1floor/1floor-R-img-hover.png" alt="">
+                        <div class="back-fire"></div>
                         <div class="fire">
                             <div class="inner-fire"></div>
                         </div>

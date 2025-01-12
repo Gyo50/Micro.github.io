@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const floor1 = document.querySelector('.floor-1');
     const floor2 = document.querySelector('.floor-2');
     const floor3 = document.querySelector('.floor-3');
+    const fireimg = document.querySelector('.fire-img');
+    const firehover = document.querySelector('.fire-hover');
 
     // 초기 스크롤 설정
     floor1.scrollIntoView();
@@ -37,15 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
         lImg1.style.transform = 'translateY(0)';
         shadow.style.width = '115px';
     });
+    
     const fireElement = document.querySelector('.fire');
     const fireContainer = document.querySelector('.R-img-fire');
+    const backfire = document.querySelector('.back-fire');
 
     fireContainer.addEventListener('mouseenter', () => {
+        backfire.style.display='block'
         fireElement.style.display = 'block';
+        fireimg.style.display='none'
+        firehover.style.display='block'
     });
 
     fireContainer.addEventListener('mouseleave', () => {
+        backfire.style.display='none'
         fireElement.style.display = 'none';
+        fireimg.style.display='block'
+        firehover.style.display='none'
     });
 
     $body.addEventListener('wheel', preventScroll, { passive: false });
