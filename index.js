@@ -335,10 +335,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     startbtn.addEventListener('mouseenter', function () {
-        startbtn.style.background = 'rgba(0, 0, 0, 0.6)';
+        startbtn.style.background = '#08132f';
+        startbtn.style.color='white';
     });
     startbtn.addEventListener('mouseout', function () {
         startbtn.style.background = 'white';
+        startbtn.style.color='#000';
     });
 
 
