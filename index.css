@@ -830,7 +830,6 @@ body {
     width: 100%;
     height: 100%;
 }
-/**/
 .swiper-slide[data-aos] {
-    transform: none !important; /* Swiper의 transform 충돌 방지 */
+    transform: none !important; /* Swiper의 transform 속성 무시 */
 }

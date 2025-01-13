@@ -222,11 +222,11 @@ var swiper = new Swiper(".mySwiper1", {
     /**/
     on: {
         init: function () {
-            AOS.init(); // AOS 초기화
+            AOS.refresh(); // 초기화 시 AOS 갱신
         },
         slideChangeTransitionStart: function () {
             AOS.refresh(); // 슬라이드 변경 시 AOS 갱신
-        }
+        },
     }
 });
 
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /* 처음 화면 */
 document.addEventListener("DOMContentLoaded", () => {
     const background = document.getElementById("animatedBackground");
-    const gradation = document.querySelector('.gradaition'); // `gradation` 요소 선택
+    const gradation = document.querySelector('.gradaition');
     let positionY = 0;
     let velocity = 0.1; // 초기 속도
     const acceleration = 0.04; // 가속도
@@ -310,10 +310,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
 
-    // 초기 `gradation` 숨김
+    
     gradation.style.display = 'none';
-    gradation.style.opacity = 0; // 보이지 않도록 설정
-    gradation.style.transition = 'opacity 1s'; // 천천히 나타나는 효과 추가
+    gradation.style.opacity = 0;
+    gradation.style.transition = 'opacity 1s';
 
     function animateBackground() {
         if (positionY < maxPositionY) {
@@ -322,18 +322,18 @@ document.addEventListener("DOMContentLoaded", () => {
             background.style.backgroundPosition = `center -${positionY}px`;
             requestAnimationFrame(animateBackground);
         } else {
-            // 애니메이션이 끝난 후 `gradation` 표시
-            gradation.style.display = 'block'; // 표시
+            
+            gradation.style.display = 'block';
             setTimeout(() => {
-                gradation.style.opacity = 1; // 천천히 보이도록 설정
-            }, 50); // `display` 변경 후 약간의 지연을 주어 트랜지션 적용
+                gradation.style.opacity = 1;
+            }, 50);
         }
     }
 
-    // 애니메이션 시작
+
     animateBackground();
 
-    // 버튼 호버 효과
+
     startbtn.addEventListener('mouseenter', function () {
         startbtn.style.background = 'rgba(0, 0, 0, 0.6)';
     });
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startbtn.style.background = 'white';
     });
 
-    // 버튼 클릭 시 `startpage` 숨김
+
     startbtn.addEventListener('click', function () {
         startpage.style.display = 'none';
     });
