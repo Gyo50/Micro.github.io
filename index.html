@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroPage</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="reset.css">
 </head>
 
 <body>
-    <div style="width: 100%; height: 100vh;">
+    <div class="startpage" style="width: 100%; height: 100vh;">
         <div id="animatedBackground" style="
             background: url(/start.jpg);
             width: 100%;
@@ -29,7 +30,7 @@
             left: 50%;
             z-index: 2001;
             transform: translate(-50%, -50%);
-            background: radial-gradient(circle, blue, white);
+            background: radial-gradient(circle, rgba(0, 0, 255, 0.8) 20%, rgba(0, 0, 0, 0) 70%);
             border-radius: 50%;
             width: 500px;
             height: 500px;
@@ -38,10 +39,14 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                text-align: center;">
-                    <p>diptyque</p>
-                    <p>paris</p>
-                    <button>START THE EXPERIENCERIS</button>
+                text-align: center;
+                color: #fff;">
+                    <p style="    font-size: 90px;
+    margin-bottom: 20px;">diptyque</p>
+                    <p style="font-size: 60px;
+    margin-bottom: 40px;">paris</p>
+                    <button class="startbtn" style="    padding: 5px 10px;
+    border-radius: 5px;">START THE EXPERIENCERIS</button>
                 </div>
             </div>
         </div>
@@ -126,7 +131,7 @@
             </div>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="/2floor/L-under-1/EAUROSE-hover.png" style="width: auto;
+                    <img data-aos="zoom-in-up" src="/2floor/L-under-1/EAUROSE-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
                         top: 85px;
@@ -148,7 +153,7 @@
                     background: right;
                     width: 100%;
                     height: 100%;">
-                    <img src="/2floor/L-under-2/L'Ombredansl'Eau-hover.png" style="width: auto;
+                    <img data-aos="zoom-in-up" src="/2floor/L-under-2/L'Ombredansl'Eau-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
                         top: 90px;
@@ -596,6 +601,7 @@
             </div>
         </div>
     </main>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
 </body>

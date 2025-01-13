@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickunder = document.querySelector('.clickunder');
     const popupBackground = document.getElementById('popupBackground');
     const underclose = document.getElementById('2floor-hover-L-under');
+    AOS.init();
 
     Ldown1.addEventListener('click', function () {
         clickunder.style.display = 'block';
@@ -218,6 +219,15 @@ var swiper = new Swiper(".mySwiper1", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    /**/
+    on: {
+        init: function () {
+            AOS.init(); // AOS 초기화
+        },
+        slideChangeTransitionStart: function () {
+            AOS.refresh(); // 슬라이드 변경 시 AOS 갱신
+        }
+    }
 });
 
 
@@ -255,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
         floor3close.style.display = 'block';
         popupBackground.style.display = 'block';
     })
+    
     floor3close.addEventListener('click', function () {
         street.style.display = 'none';
         holywater.style.display = 'none';
@@ -288,22 +299,51 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
-
+/* 처음 화면 */
 document.addEventListener("DOMContentLoaded", () => {
     const background = document.getElementById("animatedBackground");
-    let positionY = 0; // 초기 Y 위치
-    const animationSpeed = 0.8; // 이동 속도
-    const maxPositionY = 600; // 최대 이동 거리
+    const gradation = document.querySelector('.gradaition'); // `gradation` 요소 선택
+    let positionY = 0;
+    let velocity = 0.1; // 초기 속도
+    const acceleration = 0.04; // 가속도
+    const maxPositionY = 600;
+    const startbtn = document.querySelector('.startbtn');
+    const startpage = document.querySelector('.startpage');
+
+    // 초기 `gradation` 숨김
+    gradation.style.display = 'none';
+    gradation.style.opacity = 0; // 보이지 않도록 설정
+    gradation.style.transition = 'opacity 1s'; // 천천히 나타나는 효과 추가
 
     function animateBackground() {
         if (positionY < maxPositionY) {
-            positionY += animationSpeed; // Y 위치를 증가
+            velocity += acceleration;
+            positionY += velocity;
             background.style.backgroundPosition = `center -${positionY}px`;
-            requestAnimationFrame(animateBackground); // 다음 프레임 요청
+            requestAnimationFrame(animateBackground);
+        } else {
+            // 애니메이션이 끝난 후 `gradation` 표시
+            gradation.style.display = 'block'; // 표시
+            setTimeout(() => {
+                gradation.style.opacity = 1; // 천천히 보이도록 설정
+            }, 50); // `display` 변경 후 약간의 지연을 주어 트랜지션 적용
         }
     }
 
     // 애니메이션 시작
     animateBackground();
+
+    // 버튼 호버 효과
+    startbtn.addEventListener('mouseenter', function () {
+        startbtn.style.background = 'rgba(0, 0, 0, 0.6)';
+    });
+    startbtn.addEventListener('mouseout', function () {
+        startbtn.style.background = 'white';
+    });
+
+    // 버튼 클릭 시 `startpage` 숨김
+    startbtn.addEventListener('click', function () {
+        startpage.style.display = 'none';
+    });
 });
 
