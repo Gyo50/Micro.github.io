@@ -23,6 +23,7 @@ body {
     align-items: center;
     font-size: 2rem;
     position: relative;
+    opacity: 0;
 }
 
 /*----------------------------floor3-----------------------------------*/

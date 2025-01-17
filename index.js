@@ -309,11 +309,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxPositionY = 600;
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
+    const section = document.querySelectorAll('.section');
 
     
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
     gradation.style.transition = 'opacity 1s';
+    
 
     function animateBackground() {
         if (positionY < maxPositionY) {
@@ -346,6 +348,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startbtn.addEventListener('click', function () {
         startpage.style.display = 'none';
+        section.style.opacity=1;
+
     });
 });
 
