@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickunder = document.querySelector('.clickunder');
     const popupBackground = document.getElementById('popupBackground');
     const underclose = document.getElementById('2floor-hover-L-under');
-    AOS.init();
 
     Ldown1.addEventListener('click', function () {
         clickunder.style.display = 'block';
@@ -215,23 +214,24 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 var swiper = new Swiper(".mySwiper1", {
+    effect: "fade",
+    loop: true,
+    fadeEffect: {
+        crossFade: true,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
-    /**/
-    on: {
-        init: function () {
-            AOS.refresh(); // 초기화 시 AOS 갱신
-        },
-        slideChangeTransitionStart: function () {
-            AOS.refresh(); // 슬라이드 변경 시 AOS 갱신
-        },
-    }
 });
 
 
 var swiper = new Swiper(".mySwiper2", {
+    effect: "fade",
+    loop: true,
+    fadeEffect: {
+        crossFade: true,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -239,6 +239,11 @@ var swiper = new Swiper(".mySwiper2", {
 });
 
 var swiper = new Swiper(".mySwiper3", {
+    effect: "fade",
+    loop: true,
+    fadeEffect: {
+        crossFade: true,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -303,19 +308,19 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", () => {
     const background = document.getElementById("animatedBackground");
     const gradation = document.querySelector('.gradaition');
+    const startbtn = document.querySelector('.startbtn');
+    const startpage = document.querySelector('.startpage');
+    const doorL = document.querySelector('.door-L'); // 왼쪽 문
+    const doorR = document.querySelector('.door-R'); // 오른쪽 문
+    
     let positionY = 0;
     let velocity = 0.1; // 초기 속도
     const acceleration = 0.04; // 가속도
-    const maxPositionY = 600;
-    const startbtn = document.querySelector('.startbtn');
-    const startpage = document.querySelector('.startpage');
-    const section = document.querySelectorAll('.section');
+    const maxPositionY = 595;
 
-    
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
     gradation.style.transition = 'opacity 1s';
-    
 
     function animateBackground() {
         if (positionY < maxPositionY) {
@@ -324,7 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
             background.style.backgroundPosition = `center -${positionY}px`;
             requestAnimationFrame(animateBackground);
         } else {
-            
             gradation.style.display = 'block';
             setTimeout(() => {
                 gradation.style.opacity = 1;
@@ -332,24 +336,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
     animateBackground();
-
 
     startbtn.addEventListener('mouseenter', function () {
         startbtn.style.background = '#08132f';
-        startbtn.style.color='white';
-    });
-    startbtn.addEventListener('mouseout', function () {
-        startbtn.style.background = 'white';
-        startbtn.style.color='#000';
+        startbtn.style.color = 'white';
+
+        // 문 애니메이션
+        doorL.style.transition = "transform 0.5s"; // 애니메이션 지속 시간
+        doorL.style.transformOrigin = "left"; // 회전 중심
+        doorL.style.transform = "rotateY(70deg)";
+
+        doorR.style.transition = "transform 0.5s"; // 애니메이션 지속 시간
+        doorR.style.transformOrigin = "right"; // 회전 중심
+        doorR.style.transform = "rotateY(70deg)";
     });
 
+    startbtn.addEventListener('mouseout', function () {
+        startbtn.style.background = 'white';
+        startbtn.style.color = '#000';
+
+        // 문 초기 상태로 복귀
+        doorL.style.transform = "rotateY(0deg)";
+        doorR.style.transform = "rotateY(0deg)";
+    });
 
     startbtn.addEventListener('click', function () {
         startpage.style.display = 'none';
-        section.style.opacity=1;
-
     });
 });
 
+// position: absolute;
+//     top: 140px;
+//     left: 50px;
+//     color: #fff;
+//     font-size: 29px;
+//     font-weight: bold;

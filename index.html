@@ -6,35 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroPage</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="reset.css">
 </head>
 
 <body>
-    <div class="startpage" style="width: 100%; height: 100vh;">
+    <!-- <div class="Loding" style="background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
+    z-index: 3000;display: flex;
+    align-items: center;
+    justify-content: center;">
+    <div style="position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+        <div class="Loding-bottle" style="position: relative;">
+            <img src="/Loding/Loding-bottle.png" style="width: 145px; height: 240px; overflow: hidden;
+            position: relative;
+            z-index: 2000;" alt="">
+                <svg class="loading" style="   position: absolute;
+                top: 195px;
+                left: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px" height="190px"
+                    viewBox="0 0 574.558 120" enable-background="new 0 0 574.558 120" xml:space="preserve">
+                    <defs>
+                        <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
+                            <path fill="#fff"
+                                d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z" />
+                        </pattern>
+    
+                        <ellipse id="text" cx="200" cy="200" rx="50" ry="100" transform="matrix(1 0 0 1 -8.0684 116.7852)">
+                            <mask id="text_mask">
+                                <use x="0" y="0" xlink:href="#text" opacity="1" fill="#3498db" />
+                            </mask>
+                    </defs>
+    
+                    <use x="0" y="0" xlink:href="#text" fill="#3498db" />
+    
+                    <rect class="water-fill" mask="url(#text_mask)" fill="url(#water)" x="-400" y="0" width="1600"
+                        height="120" />
+                </svg>
+        </div>
+    </div>
+    </div> -->
+    <div class="startpage" style="width: 100%; height: 100%; position: fixed; z-index: 2000;">
         <div id="animatedBackground" style="
             background: url(/start/start.jpg);
             width: 100%;
             height: 1580px;
-            z-index: 2000;
-            position: fixed;
-            top: 0;
-            left: 0;
+            z-index: 2001;
+            position: relative; /* door의 부모 기준을 설정 */
             background-repeat: no-repeat;
             background-position: top;
             background-size: cover;
         ">
+
+            <div class="door" style="
+        display: flex;
+        position: absolute;
+        bottom: 711px;
+        right: 827px;
+        z-index: 2002;
+        width: 326px;
+        height: 462px;
+        ">
+                <img class="door-L" src="/start/L-door.png" alt="">
+                <img class="door-R" src="/start/R-door.png" alt="">
+            </div>
+
             <div style="    position: relative;
             top: 40%;
             left: 50%;
-            z-index: 2001;
+            z-index:2003;
             transform: translate(-50%, -50%);
             background: radial-gradient(circle, rgba(0, 0, 255, 0.8) 20%, rgba(0, 0, 0, 0) 70%);
             border-radius: 50%;
             width: 500px;
-            height: 500px;
-            opacity: 0.6;" class="gradaition">
+            height: 500px;" class="gradaition">
                 <div style="position: absolute;
                 top: 50%;
                 left: 50%;
@@ -46,16 +94,10 @@
                     margin-bottom: 20px;">diptyque</p>
                     <p style="font-size: 83px;
                     margin-bottom: 40px;">paris</p>
-                    <button class="startbtn" style="font-size: 16px; padding: 15px 17px; border-radius: 5px; color: #000; cursor: pointer;">START THE EXPERIENCERIS</button>
+                    <button class="startbtn"
+                        style="font-size: 16px; padding: 15px 17px; border-radius: 5px; color: #000; cursor: pointer;">START
+                        THE EXPERIENCE</button>
                 </div>
-            </div>
-            <div class="door" style="display: flex;
-                position: fixed;
-                top: 400px;
-                left: 827px;
-                ">
-                <img src="/start/L-door.png" alt="">
-                <img src="/start/R-door.png" alt="">
             </div>
         </div>
     </div>
@@ -139,7 +181,7 @@
             </div>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img data-aos="zoom-in-up" src="/2floor/L-under-1/EAUROSE-hover.png" style="width: auto;
+                    <img src="/2floor/L-under-1/EAUROSE-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
                         top: 85px;
@@ -161,7 +203,7 @@
                     background: right;
                     width: 100%;
                     height: 100%;">
-                    <img data-aos="zoom-in-up" src="/2floor/L-under-2/L'Ombredansl'Eau-hover.png" style="width: auto;
+                    <img  src="/2floor/L-under-2/L'Ombredansl'Eau-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
                         top: 90px;
@@ -607,8 +649,7 @@
             </div>
         </div>
     </main>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
 </body>
 
