@@ -314,8 +314,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const doorR = document.querySelector('.door-R'); // 오른쪽 문
     
     let positionY = 0;
-    let velocity = 0.1; // 초기 속도
-    const acceleration = 0.04; // 가속도
+    let velocity = 0.01; // 초기 속도
+    const maxVelocity = 6; // 최대 속도
+    const acceleration = 0.12; // 가속도
+    const deceleration = 0.99; // 감속 계수
     const maxPositionY = 595;
 
     gradation.style.display = 'none';
@@ -324,7 +326,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animateBackground() {
         if (positionY < maxPositionY) {
-            velocity += acceleration;
+            // 중간 지점까지는 가속, 그 이후로는 감속
+            if (positionY < maxPositionY / 3) {
+                velocity = Math.min(velocity + acceleration, maxVelocity);
+            } else {
+                velocity *= deceleration;
+            }
+            
             positionY += velocity;
             background.style.backgroundPosition = `center -${positionY}px`;
             requestAnimationFrame(animateBackground);
