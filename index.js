@@ -343,12 +343,12 @@ document.addEventListener("DOMContentLoaded", () => {
         startbtn.style.color = 'white';
 
         // 문 애니메이션
-        doorL.style.transition = "transform 0.5s"; // 애니메이션 지속 시간
-        doorL.style.transformOrigin = "left"; // 회전 중심
+        doorL.style.transition = "transform 0.5s";
+        doorL.style.transformOrigin = "left";
         doorL.style.transform = "rotateY(70deg)";
 
-        doorR.style.transition = "transform 0.5s"; // 애니메이션 지속 시간
-        doorR.style.transformOrigin = "right"; // 회전 중심
+        doorR.style.transition = "transform 0.5s";
+        doorR.style.transformOrigin = "right";
         doorR.style.transform = "rotateY(70deg)";
     });
 
@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startbtn.style.background = 'white';
         startbtn.style.color = '#000';
 
-        // 문 초기 상태로 복귀
+    
         doorL.style.transform = "rotateY(0deg)";
         doorR.style.transform = "rotateY(0deg)";
     });
