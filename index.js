@@ -144,6 +144,17 @@ document.addEventListener('DOMContentLoaded', function () {
         popupBackground.style.display = 'none';
     });
 
+    var swiper = new Swiper(".mySwiper1", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
 });
 /*-----------------------------up -----------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
@@ -170,6 +181,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     popupBackground.addEventListener('click', function () {
         clickup.style.display = 'none';
+    });
+    var swiper = new Swiper(".mySwiper2", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
     });
 })
 
@@ -211,32 +233,23 @@ document.addEventListener('DOMContentLoaded', function () {
         clickR.style.display = 'none';
     });
 
+    var swiper = new Swiper(".mySwiper3", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
 })
 
-var swiper = new Swiper(".mySwiper1", {
-    effect: "fade",
-    loop: true,
-    fadeEffect: {
-        crossFade: true,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
 
 
-var swiper = new Swiper(".mySwiper2", {
-    effect: "fade",
-    loop: true,
-    fadeEffect: {
-        crossFade: true,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
+
+
 
 var swiper = new Swiper(".mySwiper3", {
     effect: "fade",
@@ -249,6 +262,18 @@ var swiper = new Swiper(".mySwiper3", {
         clickable: true,
     },
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
