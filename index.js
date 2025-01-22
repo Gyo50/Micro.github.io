@@ -121,6 +121,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupBackground = document.getElementById('popupBackground');
     const underclose = document.getElementById('2floor-hover-L-under');
 
+    var swiper = new Swiper(".mySwiper1", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
     Ldown1.addEventListener('click', function () {
         clickunder.style.display = 'block';
         swiper.slideTo(0);
@@ -144,17 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
         popupBackground.style.display = 'none';
     });
 
-    var swiper = new Swiper(".mySwiper1", {
-        effect: "fade",
-        loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
 });
 /*-----------------------------up -----------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
@@ -206,6 +207,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickR = document.querySelector('.clickR');
     const underR = document.getElementById('2floor-hover-R');
 
+    var swiper = new Swiper(".mySwiper3", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
     Rimg1.addEventListener('click', function () {
         clickR.style.display = 'block';
         swiper.slideTo(0);
@@ -234,46 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
     popupBackground.addEventListener('click', function () {
         clickR.style.display = 'none';
     });
-
-    var swiper = new Swiper(".mySwiper3", {
-        effect: "fade",
-        loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
 })
-
-
-
-
-
-
-var swiper = new Swiper(".mySwiper3", {
-    effect: "fade",
-    loop: true,
-    fadeEffect: {
-        crossFade: true,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-
-
-
-
-
-
-
-
-
-
 
 
 
