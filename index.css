@@ -511,8 +511,22 @@ body {
     transform: translateX(-50%);
     width: 277px;
     height: 442px;
-    background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 100, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%);
+    background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 100, 0, 0.6) 0%, rgba(0, 0, 0, 0) 45%);
     border-radius: 50%;
+    opacity:0.6;
+}
+.back-fire.back-fire2{
+    display: none;
+    position: absolute;
+    top: -270px;
+    bottom: 10px;
+    left: 49%;
+    transform: translateX(-50%);
+    width: 277px;
+    height: 442px;
+    background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 100, 0, 0.6) 0%, rgba(0, 0, 0, 0) 45%);
+    border-radius: 50%;
+    mix-blend-mode: overlay;
 }
 .fire-hover {
     display: none;
@@ -556,6 +570,7 @@ body {
     border-radius: 50%;
     animation: flameFlicker 1.5s infinite ease-in-out, moveUp 1.5s infinite ease-in-out;
     z-index: 10;
+    filter: blur(20px);
 }
 
 /* 불 활성화 */
@@ -569,12 +584,12 @@ body {
     0%,
     100% {
         transform: translateX(-50%) scale(0.3);
-        background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 80, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+        background: radial-gradient(circle, rgba(255, 200, 0, 1) 0%, rgba(255, 80, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
     }
 
     50% {
         transform: translateX(-50%, -50%) scale(0.5);
-        background: radial-gradient(circle, rgba(255, 255, 100, 1) 0%, rgba(255, 50, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+        background: radial-gradient(circle, rgba(255, 255, 100, 1) 0%, rgba(255, 50, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
     }
 }
 

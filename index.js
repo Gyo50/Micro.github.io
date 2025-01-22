@@ -164,6 +164,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickup = document.querySelector('.clickup');
     const underup = document.getElementById('2floor-hover-L-up');
 
+    var swiper = new Swiper(".mySwiper2", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
 
     Lup1.addEventListener('click', function () {
         clickup.style.display = 'block';
@@ -182,17 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
     popupBackground.addEventListener('click', function () {
         clickup.style.display = 'none';
     });
-    var swiper = new Swiper(".mySwiper2", {
-        effect: "fade",
-        loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
+    
 })
 
 document.addEventListener('DOMContentLoaded', function () {

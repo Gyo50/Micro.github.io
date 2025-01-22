@@ -60,16 +60,17 @@
             background-position: top;
             background-size: cover;
         ">
-
+            <img />
             <div class="door" style="
-        display: flex;
-        position: absolute;
-        bottom: 711px;
-        right: 827px;
-        z-index: 2002;
-        width: 326px;
-        height: 462px;
-        ">
+                display: flex;
+                position: absolute;
+                bottom: 711px;
+                left:50%;
+                z-index: 2002;
+                width: 326px;
+                height: 462px;
+                transform:translateX(-50%)   
+            ">
                 <img class="door-L" src="/start/L-door.png" alt="">
                 <img class="door-R" src="/start/R-door.png" alt="">
             </div>
@@ -94,9 +95,9 @@
                     margin-bottom: 20px;">diptyque</p>
                     <p style="font-size: 83px;
                     margin-bottom: 40px;">paris</p>
-                    <button class="startbtn"
-                        style="font-size: 16px; padding: 15px 17px; border-radius: 5px; color: #000; cursor: pointer;">START
-                        THE EXPERIENCE</button>
+                    <div class="startbtn"
+                        style="font-size: 16px; padding: 15px 17px; border-radius: 5px; color: #000; cursor: pointer;display: inline-block;background:#fff;">START
+                        THE EXPERIENCE</div>
                 </div>
             </div>
         </div>
@@ -641,6 +642,7 @@
                         <img class="fire-img" src="/1floor/1floor-R-img.png" alt="">
                         <img class="fire-hover" src="/1floor/1floor-R-img-hover.png" alt="">
                         <div class="back-fire"></div>
+                        <div class="back-fire back-fire2"></div>
                         <div class="fire">
                             <div class="inner-fire"></div>
                         </div>
