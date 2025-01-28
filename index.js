@@ -25,20 +25,76 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    let animationId; // requestAnimationFrame ID 저장
+    let isAnimating = false; // 애니메이션 실행 상태 플래그
+    let startTime;
+
+    // 애니메이션 로직
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp; // 처음 시작 시간을 설정
+      const duration = 1000; // 1초 (애니메이션 주기)
+      const progress = ((timestamp - startTime) % duration) / duration; // 진행 비율 계산
+
+      // tw 이미지의 움직임 계산 (위에서 아래로 움직임)
+      const bounceHeight = Math.sin(progress * Math.PI) * 80; // 위아래로 움직이는 효과
+      lImg.style.top = `calc(57% - ${bounceHeight}px)`;
+
+      // 그림자(shadow)의 크기 변경 계산
+      const scale = 0.5 + progress * 0.5; // 0.5에서 1 사이로 스케일 조정
+      shadow.style.transform = `scale(${scale})`;
+      shadow.style.backgroundColor = `rgba(0, 0, 0, ${0.2 + progress * 0.1})`; // 투명도 조정
+
+      // 애니메이션 반복
+      animationId = requestAnimationFrame(animate);
+    }
+
+    // 애니메이션 시작 함수
+    function startAnimation() {
+      if (!isAnimating) {
+        isAnimating = true;
+        startTime = null; // 애니메이션 시작 시간 초기화
+        animationId = requestAnimationFrame(animate); // 애니메이션 시작
+      }
+    }
+
+    // 애니메이션 정지 함수
+    function stopAnimation() {
+      isAnimating = false;
+      cancelAnimationFrame(animationId); // 애니메이션 중지
+      lImg1.style.display = 'none'; // 이미지를 숨김
+      lImg2.style.display = 'block'; // 이미지를 다시 표시
+      lImg.style.top = '57%'; // 이미지 위치 초기화
+      shadow.style.transform = 'scale(1)'; // 그림자 크기 초기화
+      shadow.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'; // 그림자 색상 초기화
+    }
+
+    // 마우스를 이미지에 올릴 때
     lImg.addEventListener('mouseenter', () => {
-        lImg1.style.display='block';
-        lImg2.style.display='none';
-        lImg1.style.transform = 'translateY(-20px)';
-        lImg1.style.transition = 'transform 0.3s ease';
-        shadow.style.width = '80px';
+      lImg2.style.display = 'none'; // on 이미지를 숨김
+      lImg1.style.display = 'block'; // tw 이미지를 표시
+      shadow.style.display = 'block'; // 그림자 표시
+      startAnimation(); // 애니메이션 시작
     });
 
-    lImg.addEventListener('mouseleave', () => {
-        lImg1.style.display='none';
-        lImg2.style.display='block';
-        lImg1.style.transform = 'translateY(0)';
-        shadow.style.width = '115px';
-    });
+    // 이미지에서 마우스가 벗어날 때
+    lImg.addEventListener('mouseleave', stopAnimation);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     const fireElement = document.querySelector('.fire');
     const fireContainer = document.querySelector('.R-img-fire');
@@ -121,18 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupBackground = document.getElementById('popupBackground');
     const underclose = document.getElementById('2floor-hover-L-under');
 
-    var swiper = new Swiper(".mySwiper1", {
-        effect: "fade",
-        loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
-
     Ldown1.addEventListener('click', function () {
         clickunder.style.display = 'block';
         swiper.slideTo(0);
@@ -165,18 +209,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickup = document.querySelector('.clickup');
     const underup = document.getElementById('2floor-hover-L-up');
 
-    var swiper = new Swiper(".mySwiper2", {
-        effect: "fade",
-        loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
-
 
     Lup1.addEventListener('click', function () {
         clickup.style.display = 'block';
@@ -195,7 +227,6 @@ document.addEventListener('DOMContentLoaded', function () {
     popupBackground.addEventListener('click', function () {
         clickup.style.display = 'none';
     });
-    
 })
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -206,18 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupBackground = document.getElementById('popupBackground');
     const clickR = document.querySelector('.clickR');
     const underR = document.getElementById('2floor-hover-R');
-
-    var swiper = new Swiper(".mySwiper3", {
-        effect: "fade",
-        loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
 
     Rimg1.addEventListener('click', function () {
         clickR.style.display = 'block';
@@ -247,9 +266,30 @@ document.addEventListener('DOMContentLoaded', function () {
     popupBackground.addEventListener('click', function () {
         clickR.style.display = 'none';
     });
+
 })
 
+var swiper = new Swiper(".mySwiper1", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
 
+
+var swiper = new Swiper(".mySwiper2", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+
+var swiper = new Swiper(".mySwiper3", {
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -307,19 +347,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* 처음 화면 */
 document.addEventListener("DOMContentLoaded", () => {
-    const background = document.getElementById("animatedBackground");
+    const startimg = document.getElementById("startimg"); // animatedBackground 대신 startimg로 변경
     const gradation = document.querySelector('.gradaition');
+    let positionY = 0;
+    let velocity = 0.1; // 초기 속도
+    const acceleration = 0.04; // 가속도
+    const maxPositionY = 595;
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
-    const doorL = document.querySelector('.door-L'); // 왼쪽 문
-    const doorR = document.querySelector('.door-R'); // 오른쪽 문
-    
-    let positionY = 0;
-    let velocity = 0.01; // 초기 속도
-    const maxVelocity = 6; // 최대 속도
-    const acceleration = 0.12; // 가속도
-    const deceleration = 0.99; // 감속 계수
-    const maxPositionY = 595;
 
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
@@ -327,15 +362,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animateBackground() {
         if (positionY < maxPositionY) {
-            // 중간 지점까지는 가속, 그 이후로는 감속
-            if (positionY < maxPositionY / 3) {
-                velocity = Math.min(velocity + acceleration, maxVelocity);
-            } else {
-                velocity *= deceleration;
-            }
-            
+            velocity += acceleration;
             positionY += velocity;
-            background.style.backgroundPosition = `center -${positionY}px`;
+            startimg.style.transform = `translateY(-${positionY}px)`; // 여기에서 startimg 이동
             requestAnimationFrame(animateBackground);
         } else {
             gradation.style.display = 'block';
@@ -348,26 +377,10 @@ document.addEventListener("DOMContentLoaded", () => {
     animateBackground();
 
     startbtn.addEventListener('mouseenter', function () {
-        startbtn.style.background = '#08132f';
-        startbtn.style.color = 'white';
-
-        // 문 애니메이션
-        doorL.style.transition = "transform 0.5s";
-        doorL.style.transformOrigin = "left";
-        doorL.style.transform = "rotateY(70deg)";
-
-        doorR.style.transition = "transform 0.5s";
-        doorR.style.transformOrigin = "right";
-        doorR.style.transform = "rotateY(70deg)";
+        startbtn.style.background = 'rgba(0, 0, 0, 0.6)';
     });
-
     startbtn.addEventListener('mouseout', function () {
         startbtn.style.background = 'white';
-        startbtn.style.color = '#000';
-
-    
-        doorL.style.transform = "rotateY(0deg)";
-        doorR.style.transform = "rotateY(0deg)";
     });
 
     startbtn.addEventListener('click', function () {
@@ -375,9 +388,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// position: absolute;
-//     top: 140px;
-//     left: 50px;
-//     color: #fff;
-//     font-size: 29px;
-//     font-weight: bold;
+

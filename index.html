@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!-- <div class="Loding" style="background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
+    <div class="Loding" style="background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
     z-index: 3000;display: flex;
     align-items: center;
     justify-content: center;">
@@ -48,19 +48,14 @@
                 </svg>
         </div>
     </div>
-    </div> -->
+    </div>
     <div class="startpage" style="width: 100%; height: 100%; position: fixed; z-index: 2000;">
         <div id="animatedBackground" style="
-            background: url(/start/start.jpg);
             width: 100%;
             height: 1580px;
-            z-index: 2001;
             position: relative; /* door의 부모 기준을 설정 */
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: cover;
         ">
-            <img />
+            <img id="startimg" src="/start/start.jpg" style="width: 100%; height: 100%;">
             <div class="door" style="
                 display: flex;
                 position: absolute;
@@ -75,7 +70,7 @@
                 <img class="door-R" src="/start/R-door.png" alt="">
             </div>
 
-            <div style="    position: relative;
+            <div style="    position: absolute;
             top: 40%;
             left: 50%;
             z-index:2003;
@@ -107,7 +102,10 @@
         <div id="popupBackground"></div>
 
         <div id="intro">
-            <button id="closeintro">&times;</button>
+            <button id="closeintro"><svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+              </button>
             <p class="intro-h1">diptyque</p>
             <p class="intro-h2">paris</p>
             <img src="/intro/introimg1.jpg" alt="">
@@ -124,7 +122,9 @@
                 추억으로 가득 찬 소우주로 우리를 초대합니다.</p>
         </div>
         <div id="history">
-            <button id="closehistory">&times;</button>
+            <button id="closehistory"><svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg></button>
             <p class="his-h1">diptyque</p>
             <p class="his-h2">paris</p>
             <p class="his-h3">history</p>
@@ -634,7 +634,7 @@
                         <img class="L-img1" src="/1floor/1floor-L-img.png" alt="">
                         <img class="L-img2" src="/1floor/1floor-L-img2.png" alt="">
                     </div>
-                    <img class="shadow" src="/1floor/shadow.png" alt="">
+                    <div class="shadow"></div>
                     <div class="R-box">
                         <img src="/1floor/1floor-R-box.png" alt="">
                     </div>

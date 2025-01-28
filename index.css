@@ -533,11 +533,13 @@ body {
 }
 
 .shadow {
-    width: 115px;
-    height: 48px;
+    width: 70px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
-    top: 73%;
-    left: 23.5%;
+    bottom: 23%;
+    left: 24%;
 }
 
 .up-down {
@@ -661,12 +663,15 @@ body {
 
 #closeintro {
     position: sticky;
-    top: 1%;
+    top: 3%;
     left: 95%;
     background: none;
     border: none;
-    font-size: 70px;
     cursor: pointer;
+    padding: 0;
+}
+.close{
+    width: 40px;
 }
 
 .intro-h1 {
@@ -720,12 +725,12 @@ body {
 
 #closehistory {
     position: sticky;
-    top: 1%;
+    top: 3%;
     left: 95%;
     background: none;
     border: none;
-    font-size: 70px;
     cursor: pointer;
+    padding: 0;
 }
 
 .his-h1 {
