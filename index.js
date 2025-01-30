@@ -385,11 +385,10 @@ document.addEventListener('DOMContentLoaded', function () {
 /* 처음 화면 */
 document.addEventListener("DOMContentLoaded", () => {
     const background = document.getElementById("animatedBackground");
-    const startimg = document.getElementById("startimg"); // animatedBackground 대신 startimg로 변경
     const gradation = document.querySelector('.gradaition');
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
-    const doorL = document.querySelector('.door-L'); // 왼쪽 문
+    const doorL = document.querySelector('.door-L');// 왼쪽 문
     const doorR = document.querySelector('.door-R'); // 오른쪽 문
     
     let positionY = 0;
