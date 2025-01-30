@@ -177,6 +177,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupBackground = document.getElementById('popupBackground');
     const underclose = document.getElementById('2floor-hover-L-under');
 
+    var swiper = new Swiper(".mySwiper1", {
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
     Ldown1.addEventListener('click', function () {
         clickunder.style.display = 'block';
         swiper.slideTo(0);
@@ -209,6 +220,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickup = document.querySelector('.clickup');
     const underup = document.getElementById('2floor-hover-L-up');
 
+    var swiper = new Swiper(".mySwiper2", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
 
     Lup1.addEventListener('click', function () {
         clickup.style.display = 'block';
@@ -237,6 +260,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupBackground = document.getElementById('popupBackground');
     const clickR = document.querySelector('.clickR');
     const underR = document.getElementById('2floor-hover-R');
+
+
+    var swiper = new Swiper(".mySwiper3", {
+        effect: "fade",
+        loop: true,
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
 
     Rimg1.addEventListener('click', function () {
         clickR.style.display = 'block';
@@ -347,14 +384,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* 처음 화면 */
 document.addEventListener("DOMContentLoaded", () => {
+    const background = document.getElementById("animatedBackground");
     const startimg = document.getElementById("startimg"); // animatedBackground 대신 startimg로 변경
     const gradation = document.querySelector('.gradaition');
-    let positionY = 0;
-    let velocity = 0.1; // 초기 속도
-    const acceleration = 0.04; // 가속도
-    const maxPositionY = 595;
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
+    const doorL = document.querySelector('.door-L'); // 왼쪽 문
+    const doorR = document.querySelector('.door-R'); // 오른쪽 문
+    
+    let positionY = 0;
+    let velocity = 0.01; // 초기 속도
+    const maxVelocity = 6; // 최대 속도
+    const acceleration = 0.12; // 가속도
+    const deceleration = 0.99; // 감속 계수
+    const maxPositionY = 595;
+
 
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
@@ -362,9 +406,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animateBackground() {
         if (positionY < maxPositionY) {
-            velocity += acceleration;
+            // 중간 지점까지는 가속, 그 이후로는 감속
+            if (positionY < maxPositionY / 3) {
+                velocity = Math.min(velocity + acceleration, maxVelocity);
+            } else {
+                velocity *= deceleration;
+            }                       
             positionY += velocity;
-            startimg.style.transform = `translateY(-${positionY}px)`; // 여기에서 startimg 이동
+            background.style.backgroundPosition = `center -${positionY}px`;            // 여기에서 startimg 이동
             requestAnimationFrame(animateBackground);
         } else {
             gradation.style.display = 'block';
@@ -377,10 +426,21 @@ document.addEventListener("DOMContentLoaded", () => {
     animateBackground();
 
     startbtn.addEventListener('mouseenter', function () {
-        startbtn.style.background = 'rgba(0, 0, 0, 0.6)';
+        startbtn.style.background = '#08132f';
+        startbtn.style.color = 'white';
+        doorL.style.transition = "transform 0.5s";
+        doorL.style.transformOrigin = "left";
+        doorL.style.transform = "rotateY(70deg)";
+        doorR.style.transition = "transform 0.5s";
+        doorR.style.transformOrigin = "right";
+        doorR.style.transform = "rotateY(70deg)";
+
     });
     startbtn.addEventListener('mouseout', function () {
-        startbtn.style.background = 'white';
+        startbtn.style.color = '#000';
+        doorL.style.transform = "rotateY(0deg)";
+        doorR.style.transform = "rotateY(0deg)";
+
     });
 
     startbtn.addEventListener('click', function () {
