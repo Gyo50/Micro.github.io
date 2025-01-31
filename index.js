@@ -384,11 +384,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* 처음 화면 */
 document.addEventListener("DOMContentLoaded", () => {
-    const background = document.getElementById("animatedBackground");
+    const startimg = document.getElementById("startimg");
     const gradation = document.querySelector('.gradaition');
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
-    const doorL = document.querySelector('.door-L');// 왼쪽 문
+    const doorL = document.querySelector('.door-L'); // 왼쪽 문
     const doorR = document.querySelector('.door-R'); // 오른쪽 문
     
     let positionY = 0;
@@ -398,21 +398,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const deceleration = 0.99; // 감속 계수
     const maxPositionY = 595;
 
-
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
     gradation.style.transition = 'opacity 1s';
 
     function animateBackground() {
         if (positionY < maxPositionY) {
-            // 중간 지점까지는 가속, 그 이후로는 감속
             if (positionY < maxPositionY / 3) {
                 velocity = Math.min(velocity + acceleration, maxVelocity);
             } else {
                 velocity *= deceleration;
-            }                       
+            }
             positionY += velocity;
-            background.style.backgroundPosition = `center -${positionY}px`;            // 여기에서 startimg 이동
+            startimg.style.transform = `translateY(-${positionY}px)`;
             requestAnimationFrame(animateBackground);
         } else {
             gradation.style.display = 'block';
@@ -433,18 +431,34 @@ document.addEventListener("DOMContentLoaded", () => {
         doorR.style.transition = "transform 0.5s";
         doorR.style.transformOrigin = "right";
         doorR.style.transform = "rotateY(70deg)";
-
     });
+
     startbtn.addEventListener('mouseout', function () {
         startbtn.style.color = '#000';
+        startbtn.style.background = '#fff';
         doorL.style.transform = "rotateY(0deg)";
         doorR.style.transform = "rotateY(0deg)";
-
     });
 
     startbtn.addEventListener('click', function () {
         startpage.style.display = 'none';
+        doorL.style.display = 'none';
+        doorR.style.display = 'none';
+        gradation.style.display = 'none';
+
+        let scale = 1;
+        function animateScale() {
+            if (scale < 3) {
+                scale += 0.5;
+                startimg.style.transform = `scale(${scale})`;
+                setTimeout(animateScale, 10000000); // 0.3초마다 크기 증가
+            } else {
+                startimg.style.display = 'none';
+            }
+        }
+        animateScale();
     });
 });
+
 
 
