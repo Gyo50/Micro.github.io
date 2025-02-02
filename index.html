@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="reset.css">
+
 </head>
 
 <body>
@@ -24,28 +25,29 @@
                 <img src="/Loding/Loding-bottle.png" style="width: 145px; height: 240px; overflow: hidden;
             position: relative;
             z-index: 2000;" alt="">
-                <svg class="loading" style="   position: absolute;
-                top: 195px;
-                left: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px" y="0px" width="500px" height="190px" viewBox="0 0 574.558 120"
-                    enable-background="new 0 0 574.558 120" xml:space="preserve">
+                <svg class="loading" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="130px" height="160px" style="position: absolute;
+                top: 80px;
+                left: 8px;">
                     <defs>
                         <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
-                            <path fill="#fff"
+                            <path fill="red"
                                 d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z" />
                         </pattern>
 
-                        <ellipse id="text" cx="200" cy="200" rx="50" ry="100"
-                            transform="matrix(1 0 0 1 -8.0684 116.7852)">
-                            <mask id="text_mask">
-                                <use x="0" y="0" xlink:href="#text" opacity="1" fill="#3498db" />
-                            </mask>
+                        <path id="a" fill-rule="evenodd" stroke="rgb(0, 0, 0)" stroke-width="2.2px"
+                            stroke-linecap="butt" stroke-linejoin="miter" fill="white"
+                            d="M90.568,3.100 L94.899,3.100 C117.675,23.768 121.279,52.816 121.279,52.816 C130.053,125.725 104.349,142.009 104.349,142.009 C96.354,149.471 82.694,153.100 82.694,153.100 L43.715,153.100 C33.352,151.432 22.060,141.841 22.060,141.841 C-4.776,122.022 4.736,52.901 4.736,52.901 C12.395,16.098 31.903,3.100 31.903,3.100 L36.234,3.100 L90.568,3.100 Z" />
+
+                        <mask id="a-mask">
+                            <use x="0" y="0" xlink:href="#a" opacity="1" fill="yellow" />
+                        </mask>
                     </defs>
+                    <use x="0" y="0" xlink:href="#a" fill="black" />
 
-                    <use x="0" y="0" xlink:href="#text" fill="#3498db" />
 
-                    <rect class="water-fill" mask="url(#text_mask)" fill="url(#water)" x="-400" y="0" width="1600"
-                        height="120" />
+                    <rect class="water-fill" mask="url(#a-mask)" fill="url(#water)" x="300" y="0" width="1600"
+                        height="500" />
                 </svg>
             </div>
         </div>
@@ -55,24 +57,24 @@
             width: 100%;
             height: 1580px;
             position: relative; /* door의 부모 기준을 설정 */
+            overflow: visible;
         ">
             <img id="startimg" src="/start/start.jpg" style="width: 100%; height: 100%;">
             <div class="door" style="
                 display: flex;
                 position: absolute;
-                bottom: 711px;
                 left:50%;
                 z-index: 2002;
                 width: 326px;
                 height: 462px;
-                transform:translateX(-50%)   
+                transform:translateX(-50%) translateY(-574.87px);   
             ">
                 <img class="door-L" src="/start/L-door.png" alt="">
                 <img class="door-R" src="/start/R-door.png" alt="">
             </div>
 
             <div style="    position: absolute;
-            top: 40%;
+            top: 78%;
             left: 50%;
             z-index:2003;
             transform: translate(-50%, -50%);
@@ -163,19 +165,13 @@
         </div>
         <!-- down -->
         <div class="swiper mySwiper1 clickunder">
-            <svg id="2floor-hover-L-under" style="width: 95px;
+            <img id="2floor-hover-L-under" style="width: 95px;
             height: 95px;
             position: absolute;
             top: 0;
             right: 25px;
             cursor: pointer;
-            z-index: 10;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
-                viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="23" fill="#303030"></circle>
-                <path
-                    d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 32.990234 15.986328 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.990234 15.986328 z">
-                </path>
-            </svg>
+            z-index: 10;" src="/img/close.png" alt="">
             <div class="swiper-back">
                 <img src="/2floor/hover/2floor-hover-L-flower.png" style="    position: absolute;
                 top: 60px;
@@ -189,10 +185,10 @@
                     <img src="/2floor/L-under-1/EAUROSE-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
-                        top: 85px;
+                        top: 125px;
                         left: 140px;
                         z-index: 2;" alt="">
-                    <div style="position: absolute; bottom: 100px;">
+                    <div style="position: absolute; bottom: 80px;">
                         <p style="color: #f5d996; font-size: 48px; margin-bottom: 20px;">EAU ROSE</p>
                         <p style="color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;">다마스케나 로즈, 센티폴리아
                             로즈,<br />리치
@@ -211,9 +207,9 @@
                     <img src="/2floor/L-under-2/L'Ombredansl'Eau-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
-                        top: 90px;
+                        top: 128px;
                         left: 140px;" alt="">
-                    <div style="position: absolute; bottom: 65px;">
+                    <div style="position: absolute; bottom: 55px;">
                         <p style="color: #f5d996; font-size: 48px; margin-bottom: 20px; line-height: 1.2;">
                             L'Ombre<br />dans l'Eau</p>
                         <p style="color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;">장미, 블랙커런트
@@ -232,9 +228,9 @@
                     <img src="/2floor/L-under-3/doson-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
-                        top: 95px;
+                        top: 135px;
                         left: 140px;" alt="">
-                    <div style="position: absolute; bottom: 65px;">
+                    <div style="position: absolute; bottom: 75px;">
                         <p style="color: #f5d996; font-size: 48px; margin-bottom: 20px;">DOSON</p>
                         <p style="color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;">튜버로즈, 오렌지
                             블로섬<br />재스민, 앰버우드</p>
@@ -250,19 +246,13 @@
         <!-- up -->
 
         <div class="swiper mySwiper2 clickup">
-            <svg id="2floor-hover-L-up" style="width: 95px;
+            <img id="2floor-hover-L-up" style="width: 95px;
             height: 95px;
             position: absolute;
             top: 0;
             right: 25px;
             cursor: pointer;
-            z-index: 10;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
-                viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="23" fill="#303030"></circle>
-                <path
-                    d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 32.990234 15.986328 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.990234 15.986328 z">
-                </path>
-            </svg>
+            z-index: 10;" src="/img/close.png" alt="">
             <div class="swiper-back">
                 <img src="/2floor/hover/2floor-hover-L-blue.png" style="z-index: 3;    position: absolute;
                 top: 355px;
@@ -276,10 +266,10 @@
                     <img src="/2floor/L-up-1/FleurdePeau-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
-                        top: 95px;
+                        top: 150px;
                         left: 140px;
                         z-index: 2;" alt="">
-                    <div style="position: absolute; bottom: 100px;">
+                    <div style="position: absolute; bottom: 80px;">
                         <p style="color: #f5d996; font-size: 48px; margin-bottom: 20px;">Fleur de Peau</p>
                         <p style="color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;">머스크,
                             아이리스,<br />암브레트, 핑크 페퍼콘</p>
@@ -296,7 +286,7 @@
                     <img src="/2floor/L-up-2/L'EauPapier-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
-                        top: 90px;
+                        top: 150px;
                         left: 140px;" alt="">
                     <div style="position: absolute; bottom: 65px;">
                         <p style="color: #f5d996; font-size: 48px; margin-bottom: 20px; line-height: 1.2;">L'Eau Papier
@@ -316,19 +306,13 @@
 
         <!-- Right -->
         <div class="swiper mySwiper3 clickR">
-            <svg id="2floor-hover-R" style="width: 95px;
+            <img id="2floor-hover-R" style="width: 95px;
             height: 95px;
             position: absolute;
             top: 0;
             right: 25px;
             cursor: pointer;
-            z-index: 10;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
-                viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="23" fill="#303030"></circle>
-                <path
-                    d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 32.990234 15.986328 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.990234 15.986328 z">
-                </path>
-            </svg>
+            z-index: 10;" src="/img/close.png" alt="">
             <div class="swiper-back">
                 <img src="/2floor/hover/2floor-hover-L-wood.png" style="z-index: 3;    position: absolute;
                 top: 300px;
@@ -342,7 +326,7 @@
                     <img src="/2floor/R-1/TamDao-hover.png" style="width: auto;
                         height: auto;
                         position: absolute;
-                        top: 95px;
+                        top: 130px;
                         left: 140px;
                         z-index: 2;" alt="">
                     <div style="position: absolute; bottom: 70px;">

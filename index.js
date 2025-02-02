@@ -223,6 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".mySwiper2", {
         effect: "fade",
         loop: true,
+        slidesPerView: 1, // 한 번에 하나만 표시
+        slidesPerGroup: 1, // 한 번에 하나씩 이동
         fadeEffect: {
             crossFade: true,
         },
@@ -265,6 +267,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".mySwiper3", {
         effect: "fade",
         loop: true,
+        slidesPerView: 1, // 한 번에 하나만 표시
+        slidesPerGroup: 1, // 한 번에 하나씩 이동
         fadeEffect: {
             crossFade: true,
         },
@@ -388,19 +392,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const gradation = document.querySelector('.gradaition');
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
+<<<<<<< HEAD
     const doorL = document.querySelector('.door-L'); // 왼쪽 문
     const doorR = document.querySelector('.door-R'); // 오른쪽 문
     
+=======
+    const door = document.querySelector('.door');
+    const doorL = document.querySelector('.door-L');
+    const doorR = document.querySelector('.door-R')
+
+>>>>>>> 7107650 (ssss)
     let positionY = 0;
     let velocity = 0.01; // 초기 속도
     const maxVelocity = 6; // 최대 속도
     const acceleration = 0.12; // 가속도
     const deceleration = 0.99; // 감속 계수
     const maxPositionY = 595;
+<<<<<<< HEAD
+=======
+    let scaleValue = 1;
+    let opacityValue = 1;
+    let bottomValue = 0
+>>>>>>> 7107650 (ssss)
 
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
     gradation.style.transition = 'opacity 1s';
+    startpage.style.position = 'absolute'
 
     function animateBackground() {
         if (positionY < maxPositionY) {
@@ -410,7 +428,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 velocity *= deceleration;
             }
             positionY += velocity;
+<<<<<<< HEAD
             startimg.style.transform = `translateY(-${positionY}px)`;
+=======
+            startpage.style.transform = `translateY(-${positionY}px) scale(${scaleValue})`;
+>>>>>>> 7107650 (ssss)
             requestAnimationFrame(animateBackground);
         } else {
             gradation.style.display = 'block';
@@ -438,6 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startbtn.style.background = '#fff';
         doorL.style.transform = "rotateY(0deg)";
         doorR.style.transform = "rotateY(0deg)";
+<<<<<<< HEAD
     });
 
     startbtn.addEventListener('click', function () {
@@ -457,8 +480,54 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         animateScale();
+=======
+        startbtn.style.background = '#ffff';
+    });
+
+    startbtn.addEventListener('click', function () {
+
+        gradation.style.display = 'none';
+
+        function scaleUp() {
+            if (scaleValue < 2) {
+                scaleValue += 0.05;
+                bottomValue += 45;
+
+                if (bottomValue > 900) bottomValue = 900; 
+                startpage.style.transform = `translateY(-${positionY}px) scale(${scaleValue})`;
+                startpage.style.bottom = `${bottomValue}px`; // bottom 증가
+                doorL.style.transform = "rotateY(70deg)";
+                doorR.style.transform = "rotateY(70deg)";
+
+                setTimeout(scaleUp, 50);
+            } else {
+                fadeOut();
+            }
+        }
+
+        function fadeOut() {
+            if (opacityValue > 0) {
+                opacityValue -= 0.05;
+                if (opacityValue < 0) opacityValue = 0;
+                startpage.style.opacity = opacityValue;
+
+                if (opacityValue === 0) {
+                    startpage.style.display = 'none';
+                } else {
+                    setTimeout(fadeOut, 50);
+                }
+            }
+        }
+
+        scaleUp();
+>>>>>>> 7107650 (ssss)
     });
 });
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7107650 (ssss)
