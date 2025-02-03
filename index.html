@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <!-- <div class="Loding" style="background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
+<!--
+  <div class="Loding" style="background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
     z-index: 3000;display: flex;
     align-items: center;
     justify-content: center;">
@@ -30,28 +31,23 @@
                 top: 80px;
                 left: 8px;">
                     <defs>
-                        <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
-                            <path fill="red"
-                                d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z" />
-                        </pattern>
-
-                        <path id="a" fill-rule="evenodd" stroke="rgb(0, 0, 0)" stroke-width="2.2px"
+  
+                        <mask id="a-mask">
+                            <path id="a" fill-rule="evenodd" stroke="rgb(0, 0, 0)" stroke-width="2.2px"
                             stroke-linecap="butt" stroke-linejoin="miter" fill="white"
                             d="M90.568,3.100 L94.899,3.100 C117.675,23.768 121.279,52.816 121.279,52.816 C130.053,125.725 104.349,142.009 104.349,142.009 C96.354,149.471 82.694,153.100 82.694,153.100 L43.715,153.100 C33.352,151.432 22.060,141.841 22.060,141.841 C-4.776,122.022 4.736,52.901 4.736,52.901 C12.395,16.098 31.903,3.100 31.903,3.100 L36.234,3.100 L90.568,3.100 Z" />
-
-                        <mask id="a-mask">
-                            <use x="0" y="0" xlink:href="#a" opacity="1" fill="yellow" />
                         </mask>
                     </defs>
-                    <use x="0" y="0" xlink:href="#a" fill="black" />
+                    <path fill-rule="evenodd"  stroke="rgb(0, 0, 0)" stroke-width="2.2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
+                    d="M90.568,3.100 L94.899,3.100 C117.675,23.768 121.279,52.816 121.279,52.816 C130.053,125.725 104.349,142.009 104.349,142.009 C96.354,149.471 82.694,153.100 82.694,153.100 L43.715,153.100 C33.352,151.432 22.060,141.841 22.060,141.841 C-4.776,122.022 4.736,52.901 4.736,52.901 C12.395,16.098 31.903,3.100 31.903,3.100 L36.234,3.100 L90.568,3.100 Z"/>
 
-
-                    <rect class="water-fill" mask="url(#a-mask)" fill="url(#water)" x="300" y="0" width="1600"
+                    <rect class="water-fill" mask="url(#a-mask)" fill="#033f1a" stroke="black" stroke-width="2px" x="300" y="0" width="1600"
                         height="500" />
                 </svg>
             </div>
         </div>
-    </div> -->
+    </div> 
+-->
     <div class="startpage" style="width: 100%; height: 100%; position: fixed; z-index: 2000;">
         <div id="animatedBackground" style="
             width: 100%;

@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 애니메이션 로직
     function animate(timestamp) {
       if (!startTime) startTime = timestamp; // 처음 시작 시간을 설정
-      const duration = 1000; // 1초 (애니메이션 주기)
+      const duration = 2000; // 1초 (애니메이션 주기)
       const progress = ((timestamp - startTime) % duration) / duration; // 진행 비율 계산
 
       // tw 이미지의 움직임 계산 (위에서 아래로 움직임)
-      const bounceHeight = Math.sin(progress * Math.PI) * 80; // 위아래로 움직이는 효과
+      const bounceHeight = Math.sin(progress * Math.PI) * 30; // 위아래로 움직이는 효과
       lImg.style.top = `calc(57% - ${bounceHeight}px)`;
 
       // 그림자(shadow)의 크기 변경 계산
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         street.addEventListener('mousemove', (e) => {
 
-            const Rect = box.getBoundingClientRect();
+            const Rect = street.getBoundingClientRect();
       
             const CenterX = boxRect.left + boxRect.width / 2;
             const CenterY = boxRect.top + boxRect.height / 2;
@@ -468,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 doorL.style.transform = "rotateY(70deg)";
                 doorR.style.transform = "rotateY(70deg)";
 
-                setTimeout(scaleUp, 50);
+                setTimeout(scaleUp, 25);
             } else {
                 fadeOut();
             }
@@ -483,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (opacityValue === 0) {
                     startpage.style.display = 'none';
                 } else {
-                    setTimeout(fadeOut, 50);
+                    setTimeout(fadeOut, 25);
                 }
             }
         }
