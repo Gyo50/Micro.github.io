@@ -311,34 +311,32 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const Lclick = document.querySelector('.L-click');
     const Rclick = document.querySelector('.R-click');
-    const street = document.querySelector('.street');
-    const holywater = document.querySelector('.holywater')
     const popupBackground = document.getElementById('popupBackground');
+    const floorback1 = document.getElementById('floor3-pop-back1');
+    const floorback2 = document.getElementById('floor3-pop-back2');
     const floor3close = document.getElementById('floor3-close');
 
 
     Lclick.addEventListener('click', function () {
-        street.style.display = 'flex';
-        floor3close.style.display = 'block';
+        floorback1.style.display = 'block';
         popupBackground.style.display = 'block';
     })
     Rclick.addEventListener('click', function () {
-        holywater.style.display = 'block';
-        floor3close.style.display = 'block';
+        floorback2.style.display = 'block';
         popupBackground.style.display = 'block';
     })
     
     floor3close.addEventListener('click', function () {
-        street.style.display = 'none';
-        holywater.style.display = 'none';
-        floor3close.style.display = 'none';
+        floorback1.style.display = 'none';
+        floorback2.style.display = 'none';
         popupBackground.style.display = 'none';
     });
     popupBackground.addEventListener('click', function () {
-        street.style.display = 'none';
-        holywater.style.display = 'none';
-        floor3close.style.display = 'none';
+        floorback1.style.display = 'none';
+        floorback2.style.display = 'none';
+        popupBackground.style.display = 'none';
     });
+
 })
 
 document.addEventListener('DOMContentLoaded', function () {
