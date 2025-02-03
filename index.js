@@ -309,36 +309,64 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const Lclick = document.querySelector('.L-click');
-    const Rclick = document.querySelector('.R-click');
-    const popupBackground = document.getElementById('popupBackground');
-    const floorback1 = document.getElementById('floor3-pop-back1');
-    const floorback2 = document.getElementById('floor3-pop-back2');
-    const floor3close = document.getElementById('floor3-close');
+        const Lclick = document.querySelector('.L-click');
+        const Rclick = document.querySelector('.R-click');
+        const popupBackground = document.getElementById('popupBackground');
+        const floorback1 = document.getElementById('floor3-pop-back1');
+        const floorback2 = document.getElementById('floor3-pop-back2');
+        const street = document.querySelector('.street')
+        const floor3close1 = document.getElementById('floor3-close1');
+        const floor3close2 = document.getElementById('floor3-close2');
 
 
-    Lclick.addEventListener('click', function () {
-        floorback1.style.display = 'block';
-        popupBackground.style.display = 'block';
+        Lclick.addEventListener('click', function () {
+            floorback1.style.display = 'block';
+            popupBackground.style.display = 'block';
+        })
+        Rclick.addEventListener('click', function () {
+            floorback2.style.display = 'block';
+            popupBackground.style.display = 'block';
+        })
+        
+        floor3close1.addEventListener('click', function () {
+            floorback1.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
+        floor3close2.addEventListener('click', function () {
+            floorback2.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
+        
+        popupBackground.addEventListener('click', function () {
+            floorback1.style.display = 'none';
+            floorback2.style.display = 'none';
+            popupBackground.style.display = 'none';
+        });
+
+        street.addEventListener('mousemove', (e) => {
+
+            const Rect = box.getBoundingClientRect();
+      
+            const CenterX = boxRect.left + boxRect.width / 2;
+            const CenterY = boxRect.top + boxRect.height / 2;
+      
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+      
+            const deltaX = mouseX - CenterX;
+            const deltaY = mouseY - CenterY;
+      
+            const rotateX = (deltaY / Rect.height) * 30;
+            const rotateY = (deltaX / Rect.width) * -30; 
+      
+            street.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          });
+      
+          street.addEventListener('mouseleave', () => {
+            street.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
+          });
+
     })
-    Rclick.addEventListener('click', function () {
-        floorback2.style.display = 'block';
-        popupBackground.style.display = 'block';
-    })
-    
-    floor3close.addEventListener('click', function () {
-        floorback1.style.display = 'none';
-        floorback2.style.display = 'none';
-        popupBackground.style.display = 'none';
-    });
-    
-    popupBackground.addEventListener('click', function () {
-        floorback1.style.display = 'none';
-        floorback2.style.display = 'none';
-        popupBackground.style.display = 'none';
-    });
-
-})
 
 document.addEventListener('DOMContentLoaded', function () {
     const boxL = document.querySelector('.hoverboxL');
