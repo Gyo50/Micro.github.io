@@ -392,28 +392,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const gradation = document.querySelector('.gradaition');
     const startbtn = document.querySelector('.startbtn');
     const startpage = document.querySelector('.startpage');
-<<<<<<< HEAD
-    const doorL = document.querySelector('.door-L'); // 왼쪽 문
-    const doorR = document.querySelector('.door-R'); // 오른쪽 문
-    
-=======
     const door = document.querySelector('.door');
     const doorL = document.querySelector('.door-L');
     const doorR = document.querySelector('.door-R')
 
->>>>>>> 7107650 (ssss)
+
     let positionY = 0;
     let velocity = 0.01; // 초기 속도
     const maxVelocity = 6; // 최대 속도
     const acceleration = 0.12; // 가속도
     const deceleration = 0.99; // 감속 계수
     const maxPositionY = 595;
-<<<<<<< HEAD
-=======
     let scaleValue = 1;
     let opacityValue = 1;
-    let bottomValue = 0
->>>>>>> 7107650 (ssss)
+    let bottomValue = 0;
 
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
@@ -428,11 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 velocity *= deceleration;
             }
             positionY += velocity;
-<<<<<<< HEAD
-            startimg.style.transform = `translateY(-${positionY}px)`;
-=======
             startpage.style.transform = `translateY(-${positionY}px) scale(${scaleValue})`;
->>>>>>> 7107650 (ssss)
             requestAnimationFrame(animateBackground);
         } else {
             gradation.style.display = 'block';
@@ -460,28 +448,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startbtn.style.background = '#fff';
         doorL.style.transform = "rotateY(0deg)";
         doorR.style.transform = "rotateY(0deg)";
-<<<<<<< HEAD
-    });
 
-    startbtn.addEventListener('click', function () {
-        startpage.style.display = 'none';
-        doorL.style.display = 'none';
-        doorR.style.display = 'none';
-        gradation.style.display = 'none';
-
-        let scale = 1;
-        function animateScale() {
-            if (scale < 3) {
-                scale += 0.5;
-                startimg.style.transform = `scale(${scale})`;
-                setTimeout(animateScale, 10000000); // 0.3초마다 크기 증가
-            } else {
-                startimg.style.display = 'none';
-            }
-        }
-        animateScale();
-=======
-        startbtn.style.background = '#ffff';
     });
 
     startbtn.addEventListener('click', function () {
@@ -520,14 +487,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         scaleUp();
->>>>>>> 7107650 (ssss)
+
     });
 });
-
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7107650 (ssss)
