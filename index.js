@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var swiper = new Swiper(".mySwiper1", {
         effect: "fade",
+        loop: true,
         fadeEffect: {
             crossFade: true,
         },
@@ -223,8 +224,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".mySwiper2", {
         effect: "fade",
         loop: true,
-        slidesPerView: 1, // 한 번에 하나만 표시
-        slidesPerGroup: 1, // 한 번에 하나씩 이동
         fadeEffect: {
             crossFade: true,
         },
@@ -267,8 +266,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".mySwiper3", {
         effect: "fade",
         loop: true,
-        slidesPerView: 1, // 한 번에 하나만 표시
-        slidesPerGroup: 1, // 한 번에 하나씩 이동
         fadeEffect: {
             crossFade: true,
         },
@@ -309,28 +306,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 })
-
-var swiper = new Swiper(".mySwiper1", {
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-
-
-var swiper = new Swiper(".mySwiper2", {
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-
-var swiper = new Swiper(".mySwiper3", {
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
 
 
 document.addEventListener('DOMContentLoaded', function () {
