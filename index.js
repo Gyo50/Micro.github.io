@@ -331,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
         floorback2.style.display = 'none';
         popupBackground.style.display = 'none';
     });
+    
     popupBackground.addEventListener('click', function () {
         floorback1.style.display = 'none';
         floorback2.style.display = 'none';
