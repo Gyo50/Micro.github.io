@@ -29,24 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let isAnimating = false; // 애니메이션 실행 상태 플래그
     let startTime;
 
-    // 애니메이션 로직
-    function animate(timestamp) {
-      if (!startTime) startTime = timestamp; // 처음 시작 시간을 설정
-      const duration = 2000; // 1초 (애니메이션 주기)
-      const progress = ((timestamp - startTime) % duration) / duration; // 진행 비율 계산
-
-      // tw 이미지의 움직임 계산 (위에서 아래로 움직임)
-      const bounceHeight = Math.sin(progress * Math.PI) * 30; // 위아래로 움직이는 효과
-      lImg.style.top = `calc(57% - ${bounceHeight}px)`;
-
-      // 그림자(shadow)의 크기 변경 계산
-      const scale = 0.5 + progress * 0.5; // 0.5에서 1 사이로 스케일 조정
-      shadow.style.transform = `scale(${scale})`;
-      shadow.style.backgroundColor = `rgba(0, 0, 0, ${0.2 + progress * 0.1})`; // 투명도 조정
-
-      // 애니메이션 반복
-      animationId = requestAnimationFrame(animate);
-    }
+   // 애니메이션 로직
+function animate(timestamp) {
+    if (!startTime) startTime = timestamp; // 처음 시작 시간을 설정
+    const duration = 2000; // 2초 (애니메이션 주기)
+    const progress = ((timestamp - startTime) % duration) / duration; // 진행 비율 계산
+  
+    // tw 이미지의 움직임 계산 (위에서 아래로 움직임)
+    const bounceHeight = Math.sin(progress * Math.PI) * 30; // 위아래로 움직이는 효과
+    lImg.style.top = `calc(57% - ${bounceHeight}px)`;
+  
+    // 그림자(shadow)의 크기 및 투명도 변경 계산
+    const scale = 0.5 + Math.abs(bounceHeight) / 30 * 0.5; // bounceHeight에 따른 스케일 값 변화
+    shadow.style.transform = `scale(${scale})`;
+    shadow.style.backgroundColor = `rgba(0, 0, 0, ${0.2 + Math.abs(bounceHeight) / 30 * 0.1})`; // 투명도 조정
+  
+    // 애니메이션 반복
+    animationId = requestAnimationFrame(animate);
+  }
+  
 
     // 애니메이션 시작 함수
     function startAnimation() {
@@ -314,7 +315,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const popupBackground = document.getElementById('popupBackground');
         const floorback1 = document.getElementById('floor3-pop-back1');
         const floorback2 = document.getElementById('floor3-pop-back2');
-        const street = document.querySelector('.street')
         const floor3close1 = document.getElementById('floor3-close1');
         const floor3close2 = document.getElementById('floor3-close2');
 
@@ -343,12 +343,12 @@ document.addEventListener('DOMContentLoaded', function () {
             popupBackground.style.display = 'none';
         });
 
-        street.addEventListener('mousemove', (e) => {
+        floorback1.addEventListener('mousemove', (e) => {
 
-            const Rect = street.getBoundingClientRect();
+            const Rect = floorback1.getBoundingClientRect();
       
-            const CenterX = boxRect.left + boxRect.width / 2;
-            const CenterY = boxRect.top + boxRect.height / 2;
+            const CenterX = Rect.left + Rect.width / 2;
+            const CenterY = Rect.top + Rect.height / 2;
       
             const mouseX = e.clientX;
             const mouseY = e.clientY;
@@ -359,11 +359,33 @@ document.addEventListener('DOMContentLoaded', function () {
             const rotateX = (deltaY / Rect.height) * 30;
             const rotateY = (deltaX / Rect.width) * -30; 
       
-            street.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            floorback1.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
           });
       
-          street.addEventListener('mouseleave', () => {
-            street.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
+          floorback1.addEventListener('mouseleave', () => {
+            floorback1.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
+          });
+        floorback2.addEventListener('mousemove', (e) => {
+
+            const Rect = floorback2.getBoundingClientRect();
+      
+            const CenterX = Rect.left + Rect.width / 2;
+            const CenterY = Rect.top + Rect.height / 2;
+      
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+      
+            const deltaX = mouseX - CenterX;
+            const deltaY = mouseY - CenterY;
+      
+            const rotateX = (deltaY / Rect.height) * 25;
+            const rotateY = (deltaX / Rect.width) * -25; 
+      
+            floorback2.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          });
+      
+          floorback2.addEventListener('mouseleave', () => {
+            floorback2.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
           });
 
     })
@@ -397,7 +419,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const door = document.querySelector('.door');
     const doorL = document.querySelector('.door-L');
     const doorR = document.querySelector('.door-R')
-
+    const waterFill = document.querySelector('.water-fill');
+    const Lodiong = document.querySelector('.Loding')
+    
+    // Listen for the end of the water-fill animation
+    waterFill.addEventListener('animationend', () => {
+        // Show startpage when animation ends
+        Lodiong.style.display = 'none';
+        startpage.style.display = 'block';
+        animateBackground();
+    });
 
     let positionY = 0;
     let velocity = 0.01; // 초기 속도
@@ -431,8 +462,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 50);
         }
     }
-
-    animateBackground();
 
     startbtn.addEventListener('mouseenter', function () {
         startbtn.style.background = '#08132f';
