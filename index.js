@@ -81,22 +81,6 @@ function animate(timestamp) {
     lImg.addEventListener('mouseleave', stopAnimation);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     const fireElement = document.querySelector('.fire');
     const fireContainer = document.querySelector('.R-img-fire');
     const backfire = document.querySelector('.back-fire');
@@ -191,27 +175,56 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     Ldown1.addEventListener('click', function () {
-        clickunder.style.display = 'block';
-        swiper.slideTo(0);
-        popupBackground.style.display = 'block';
-    })
-    Ldown2.addEventListener('click', () => {
-        clickunder.style.display = 'block';
-        swiper.slideTo(1);
-        popupBackground.style.display = 'block';
+        showPopup(0);
     });
-    Ldown3.addEventListener('click', () => {
+    
+    Ldown2.addEventListener('click', function () {
+        showPopup(1);
+    });
+    
+    Ldown3.addEventListener('click', function () {
+        showPopup(2);
+    });
+    
+    function showPopup(index) {
         clickunder.style.display = 'block';
-        swiper.slideTo(2);
         popupBackground.style.display = 'block';
-    });
-    popupBackground.addEventListener('click', function () {
-        clickunder.style.display = 'none';
-    });
-    underclose.addEventListener('click', function () {
+    
+        // 초기 숨김 설정
+        document.querySelector('.swiper-back').style.opacity = '0';
+        document.querySelector('.swiper-front').style.opacity = '0';
+        document.querySelector('.swiper-wrapper').style.opacity = '0';
+    
+        setTimeout(() => {
+            document.querySelector('.swiper-back').style.transition = 'opacity 0.5s ease-in-out';
+            document.querySelector('.swiper-back').style.opacity = '1';
+        }, 100); // 0.1초 후 back 등장
+    
+        setTimeout(() => {
+            document.querySelector('.swiper-front').style.transition = 'opacity 0.5s ease-in-out';
+            document.querySelector('.swiper-front').style.opacity = '1';
+        }, 600); // 0.6초 후 front 등장
+    
+        setTimeout(() => {
+            document.querySelector('.swiper-wrapper').style.transition = 'opacity 0.5s ease-in-out';
+            document.querySelector('.swiper-wrapper').style.opacity = '1';
+            swiper.slideTo(index);
+        }, 1100); // 1.1초 후 slide 등장
+    }
+    
+    // 닫을 때 초기화
+    function hidePopup() {
         clickunder.style.display = 'none';
         popupBackground.style.display = 'none';
-    });
+    
+        // 모든 요소 다시 숨김
+        document.querySelector('.swiper-back').style.opacity = '0';
+        document.querySelector('.swiper-front').style.opacity = '0';
+        document.querySelector('.swiper-wrapper').style.opacity = '0';
+    }
+    
+    popupBackground.addEventListener('click', hidePopup);
+    underclose.addEventListener('click', hidePopup);
 
 });
 /*-----------------------------up -----------------------------*/
@@ -252,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
     popupBackground.addEventListener('click', function () {
         clickup.style.display = 'none';
     });
+    
 })
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -418,13 +432,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const startpage = document.querySelector('.startpage');
     const door = document.querySelector('.door');
     const doorL = document.querySelector('.door-L');
-    const doorR = document.querySelector('.door-R')
+    const doorR = document.querySelector('.door-R');
     const waterFill = document.querySelector('.water-fill');
-    const Lodiong = document.querySelector('.Loding')
-    
-    // Listen for the end of the water-fill animation
+    const Lodiong = document.querySelector('.Loding');
+
+    let isClicked = false; 
+
     waterFill.addEventListener('animationend', () => {
-        // Show startpage when animation ends
         Lodiong.style.display = 'none';
         startpage.style.display = 'block';
         animateBackground();
@@ -436,14 +450,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const acceleration = 0.12; // 가속도
     const deceleration = 0.99; // 감속 계수
     const maxPositionY = 595;
-    let scaleValue = 1;
-    let opacityValue = 1;
-    let bottomValue = 0;
 
     gradation.style.display = 'none';
     gradation.style.opacity = 0;
     gradation.style.transition = 'opacity 1s';
-    startpage.style.position = 'absolute'
+    startpage.style.position = 'absolute';
 
     function animateBackground() {
         if (positionY < maxPositionY) {
@@ -453,7 +464,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 velocity *= deceleration;
             }
             positionY += velocity;
-            startpage.style.transform = `translateY(-${positionY}px) scale(${scaleValue})`;
+
+            let translateYValue = -31 + ((-69 + 31.5) * (positionY / maxPositionY));
+            let doorTranslateY = 100 - ((100 + 23) * (positionY / maxPositionY));
+
+            startimg.style.transform = `translate(-50%, ${translateYValue}%)`;
+            door.style.transform = `translate(-50%, ${doorTranslateY}%)`;
+
             requestAnimationFrame(animateBackground);
         } else {
             gradation.style.display = 'block';
@@ -463,64 +480,80 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     startbtn.addEventListener('mouseenter', function () {
-        startbtn.style.background = '#08132f';
-        startbtn.style.color = 'white';
-        doorL.style.transition = "transform 0.5s";
-        doorL.style.transformOrigin = "left";
-        doorL.style.transform = "rotateY(70deg)";
-        doorR.style.transition = "transform 0.5s";
-        doorR.style.transformOrigin = "right";
-        doorR.style.transform = "rotateY(70deg)";
+        if (!isClicked) {
+            startbtn.style.background = '#08132f';
+            startbtn.style.color = 'white';
+            doorL.style.transition = "transform 0.5s";
+            doorL.style.transformOrigin = "left";
+            doorL.style.transform = "rotateY(70deg)";
+            doorR.style.transition = "transform 0.5s";
+            doorR.style.transformOrigin = "right";
+            doorR.style.transform = "rotateY(70deg)";
+        }
     });
+
 
     startbtn.addEventListener('mouseout', function () {
-        startbtn.style.color = '#000';
-        startbtn.style.background = '#fff';
-        doorL.style.transform = "rotateY(0deg)";
-        doorR.style.transform = "rotateY(0deg)";
-
+        if (!isClicked) {
+            startbtn.style.color = '#000';
+            startbtn.style.background = '#fff';
+            doorL.style.transform = "rotateY(0deg)";
+            doorR.style.transform = "rotateY(0deg)";
+        }
     });
 
-    startbtn.addEventListener('click', function () {
+    startbtn.addEventListener('click', () => {
+        isClicked = true;
+        animateDoorOpen();
+        animateStartPageScale();
+    });
 
-        gradation.style.display = 'none';
+    function animateDoorOpen() {
+        doorL.style.transition = 'transform 1s ease-in-out';
+        doorR.style.transition = 'transform 1s ease-in-out';
+
+        doorL.style.transform = 'rotateY(70deg)';
+        doorR.style.transform = 'rotateY(70deg)';
+    }
+
+    function animateStartPageScale() {
+        let scaleValue = 1;
+        let bottomValue = 12;
+        let opacityValue = 1;
 
         function scaleUp() {
             if (scaleValue < 2) {
-                scaleValue += 0.05;
-                bottomValue += 45;
+                scaleValue += 0.01;
+                bottomValue += (305 - 12) / ((4 - 1) / 0.02); 
 
-                if (bottomValue > 900) bottomValue = 900; 
-                startpage.style.transform = `translateY(-${positionY}px) scale(${scaleValue})`;
-                startpage.style.bottom = `${bottomValue}px`; // bottom 증가
-                doorL.style.transform = "rotateY(70deg)";
-                doorR.style.transform = "rotateY(70deg)";
+                startpage.style.transform = `scale(${scaleValue})`;
+                startpage.style.bottom = `${bottomValue}px`;
 
-                setTimeout(scaleUp, 25);
+                requestAnimationFrame(scaleUp);
             } else {
-                fadeOut();
+                fadeOutStartPage();
             }
         }
 
-        function fadeOut() {
-            if (opacityValue > 0) {
-                opacityValue -= 0.05;
-                if (opacityValue < 0) opacityValue = 0;
-                startpage.style.opacity = opacityValue;
-
-                if (opacityValue === 0) {
-                    startpage.style.display = 'none';
+        function fadeOutStartPage() {
+            function fade() {
+                if (opacityValue > 0) {
+                    opacityValue -= 0.02;
+                    startpage.style.opacity = opacityValue;
+                    requestAnimationFrame(fade);
                 } else {
-                    setTimeout(fadeOut, 25);
+                    startpage.style.display = 'none';
                 }
             }
+            fade();
         }
 
         scaleUp();
-
-    });
+    }
 });
+
 // perspective-origin: 50% -100%;
 // transform-origin: bottom;
 // transform: rotateX(-120deg);

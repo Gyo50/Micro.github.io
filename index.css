@@ -859,7 +859,7 @@ body {
 /* ------------------------Loding------------------------- */
 .water-fill {
     animation: wave 1.5s infinite linear,
-      fill-up 10s ease-out alternate 1;
+      fill-up 2s ease-out alternate 1;
   }
 
 
