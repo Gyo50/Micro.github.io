@@ -155,172 +155,130 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 /*----------------------------down------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
+    const popupBackground = document.getElementById('popupBackground');
+
+    // L-down 관련 요소
     const Ldown1 = document.querySelector('.L-down1');
     const Ldown2 = document.querySelector('.L-down2');
     const Ldown3 = document.querySelector('.L-down3');
     const clickunder = document.querySelector('.clickunder');
-    const popupBackground = document.getElementById('popupBackground');
     const underclose = document.getElementById('2floor-hover-L-under');
-
-    var swiper = new Swiper(".mySwiper1", {
+    const swiper1 = new Swiper(".mySwiper1", {
         effect: "fade",
         loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
+        fadeEffect: { crossFade: true },
+        pagination: { el: ".swiper-pagination", clickable: true },
     });
 
-    Ldown1.addEventListener('click', function () {
-        showPopup(0);
-    });
-    
-    Ldown2.addEventListener('click', function () {
-        showPopup(1);
-    });
-    
-    Ldown3.addEventListener('click', function () {
-        showPopup(2);
-    });
-    
-    function showPopup(index) {
-        clickunder.style.display = 'block';
-        popupBackground.style.display = 'block';
-    
-        // 초기 숨김 설정
-        document.querySelector('.swiper-back').style.opacity = '0';
-        document.querySelector('.swiper-front').style.opacity = '0';
-        document.querySelector('.swiper-wrapper').style.opacity = '0';
-    
-        setTimeout(() => {
-            document.querySelector('.swiper-back').style.transition = 'opacity 0.5s ease-in-out';
-            document.querySelector('.swiper-back').style.opacity = '1';
-        }, 100); // 0.1초 후 back 등장
-    
-        setTimeout(() => {
-            document.querySelector('.swiper-front').style.transition = 'opacity 0.5s ease-in-out';
-            document.querySelector('.swiper-front').style.opacity = '1';
-        }, 600); // 0.6초 후 front 등장
-    
-        setTimeout(() => {
-            document.querySelector('.swiper-wrapper').style.transition = 'opacity 0.5s ease-in-out';
-            document.querySelector('.swiper-wrapper').style.opacity = '1';
-            swiper.slideTo(index);
-        }, 1100); // 1.1초 후 slide 등장
-    }
-    
-    // 닫을 때 초기화
-    function hidePopup() {
-        clickunder.style.display = 'none';
-        popupBackground.style.display = 'none';
-    
-        // 모든 요소 다시 숨김
-        document.querySelector('.swiper-back').style.opacity = '0';
-        document.querySelector('.swiper-front').style.opacity = '0';
-        document.querySelector('.swiper-wrapper').style.opacity = '0';
-    }
-    
-    popupBackground.addEventListener('click', hidePopup);
-    underclose.addEventListener('click', hidePopup);
-
-});
-/*-----------------------------up -----------------------------*/
-document.addEventListener('DOMContentLoaded', function () {
+    // L-up 관련 요소
     const Lup1 = document.querySelector('.L-up1');
     const Lup2 = document.querySelector('.L-up2');
-    const popupBackground = document.getElementById('popupBackground');
     const clickup = document.querySelector('.clickup');
     const underup = document.getElementById('2floor-hover-L-up');
-
-    var swiper = new Swiper(".mySwiper2", {
+    const swiper2 = new Swiper(".mySwiper2", {
         effect: "fade",
         loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
+        fadeEffect: { crossFade: true },
+        pagination: { el: ".swiper-pagination", clickable: true },
     });
 
-
-    Lup1.addEventListener('click', function () {
-        clickup.style.display = 'block';
-        swiper.slideTo(0);
-        popupBackground.style.display = 'block';
-    })
-    Lup2.addEventListener('click', function () {
-        clickup.style.display = 'block';
-        swiper.slideTo(1);
-        popupBackground.style.display = 'block';
-    })
-    underup.addEventListener('click', function () {
-        clickup.style.display = 'none';
-        popupBackground.style.display = 'none';
-    });
-    popupBackground.addEventListener('click', function () {
-        clickup.style.display = 'none';
-    });
-    
-})
-
-document.addEventListener('DOMContentLoaded', function () {
-    const Rimg1 = document.querySelector('.R-img1')
-    const Rimg2 = document.querySelector('.R-img2')
-    const Rimg3 = document.querySelector('.R-img3')
-    const Rimg4 = document.querySelector('.R-img4')
-    const popupBackground = document.getElementById('popupBackground');
+    // R-img 관련 요소
+    const Rimg1 = document.querySelector('.R-img1');
+    const Rimg2 = document.querySelector('.R-img2');
+    const Rimg3 = document.querySelector('.R-img3');
+    const Rimg4 = document.querySelector('.R-img4');
     const clickR = document.querySelector('.clickR');
     const underR = document.getElementById('2floor-hover-R');
-
-
-    var swiper = new Swiper(".mySwiper3", {
+    const swiper3 = new Swiper(".mySwiper3", {
         effect: "fade",
         loop: true,
-        fadeEffect: {
-            crossFade: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
+        fadeEffect: { crossFade: true },
+        pagination: { el: ".swiper-pagination", clickable: true },
     });
 
+    // **하나의 `showPopup` 함수로 통합 (해당 팝업 내부에서 요소 찾기)**
+    function showPopup(index, clickElement, swiperInstance) {
+        clickElement.style.display = 'block';
+        popupBackground.style.display = 'block';
 
-    Rimg1.addEventListener('click', function () {
-        clickR.style.display = 'block';
-        swiper.slideTo(0);
-        popupBackground.style.display = 'block';
-    })
-    Rimg2.addEventListener('click', function () {
-        clickR.style.display = 'block';
-        swiper.slideTo(1);
-        popupBackground.style.display = 'block';
-    })
-    Rimg3.addEventListener('click', function () {
-        clickR.style.display = 'block';
-        swiper.slideTo(2);
-        popupBackground.style.display = 'block';
-    })
-    Rimg4.addEventListener('click', function () {
-        clickR.style.display = 'block';
-        swiper.slideTo(3);
-        popupBackground.style.display = 'block';
-    })
+        // 해당 팝업 내부에서 swiper 요소 찾기
+        const swiperBack = clickElement.querySelector('.swiper-back');
+        const swiperFront = clickElement.querySelector('.swiper-front');
+        const swiperWrapper = clickElement.querySelector('.swiper-wrapper');
 
-    underR.addEventListener('click', function () {
-        clickR.style.display = 'none';
+        if (!swiperBack || !swiperFront || !swiperWrapper) {
+            console.error("swiper 요소를 찾을 수 없음:", clickElement);
+            return;
+        }
+
+        // 초기 숨김 설정
+        swiperBack.style.opacity = '0';
+        swiperFront.style.opacity = '0';
+        swiperWrapper.style.opacity = '0';
+
+        setTimeout(() => {
+            swiperBack.style.transition = 'opacity 0.5s ease-in-out';
+            swiperBack.style.opacity = '1';
+        }, 100); // 0.1초 후 back 등장
+
+        setTimeout(() => {
+            swiperFront.style.transition = 'opacity 0.5s ease-in-out';
+            swiperFront.style.opacity = '1';
+        }, 600); // 0.6초 후 front 등장
+
+        setTimeout(() => {
+            swiperWrapper.style.transition = 'opacity 0.5s ease-in-out';
+            swiperWrapper.style.opacity = '1';
+            swiperInstance.slideTo(index);
+        }, 1100); // 1.1초 후 slide 등장
+    }
+
+
+    function hidePopup(clickElement) {
+        clickElement.style.display = 'none';
         popupBackground.style.display = 'none';
-    });
-    popupBackground.addEventListener('click', function () {
-        clickR.style.display = 'none';
+
+
+        const swiperBack = clickElement.querySelector('.swiper-back');
+        const swiperFront = clickElement.querySelector('.swiper-front');
+        const swiperWrapper = clickElement.querySelector('.swiper-wrapper');
+
+        if (!swiperBack || !swiperFront || !swiperWrapper) {
+            console.error("swiper 요소를 찾을 수 없음:", clickElement);
+            return;
+        }
+
+
+        swiperBack.style.opacity = '0';
+        swiperFront.style.opacity = '0';
+        swiperWrapper.style.opacity = '0';
+    }
+
+
+    Ldown1.addEventListener('click', () => showPopup(0, clickunder, swiper1));
+    Ldown2.addEventListener('click', () => showPopup(1, clickunder, swiper1));
+    Ldown3.addEventListener('click', () => showPopup(2, clickunder, swiper1));
+    
+    Lup1.addEventListener('click', () => showPopup(0, clickup, swiper2));
+    Lup2.addEventListener('click', () => showPopup(1, clickup, swiper2));
+    
+    Rimg1.addEventListener('click', () => showPopup(0, clickR, swiper3));
+    Rimg2.addEventListener('click', () => showPopup(1, clickR, swiper3));
+    Rimg3.addEventListener('click', () => showPopup(2, clickR, swiper3));
+    Rimg4.addEventListener('click', () => showPopup(3, clickR, swiper3));
+
+
+    popupBackground.addEventListener('click', () => {
+        hidePopup(clickunder);
+        hidePopup(clickup);
+        hidePopup(clickR);
     });
 
-})
+    underclose.addEventListener('click', () => hidePopup(clickunder));
+    underup.addEventListener('click', () => hidePopup(clickup));
+    underR.addEventListener('click', () => hidePopup(clickR));
+});
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -329,6 +287,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const popupBackground = document.getElementById('popupBackground');
         const floorback1 = document.getElementById('floor3-pop-back1');
         const floorback2 = document.getElementById('floor3-pop-back2');
+        const street = document.querySelector('.street')
+        const holywater = document.querySelector('.holywater')
         const floor3close1 = document.getElementById('floor3-close1');
         const floor3close2 = document.getElementById('floor3-close2');
 
@@ -336,10 +296,12 @@ document.addEventListener('DOMContentLoaded', function () {
         Lclick.addEventListener('click', function () {
             floorback1.style.display = 'block';
             popupBackground.style.display = 'block';
+            popupBackground.style.pointerEvents = 'none'
         })
         Rclick.addEventListener('click', function () {
             floorback2.style.display = 'block';
             popupBackground.style.display = 'block';
+            popupBackground.style.pointerEvents = 'none'
         })
         
         floor3close1.addEventListener('click', function () {
@@ -351,12 +313,6 @@ document.addEventListener('DOMContentLoaded', function () {
             popupBackground.style.display = 'none';
         });
         
-        popupBackground.addEventListener('click', function () {
-            floorback1.style.display = 'none';
-            floorback2.style.display = 'none';
-            popupBackground.style.display = 'none';
-        });
-
         floorback1.addEventListener('mousemove', (e) => {
 
             const Rect = floorback1.getBoundingClientRect();
@@ -373,11 +329,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const rotateX = (deltaY / Rect.height) * 30;
             const rotateY = (deltaX / Rect.width) * -30; 
       
-            floorback1.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            street.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
           });
       
           floorback1.addEventListener('mouseleave', () => {
-            floorback1.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
+            street.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
           });
         floorback2.addEventListener('mousemove', (e) => {
 
@@ -395,11 +351,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const rotateX = (deltaY / Rect.height) * 25;
             const rotateY = (deltaX / Rect.width) * -25; 
       
-            floorback2.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            holywater.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
           });
       
           floorback2.addEventListener('mouseleave', () => {
-            floorback2.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
+            holywater.style.transform = 'translate(-50%, -50%)rotateX(0deg) rotateY(0deg)';
           });
 
     })
@@ -425,134 +381,134 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 /* 처음 화면 */
-document.addEventListener("DOMContentLoaded", () => {
-    const startimg = document.getElementById("startimg");
-    const gradation = document.querySelector('.gradaition');
-    const startbtn = document.querySelector('.startbtn');
-    const startpage = document.querySelector('.startpage');
-    const door = document.querySelector('.door');
-    const doorL = document.querySelector('.door-L');
-    const doorR = document.querySelector('.door-R');
-    const waterFill = document.querySelector('.water-fill');
-    const Lodiong = document.querySelector('.Loding');
+// document.addEventListener("DOMContentLoaded", () => {
+//     const startimg = document.getElementById("startimg");
+//     const gradation = document.querySelector('.gradaition');
+//     const startbtn = document.querySelector('.startbtn');
+//     const startpage = document.querySelector('.startpage');
+//     const door = document.querySelector('.door');
+//     const doorL = document.querySelector('.door-L');
+//     const doorR = document.querySelector('.door-R');
+//     const waterFill = document.querySelector('.water-fill');
+//     const Lodiong = document.querySelector('.Loding');
 
-    let isClicked = false; 
+//     let isClicked = false; 
 
-    waterFill.addEventListener('animationend', () => {
-        Lodiong.style.display = 'none';
-        startpage.style.display = 'block';
-        animateBackground();
-    });
+//     waterFill.addEventListener('animationend', () => {
+//         Lodiong.style.display = 'none';
+//         startpage.style.display = 'block';
+//         animateBackground();
+//     });
 
-    let positionY = 0;
-    let velocity = 0.01; // 초기 속도
-    const maxVelocity = 6; // 최대 속도
-    const acceleration = 0.12; // 가속도
-    const deceleration = 0.99; // 감속 계수
-    const maxPositionY = 595;
+//     let positionY = 0;
+//     let velocity = 0.01; // 초기 속도
+//     const maxVelocity = 6; // 최대 속도
+//     const acceleration = 0.12; // 가속도
+//     const deceleration = 0.99; // 감속 계수
+//     const maxPositionY = 595;
 
-    gradation.style.display = 'none';
-    gradation.style.opacity = 0;
-    gradation.style.transition = 'opacity 1s';
-    startpage.style.position = 'absolute';
+//     gradation.style.display = 'none';
+//     gradation.style.opacity = 0;
+//     gradation.style.transition = 'opacity 1s';
+//     startpage.style.position = 'absolute';
 
-    function animateBackground() {
-        if (positionY < maxPositionY) {
-            if (positionY < maxPositionY / 3) {
-                velocity = Math.min(velocity + acceleration, maxVelocity);
-            } else {
-                velocity *= deceleration;
-            }
-            positionY += velocity;
+//     function animateBackground() {
+//         if (positionY < maxPositionY) {
+//             if (positionY < maxPositionY / 3) {
+//                 velocity = Math.min(velocity + acceleration, maxVelocity);
+//             } else {
+//                 velocity *= deceleration;
+//             }
+//             positionY += velocity;
 
-            let translateYValue = -31 + ((-69 + 31.5) * (positionY / maxPositionY));
-            let doorTranslateY = 100 - ((100 + 23) * (positionY / maxPositionY));
+//             let translateYValue = -31 + ((-69 + 31.5) * (positionY / maxPositionY));
+//             let doorTranslateY = 100 - ((100 + 23) * (positionY / maxPositionY));
 
-            startimg.style.transform = `translate(-50%, ${translateYValue}%)`;
-            door.style.transform = `translate(-50%, ${doorTranslateY}%)`;
+//             startimg.style.transform = `translate(-50%, ${translateYValue}%)`;
+//             door.style.transform = `translate(-50%, ${doorTranslateY}%)`;
 
-            requestAnimationFrame(animateBackground);
-        } else {
-            gradation.style.display = 'block';
-            setTimeout(() => {
-                gradation.style.opacity = 1;
-            }, 50);
-        }
-    }
-
-
-    startbtn.addEventListener('mouseenter', function () {
-        if (!isClicked) {
-            startbtn.style.background = '#08132f';
-            startbtn.style.color = 'white';
-            doorL.style.transition = "transform 0.5s";
-            doorL.style.transformOrigin = "left";
-            doorL.style.transform = "rotateY(70deg)";
-            doorR.style.transition = "transform 0.5s";
-            doorR.style.transformOrigin = "right";
-            doorR.style.transform = "rotateY(70deg)";
-        }
-    });
+//             requestAnimationFrame(animateBackground);
+//         } else {
+//             gradation.style.display = 'block';
+//             setTimeout(() => {
+//                 gradation.style.opacity = 1;
+//             }, 50);
+//         }
+//     }
 
 
-    startbtn.addEventListener('mouseout', function () {
-        if (!isClicked) {
-            startbtn.style.color = '#000';
-            startbtn.style.background = '#fff';
-            doorL.style.transform = "rotateY(0deg)";
-            doorR.style.transform = "rotateY(0deg)";
-        }
-    });
+//     startbtn.addEventListener('mouseenter', function () {
+//         if (!isClicked) {
+//             startbtn.style.background = '#08132f';
+//             startbtn.style.color = 'white';
+//             doorL.style.transition = "transform 0.5s";
+//             doorL.style.transformOrigin = "left";
+//             doorL.style.transform = "rotateY(70deg)";
+//             doorR.style.transition = "transform 0.5s";
+//             doorR.style.transformOrigin = "right";
+//             doorR.style.transform = "rotateY(70deg)";
+//         }
+//     });
 
-    startbtn.addEventListener('click', () => {
-        isClicked = true;
-        animateDoorOpen();
-        animateStartPageScale();
-    });
 
-    function animateDoorOpen() {
-        doorL.style.transition = 'transform 1s ease-in-out';
-        doorR.style.transition = 'transform 1s ease-in-out';
+//     startbtn.addEventListener('mouseout', function () {
+//         if (!isClicked) {
+//             startbtn.style.color = '#000';
+//             startbtn.style.background = '#fff';
+//             doorL.style.transform = "rotateY(0deg)";
+//             doorR.style.transform = "rotateY(0deg)";
+//         }
+//     });
 
-        doorL.style.transform = 'rotateY(70deg)';
-        doorR.style.transform = 'rotateY(70deg)';
-    }
+//     startbtn.addEventListener('click', () => {
+//         isClicked = true;
+//         animateDoorOpen();
+//         animateStartPageScale();
+//     });
 
-    function animateStartPageScale() {
-        let scaleValue = 1;
-        let bottomValue = 12;
-        let opacityValue = 1;
+//     function animateDoorOpen() {
+//         doorL.style.transition = 'transform 1s ease-in-out';
+//         doorR.style.transition = 'transform 1s ease-in-out';
 
-        function scaleUp() {
-            if (scaleValue < 2) {
-                scaleValue += 0.01;
-                bottomValue += (305 - 12) / ((4 - 1) / 0.02); 
+//         doorL.style.transform = 'rotateY(70deg)';
+//         doorR.style.transform = 'rotateY(70deg)';
+//     }
 
-                startpage.style.transform = `scale(${scaleValue})`;
-                startpage.style.bottom = `${bottomValue}px`;
+//     function animateStartPageScale() {
+//         let scaleValue = 1;
+//         let bottomValue = 12;
+//         let opacityValue = 1;
 
-                requestAnimationFrame(scaleUp);
-            } else {
-                fadeOutStartPage();
-            }
-        }
+//         function scaleUp() {
+//             if (scaleValue < 2) {
+//                 scaleValue += 0.01;
+//                 bottomValue += (305 - 12) / ((4 - 1) / 0.02); 
 
-        function fadeOutStartPage() {
-            function fade() {
-                if (opacityValue > 0) {
-                    opacityValue -= 0.02;
-                    startpage.style.opacity = opacityValue;
-                    requestAnimationFrame(fade);
-                } else {
-                    startpage.style.display = 'none';
-                }
-            }
-            fade();
-        }
+//                 startpage.style.transform = `scale(${scaleValue})`;
+//                 startpage.style.bottom = `${bottomValue}px`;
 
-        scaleUp();
-    }
-});
+//                 requestAnimationFrame(scaleUp);
+//             } else {
+//                 fadeOutStartPage();
+//             }
+//         }
+
+//         function fadeOutStartPage() {
+//             function fade() {
+//                 if (opacityValue > 0) {
+//                     opacityValue -= 0.02;
+//                     startpage.style.opacity = opacityValue;
+//                     requestAnimationFrame(fade);
+//                 } else {
+//                     startpage.style.display = 'none';
+//                 }
+//             }
+//             fade();
+//         }
+
+//         scaleUp();
+//     }
+// });
 
 // perspective-origin: 50% -100%;
 // transform-origin: bottom;
