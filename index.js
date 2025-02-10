@@ -381,166 +381,162 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 /* 처음 화면 */
-document.addEventListener("DOMContentLoaded", () => {
-    const startimg = document.getElementById("startimg");
-    const gradation = document.querySelector('.gradaition');
-    const startbtn = document.querySelector('.startbtn');
-    const startpage = document.querySelector('.startpage');
-    const door = document.querySelector('.door');
-    const doorL = document.querySelector('.door-L');
-    const doorR = document.querySelector('.door-R');
-    const waterFill = document.querySelector('.water-fill');
-    const Lodiong = document.querySelector('.Loding');
+// document.addEventListener("DOMContentLoaded", () => {
+//     const startimg = document.getElementById("startimg");
+//     const gradation = document.querySelector('.gradaition');
+//     const startbtn = document.querySelector('.startbtn');
+//     const startpage = document.querySelector('.startpage');
+//     const door = document.querySelector('.door');
+//     const doorL = document.querySelector('.door-L');
+//     const doorR = document.querySelector('.door-R');
+//     const waterFill = document.querySelector('.water-fill');
+//     const Lodiong = document.querySelector('.Loding');
 
-    let isClicked = false; 
+//     let isClicked = false; 
 
-    waterFill.addEventListener('animationend', () => {
-        Lodiong.style.display = 'none';
-        startpage.style.display = 'block';
-        animateBackground();
-    });
+//     waterFill.addEventListener('animationend', () => {
+//         Lodiong.style.display = 'none';
+//         startpage.style.display = 'block';
+//         animateBackground();
+//     });
 
-    let positionY = 0;
-    let velocity = 0.01; // 초기 속도
-    const maxVelocity = 6; // 최대 속도
-    const acceleration = 0.12; // 가속도
-    const deceleration = 0.99; // 감속 계수
-    const maxPositionY = 595;
+//     let positionY = 0;
+//     let velocity = 0.01; // 초기 속도
+//     const maxVelocity = 6; // 최대 속도
+//     const acceleration = 0.12; // 가속도
+//     const deceleration = 0.99; // 감속 계수
+//     const maxPositionY = 595;
 
-    gradation.style.display = 'none';
-    gradation.style.opacity = 0;
-    gradation.style.transition = 'opacity 1s';
-    startpage.style.position = 'absolute';
+//     gradation.style.display = 'none';
+//     gradation.style.opacity = 0;
+//     gradation.style.transition = 'opacity 1s';
+//     startpage.style.position = 'absolute';
 
-    function animateBackground() {
-        if (positionY < maxPositionY) {
-            if (positionY < maxPositionY / 3) {
-                velocity = Math.min(velocity + acceleration, maxVelocity);
-            } else {
-                velocity *= deceleration;
-            }
-            positionY += velocity;
+//     function animateBackground() {
+//         if (positionY < maxPositionY) {
+//             if (positionY < maxPositionY / 3) {
+//                 velocity = Math.min(velocity + acceleration, maxVelocity);
+//             } else {
+//                 velocity *= deceleration;
+//             }
+//             positionY += velocity;
 
-            let translateYValue = -31 + ((-69 + 31.5) * (positionY / maxPositionY));
-            let doorTranslateY = 100 - ((100 + 23) * (positionY / maxPositionY));
+//             let translateYValue = -31 + ((-69 + 31.5) * (positionY / maxPositionY));
+//             let doorTranslateY = 100 - ((100 + 20) * (positionY / maxPositionY));
 
-            startimg.style.transform = `translate(-50%, ${translateYValue}%)`;
-            door.style.transform = `translate(-50%, ${doorTranslateY}%)`;
+//             startimg.style.transform = `translate(-50%, ${translateYValue}%)`;
+//             door.style.transform = `translate(-50%, ${doorTranslateY}%)`;
 
-            requestAnimationFrame(animateBackground);
-        } else {
-            gradation.style.display = 'block';
-            setTimeout(() => {
-                gradation.style.opacity = 1;
-            }, 50);
-        }
-    }
-
-
-    startbtn.addEventListener('mouseenter', function () {
-        if (!isClicked) {
-            startbtn.style.background = '#08132f';
-            startbtn.style.color = 'white';
-            doorL.style.transition = "transform 0.5s";
-            doorL.style.transformOrigin = "left";
-            doorL.style.transform = "rotateY(70deg)";
-            doorR.style.transition = "transform 0.5s";
-            doorR.style.transformOrigin = "right";
-            doorR.style.transform = "rotateY(70deg)";
-        }
-    });
+//             requestAnimationFrame(animateBackground);
+//         } else {
+//             gradation.style.display = 'block';
+//             setTimeout(() => {
+//                 gradation.style.opacity = 1;
+//             }, 50);
+//         }
+//     }
 
 
-    startbtn.addEventListener('mouseout', function () {
-        if (!isClicked) {
-            startbtn.style.color = '#000';
-            startbtn.style.background = '#fff';
-            doorL.style.transform = "rotateY(0deg)";
-            doorR.style.transform = "rotateY(0deg)";
-        }
-    });
+//     startbtn.addEventListener('mouseenter', function () {
+//         if (!isClicked) {
+//             startbtn.style.background = '#08132f';
+//             startbtn.style.color = 'white';
+//             doorL.style.transition = "transform 0.5s";
+//             doorL.style.transformOrigin = "left";
+//             doorL.style.transform = "rotateY(70deg)";
+//             doorR.style.transition = "transform 0.5s";
+//             doorR.style.transformOrigin = "right";
+//             doorR.style.transform = "rotateY(70deg)";
+//         }
+//     });
 
-    startbtn.addEventListener('click', () => {
-        isClicked = true;
-        animateDoorOpen();
-        animateStartPageScale();
-    });
 
-    function animateDoorOpen() {
-        doorL.style.transition = 'transform 1s ease-in-out';
-        doorR.style.transition = 'transform 1s ease-in-out';
+//     startbtn.addEventListener('mouseout', function () {
+//         if (!isClicked) {
+//             startbtn.style.color = '#000';
+//             startbtn.style.background = '#fff';
+//             doorL.style.transform = "rotateY(0deg)";
+//             doorR.style.transform = "rotateY(0deg)";
+//         }
+//     });
 
-        doorL.style.transform = 'rotateY(70deg)';
-        doorR.style.transform = 'rotateY(70deg)';
-    }
+//     startbtn.addEventListener('click', () => {
+//         isClicked = true;
+//         animateDoorOpen();
+//         animateStartPageScale();
+//     });
 
-    function animateStartPageScale() {
-        let scaleValue = 1;
-        let bottomValue = 12;
-        let opacityValue = 1;
+//     function animateDoorOpen() {
+//         doorL.style.transition = 'transform 1s ease-in-out';
+//         doorR.style.transition = 'transform 1s ease-in-out';
 
-        function scaleUp() {
-            if (scaleValue < 2) {
-                scaleValue += 0.01;
-                bottomValue += (305 - 12) / ((4 - 1) / 0.02); 
+//         doorL.style.transform = 'rotateY(70deg)';
+//         doorR.style.transform = 'rotateY(70deg)';
+//     }
 
-                startpage.style.transform = `scale(${scaleValue})`;
-                startpage.style.bottom = `${bottomValue}px`;
+//     function animateStartPageScale() {
+//         let scaleValue = 1;
+//         let bottomValue = 12;
+//         let opacityValue = 1;
 
-                requestAnimationFrame(scaleUp);
-            } else {
-                fadeOutStartPage();
-            }
-        }
+//         function scaleUp() {
+//             if (scaleValue < 2) {
+//                 scaleValue += 0.01;
+//                 bottomValue += (305 - 12) / ((4 - 1) / 0.02); 
 
-        function fadeOutStartPage() {
-            function fade() {
-                if (opacityValue > 0) {
-                    opacityValue -= 0.02;
-                    startpage.style.opacity = opacityValue;
-                    requestAnimationFrame(fade);
-                } else {
-                    startpage.style.display = 'none';
-                }
-            }
-            fade();
-        }
+//                 startpage.style.transform = `scale(${scaleValue})`;
+//                 startpage.style.bottom = `${bottomValue}px`;
 
-        scaleUp();
-    }
-});
+//                 requestAnimationFrame(scaleUp);
+//             } else {
+//                 fadeOutStartPage();
+//             }
+//         }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const counter = ($counter, max) => {
-        let now = max;
+//         function fadeOutStartPage() {
+//             function fade() {
+//                 if (opacityValue > 0) {
+//                     opacityValue -= 0.02;
+//                     startpage.style.opacity = opacityValue;
+//                     requestAnimationFrame(fade);
+//                 } else {
+//                     startpage.style.display = 'none';
+//                 }
+//             }
+//             fade();
+//         }
+
+//         scaleUp();
+//     }
+// });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const counter = ($counter, max) => {
+//         let now = max;
       
-        const handle = setInterval(() => {
-          $counter.innerHTML = Math.ceil(max - now);
+//         const handle = setInterval(() => {
+//           $counter.innerHTML = Math.ceil(max - now);
         
-          // 목표수치에 도달하면 정지
-          if (now < 1) {
-            clearInterval(handle);
-          }
+//           // 목표수치에 도달하면 정지
+//           if (now < 1) {
+//             clearInterval(handle);
+//           }
           
-          // 증가되는 값이 계속하여 작아짐
-          const step = now / 25;
+//           // 증가되는 값이 계속하여 작아짐
+//           const step = now / 25;
           
-          // 값을 적용시키면서 다음 차례에 영향을 끼침
-          now -= step;
-        }, 50);
-      }
+//           // 값을 적용시키면서 다음 차례에 영향을 끼침
+//           now -= step;
+//         }, 50);
+//       }
       
-      window.onload = () => {
-        // 카운트를 적용시킬 요소
-        const $counter = document.querySelector(".loding-number");
+//       window.onload = () => {
+//         // 카운트를 적용시킬 요소
+//         const $counter = document.querySelector(".loding-number");
         
-        // 목표 수치
-        const max = 100;
+//         // 목표 수치
+//         const max = 100;
         
-        setTimeout(() => counter($counter, max), 2000);
-      }
-});
-
-// perspective-origin: 50% -100%;
-// transform-origin: bottom;
-// transform: rotateX(-120deg);
+//         setTimeout(() => counter($counter, max), 2000);
+//       }
+// });
