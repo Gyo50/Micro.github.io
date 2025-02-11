@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<!-- 
+
     <div class="Loding" style="background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
     z-index: 3000;display: flex;
     align-items: center;
@@ -43,22 +43,22 @@
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="130px" height="160px" style="position: absolute;
                 top: 75px;
                 left: 8px;">
-                    <defs>
-                        <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
-                            <path fill="#033f1a" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"/>
-                          </pattern>
-                        <mask id="a-mask">
-                            <path id="a" fill-rule="evenodd" stroke="rgb(0, 0, 0)" stroke-width="2.2px"
-                                stroke-linecap="butt" stroke-linejoin="miter" fill="white"
-                                d="M90.568,3.100 L94.899,3.100 C117.675,23.768 121.279,52.816 121.279,52.816 C130.053,125.725 104.349,142.009 104.349,142.009 C96.354,149.471 82.694,153.100 82.694,153.100 L43.715,153.100 C33.352,151.432 22.060,141.841 22.060,141.841 C-4.776,122.022 4.736,52.901 4.736,52.901 C12.395,16.098 31.903,3.100 31.903,3.100 L36.234,3.100 L90.568,3.100 Z" />
-                        </mask>
-                    </defs>
+                <defs>
+                    <mask id="a-mask">
+                        <path id="a" fill-rule="evenodd" stroke="rgb(0, 0, 0)" stroke-width="2.2px"
+                            stroke-linecap="butt" stroke-linejoin="miter" fill="white"
+                            d="M90.568,3.100 L94.899,3.100 C117.675,23.768 121.279,52.816 121.279,52.816 C130.053,125.725 104.349,142.009 104.349,142.009 C96.354,149.471 82.694,153.100 82.694,153.100 L43.715,153.100 C33.352,151.432 22.060,141.841 22.060,141.841 C-4.776,122.022 4.736,52.901 4.736,52.901 C12.395,16.098 31.903,3.100 31.903,3.100 L36.234,3.100 L90.568,3.100 Z" />
+                    </mask>
+                </defs>
                     <path fill-rule="evenodd" stroke="rgb(0, 0, 0)" stroke-width="2.2px" stroke-linecap="butt"
                         stroke-linejoin="miter" fill="none"
                         d="M90.568,3.100 L94.899,3.100 C117.675,23.768 121.279,52.816 121.279,52.816 C130.053,125.725 104.349,142.009 104.349,142.009 C96.354,149.471 82.694,153.100 82.694,153.100 L43.715,153.100 C33.352,151.432 22.060,141.841 22.060,141.841 C-4.776,122.022 4.736,52.901 4.736,52.901 C12.395,16.098 31.903,3.100 31.903,3.100 L36.234,3.100 L90.568,3.100 Z" />
-
-                    <rect class="water-fill" mask="url(#a-mask)" fill="url(#water)" stroke-width="2px"
-                        x="-400" y="-50" width="1600" height="400" />
+                       
+                            
+                    <!-- 물결 애니메이션을 위한 path :: 자바스크립트 564번째줄 참고 -->
+                    <path mask="url(#a-mask)" class="wave" fill="#033f1a" d=""/>
+                    <!-- 물결 stroke를 위한 path -->
+                    <path mask="url(#a-mask)" class="wave-stroke" fill="none" stroke="#000" stroke-width="2" d=""/>
                 </svg>
             </div>
         </div>
@@ -120,68 +120,64 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <main class="main-section">
         <!-------------------------------------------------- 팝업 창들 ------------------------------------->
-        <div id="popupBackground"></div>
-
-        <div id="intro">
-            <button id="closeintro"><svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <div id="popupBackground">
+            <button id="closeintro" class="popup-close">
+                <svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
-            <p class="intro-h1">diptyque</p>
-            <p class="intro-h2">paris</p>
-            <img src="/intro/introimg1.jpg" alt="">
-            <p class="intro-p1">1961년, 파리의 활기타고 생동감
-                넘치는 생 제르망가에서 탄생한</br>Diptyque는 창조자로서, 개인과 공간을 위한 유니크한 향수와</br>향기로운 바디 케어 제품 및 세련된 데코레이션 오브제를
-                선보입니다.</br>동시에 상상이 시작되는 후각적인 이야기를 들려줍니다.</p>
-            <div class="intro-flex">
-                <img src="/intro/introimg2.jpg" alt="">
-                <img src="/intro/introimg3.jpg" alt="">
-                <img src="/intro/introimg4.jpg" alt="">
+            <div id="intro">
+                <p class="intro-h1">diptyque</p>
+                <p class="intro-h2">paris</p>
+                <img src="/intro/introimg1.jpg" alt="">
+                <p class="intro-p1">1961년, 파리의 활기타고 생동감
+                    넘치는 생 제르망가에서 탄생한</br>Diptyque는 창조자로서, 개인과 공간을 위한 유니크한 향수와</br>향기로운 바디 케어 제품 및 세련된 데코레이션 오브제를
+                    선보입니다.</br>동시에 상상이 시작되는 후각적인 이야기를 들려줍니다.</p>
+                <div class="intro-flex">
+                    <img src="/intro/introimg2.jpg" alt="">
+                    <img src="/intro/introimg3.jpg" alt="">
+                    <img src="/intro/introimg4.jpg" alt="">
+                </div>
+                <p class="intro-p2">Diptyque는 꿈과 현실사이의
+                    균형을 유지하며, 향기와 삼화,</br>그리고 그래픽의 조화를 통해, 좋아하는 장소, 혹은 꿈에 그리던 장소,</br>행복했던 순간에 대한 기억, 함께 했던 여행 등의</br>오랜
+                    추억으로 가득 찬 소우주로 우리를 초대합니다.</p>
             </div>
-            <p class="intro-p2">Diptyque는 꿈과 현실사이의
-                균형을 유지하며, 향기와 삼화,</br>그리고 그래픽의 조화를 통해, 좋아하는 장소, 혹은 꿈에 그리던 장소,</br>행복했던 순간에 대한 기억, 함께 했던 여행 등의</br>오랜
-                추억으로 가득 찬 소우주로 우리를 초대합니다.</p>
-        </div>
-        <div id="history">
-            <button id="closehistory"><svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg></button>
-            <p class="his-h1">diptyque</p>
-            <p class="his-h2">paris</p>
-            <p class="his-h3">history</p>
-            <hr style="width: 100px; margin-bottom: 210px;" />
-            <p class="his-p1">딥 티크라는 브랜드 이름은 고대 그리스어인 딥티코스
-                'Diptykhos'라는 단어로부터 유래하였습니다.</br>딥티코스는 둘로 접을 수 있는 목판화를 뜻하는데</br>1961년 브랜드를 처음 창립했을 때 딥티크의 매장의 창문이 딥티코스와
-                비슷하였고,</br>이 단어를 프랑스어로 'diptyque'라고 표기하여 브랜드 명이 탄생했습니다.</p>
-            <img src="/history/history1.png" alt="">
-            <p class="his-p2">딥디크는 세 명의 친구들 '이브
-                쿠에슬랑','크리스트앙 고트로','데스몬드 녹스리트',가 만든 브랜드로</br>1961년 이들이 의기투합해 만든 파리의 작은 패브릭 부티크가 바로 딥티크의 시작이었습니다.</p>
-            <img src="/history/history2.png" alt="">
-            <p class="his-p3">고급 향수 브랜드로 잘 알려진 딥
-                티크의 시작은 패브릭 원단이었습니다.</br>당시 프랑스에서는 실크와 벨벳 소재가 유행이었지만 딥티크에서는 </br>면인 패브릭을 판매하였기 때문에 큰 성과를 거두지
-                못하였습니다.</br>패븍을 판매할 때 부티크 매장 인테리어를 위한 오브제를 같이 놔두었는데</br>패브릭보다 오브제를 사고 싶어 하는 사람들이 더 많이 모이기 시작하여</br>이를
-                계기로 딥디크는 사업 방향을 바꾸게 됩니다.</br>딥티크는 전 세계 장인들이 제작한 특이한 오브제와 장식품을 판매하기 시작했고,</br>이때 파리의 유명한 잡지들이 딥티크의 유니크한
-                제품들을 다루면서 딥티크라는 브랜드가 널리 알려지게 됩니다.</p>
-            <img src="./history/history3.png" alt="">
-            <p class="his-p4">수많은 상품 중 가장 인기가 많았던
-                제품은 포푸리였습니다.</br>포푸리는 발효시킨 항아리라는 뜻으로 꽃과 향이 좋은 식물, 향로들을 함께 첨가하여</br>용기 속에 넣어 숙성시켜 만든 실내의 공기를 정화시키기 위한
-                방향제의 일종입니다.</p>
-            <img src="/history/history4.png" alt="">
-            <p class="his-p5">포푸리가 잘 팔리는 것을 보고 창립자 세
-                명은 향초를 출시하기로 결정하여</br>이 시기에 딥티크는 오베삔느, 카넬르, 더 총 3가지의 향초를 처음으로 출시했습니다.</br>향초들은 고급스러우면서도 자연스러운 향으로 많은 인기를
-                얻었습니다.</br>그 후 딥티크는 혁신적이면서도 남녀공용의 유니섹스 향인 '로'라는 향수를 처음으로 출시했습니다.</p>
-            <p class="his-p6">'로'는 파리의 생제르망 거리의 작은 구멍가게였던 딥디크가</br>많은
-                사람들의 후각을 자극하는 향을 만드는 브랜드로 자리 잡게 해준 첫 향수입니다.</br>딥티크는 점차 향을 늘려 출시하였고</br>향수들이 많은 사랑을 받으면서 이때부터 향초 및 향수
-                사업에만 몰두하기 시작했습니다.</p>
-            <img src="/history/history5.png" alt="">
-            <p class="his-p7">인위적이지 않은 자연스러운 향이면서도
-                풍부하고 고급스러운</br>딥티크는 전 세계적으로 사랑받은 향수로 자리 잡았고,</br>딥티크는 현재도 끊임없이 연구하고 새로운 제품들을 선보이면서</br>독창적이면서도 유니크한 향을
-                선보이고 있습니다.</p>
+            <div id="history">
+                <p class="his-h1">diptyque</p>
+                <p class="his-h2">paris</p>
+                <p class="his-h3">history</p>
+                <hr style="width: 100px; margin-bottom: 210px;" />
+                <p class="his-p1">딥 티크라는 브랜드 이름은 고대 그리스어인 딥티코스
+                    'Diptykhos'라는 단어로부터 유래하였습니다.</br>딥티코스는 둘로 접을 수 있는 목판화를 뜻하는데</br>1961년 브랜드를 처음 창립했을 때 딥티크의 매장의 창문이 딥티코스와
+                    비슷하였고,</br>이 단어를 프랑스어로 'diptyque'라고 표기하여 브랜드 명이 탄생했습니다.</p>
+                <img src="/history/history1.png" alt="">
+                <p class="his-p2">딥디크는 세 명의 친구들 '이브
+                    쿠에슬랑','크리스트앙 고트로','데스몬드 녹스리트',가 만든 브랜드로</br>1961년 이들이 의기투합해 만든 파리의 작은 패브릭 부티크가 바로 딥티크의 시작이었습니다.</p>
+                <img src="/history/history2.png" alt="">
+                <p class="his-p3">고급 향수 브랜드로 잘 알려진 딥
+                    티크의 시작은 패브릭 원단이었습니다.</br>당시 프랑스에서는 실크와 벨벳 소재가 유행이었지만 딥티크에서는 </br>면인 패브릭을 판매하였기 때문에 큰 성과를 거두지
+                    못하였습니다.</br>패븍을 판매할 때 부티크 매장 인테리어를 위한 오브제를 같이 놔두었는데</br>패브릭보다 오브제를 사고 싶어 하는 사람들이 더 많이 모이기 시작하여</br>이를
+                    계기로 딥디크는 사업 방향을 바꾸게 됩니다.</br>딥티크는 전 세계 장인들이 제작한 특이한 오브제와 장식품을 판매하기 시작했고,</br>이때 파리의 유명한 잡지들이 딥티크의 유니크한
+                    제품들을 다루면서 딥티크라는 브랜드가 널리 알려지게 됩니다.</p>
+                <img src="./history/history3.png" alt="">
+                <p class="his-p4">수많은 상품 중 가장 인기가 많았던
+                    제품은 포푸리였습니다.</br>포푸리는 발효시킨 항아리라는 뜻으로 꽃과 향이 좋은 식물, 향로들을 함께 첨가하여</br>용기 속에 넣어 숙성시켜 만든 실내의 공기를 정화시키기 위한
+                    방향제의 일종입니다.</p>
+                <img src="/history/history4.png" alt="">
+                <p class="his-p5">포푸리가 잘 팔리는 것을 보고 창립자 세
+                    명은 향초를 출시하기로 결정하여</br>이 시기에 딥티크는 오베삔느, 카넬르, 더 총 3가지의 향초를 처음으로 출시했습니다.</br>향초들은 고급스러우면서도 자연스러운 향으로 많은 인기를
+                    얻었습니다.</br>그 후 딥티크는 혁신적이면서도 남녀공용의 유니섹스 향인 '로'라는 향수를 처음으로 출시했습니다.</p>
+                <p class="his-p6">'로'는 파리의 생제르망 거리의 작은 구멍가게였던 딥디크가</br>많은
+                    사람들의 후각을 자극하는 향을 만드는 브랜드로 자리 잡게 해준 첫 향수입니다.</br>딥티크는 점차 향을 늘려 출시하였고</br>향수들이 많은 사랑을 받으면서 이때부터 향초 및 향수
+                    사업에만 몰두하기 시작했습니다.</p>
+                <img src="/history/history5.png" alt="">
+                <p class="his-p7">인위적이지 않은 자연스러운 향이면서도
+                    풍부하고 고급스러운</br>딥티크는 전 세계적으로 사랑받은 향수로 자리 잡았고,</br>딥티크는 현재도 끊임없이 연구하고 새로운 제품들을 선보이면서</br>독창적이면서도 유니크한 향을
+                    선보이고 있습니다.</p>
+            </div>
         </div>
         <!-- down -->
         <div class="swiper mySwiper1 clickunder">
