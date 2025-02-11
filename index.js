@@ -157,8 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const intro = document.getElementById("intro");
   const history = document.getElementById("history");
   const popupBackground = document.getElementById("popupBackground");
-  const closeintro = document.getElementById("closeintro");
-  const closehistory = document.getElementById("closehistory");
+  const closepopup = document.querySelector(".popup-close");
   const lImg1 = document.querySelector(".L-img1");
   const rImg1 = document.querySelector(".R-img-fire");
 
@@ -171,11 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
     popupBackground.style.display = "block";
   });
 
-  closeintro.addEventListener("click", function () {
+  closepopup.addEventListener("click", function () {
     intro.style.display = "none";
-    popupBackground.style.display = "none";
-  });
-  closehistory.addEventListener("click", function () {
     history.style.display = "none";
     popupBackground.style.display = "none";
   });
@@ -185,9 +181,16 @@ document.addEventListener("DOMContentLoaded", function () {
     popupBackground.style.display = "none";
   });
 });
-/*----------------------------down------------------------*/
+
+
+
+/*----------------------------swiper------------------------*/
+
 document.addEventListener("DOMContentLoaded", function () {
+  // HTML 요소 가져오기
   const popupBackground = document.getElementById("popupBackground");
+  const element = document.querySelector('.openbox');
+  const openbox = document.querySelector('.openbox-f');
 
   // L-down 관련 요소
   const Ldown1 = document.querySelector(".L-down1");
@@ -196,10 +199,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const clickunder = document.querySelector(".clickunder");
   const underclose = document.getElementById("2floor-hover-L-under");
   const swiper1 = new Swiper(".mySwiper1", {
-    effect: "fade",
-    loop: true,
-    fadeEffect: { crossFade: true },
-    pagination: { el: ".swiper-pagination", clickable: true },
+      effect: "fade",
+      loop: true,
+      fadeEffect: { crossFade: true },
+      pagination: { el: ".swiper-pagination", clickable: true },
   });
 
   // L-up 관련 요소
@@ -208,10 +211,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const clickup = document.querySelector(".clickup");
   const underup = document.getElementById("2floor-hover-L-up");
   const swiper2 = new Swiper(".mySwiper2", {
-    effect: "fade",
-    loop: true,
-    fadeEffect: { crossFade: true },
-    pagination: { el: ".swiper-pagination", clickable: true },
+      effect: "fade",
+      loop: true,
+      fadeEffect: { crossFade: true },
+      pagination: { el: ".swiper-pagination", clickable: true },
   });
 
   // R-img 관련 요소
@@ -222,83 +225,127 @@ document.addEventListener("DOMContentLoaded", function () {
   const clickR = document.querySelector(".clickR");
   const underR = document.getElementById("2floor-hover-R");
   const swiper3 = new Swiper(".mySwiper3", {
-    effect: "fade",
-    loop: true,
-    fadeEffect: { crossFade: true },
-    pagination: { el: ".swiper-pagination", clickable: true },
+      effect: "fade",
+      loop: true,
+      fadeEffect: { crossFade: true },
+      pagination: { el: ".swiper-pagination", clickable: true },
   });
 
-  // **하나의 `showPopup` 함수로 통합 (해당 팝업 내부에서 요소 찾기)**
+  /** 🎬 보더 애니메이션 실행 후 `showPopup()` 호출 */
+  function animateBorder(callback) {
+      let progress = 0; // 애니메이션 진행 상태 (0~1)
+
+      function animate() {
+          if (progress < 1) {
+              progress += 0.005; // 증가 속도 조절
+
+              // 보더 크기 변화
+              const borderBottom = 468 - (168 * progress); // 468px → 300px
+              const borderSide = 20 * progress; // 0px → 20px
+              const topValue = 87.5 - (10 * progress); // 87.5% → 77.5%
+              const rotation = 180 + (180 * progress); // rotateX(180deg) → rotateX(360deg)
+
+              // 스타일 적용
+              element.style.borderBottomWidth = `${borderBottom}px`;
+              element.style.borderLeftWidth = `${borderSide}px`;
+              element.style.borderRightWidth = `${borderSide}px`;
+              element.style.top = `${topValue}%`;
+              element.style.transform = `translate(-50%, -50%) rotateX(${rotation}deg)`;
+
+              requestAnimationFrame(animate); // 애니메이션 지속
+          } else {
+              // 최종 값 보정
+              element.style.borderBottomWidth = `300px`;
+              element.style.borderLeftWidth = `20px`;
+              element.style.borderRightWidth = `20px`;
+              element.style.top = `77.5%`;
+              element.style.transform = `translate(-50%, -50%) rotateX(360deg)`;
+              element.style.display='none';
+              openbox.style.display='block';
+              // 애니메이션 종료 후 콜백 실행
+              if (typeof callback === "function") {
+                  callback();
+              }
+          }
+      }
+
+      animate();
+  }
+
+  /** 🎆 팝업 애니메이션 */
   function showPopup(index, clickElement, swiperInstance) {
-    clickElement.style.display = "block";
-    popupBackground.style.display = "block";
+      clickElement.style.display = "block";
+      popupBackground.style.display = "block";
+      element.style.display='block';
 
-    // 해당 팝업 내부에서 swiper 요소 찾기
-    const swiperBack = clickElement.querySelector(".swiper-back");
-    const swiperFront = clickElement.querySelector(".swiper-front");
-    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
+      const swiperBack = clickElement.querySelector(".swiper-back");
+      const swiperFront = clickElement.querySelector(".swiper-front");
+      const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
 
-    if (!swiperBack || !swiperFront || !swiperWrapper) {
-      console.error("swiper 요소를 찾을 수 없음:", clickElement);
-      return;
-    }
+      if (!swiperBack || !swiperFront || !swiperWrapper) {
+          console.error("swiper 요소를 찾을 수 없음:", clickElement);
+          return;
+      }
 
-    // 초기 숨김 설정
-    swiperBack.style.opacity = "0";
-    swiperFront.style.opacity = "0";
-    swiperWrapper.style.opacity = "0";
+      // 초기 숨김 설정
+      swiperBack.style.opacity = "0";
+      swiperFront.style.opacity = "0";
+      swiperWrapper.style.opacity = "0";
 
-    setTimeout(() => {
-      swiperBack.style.transition = "opacity 0.5s ease-in-out";
-      swiperBack.style.opacity = "1";
-    }, 100); // 0.1초 후 back 등장
+      setTimeout(() => {
+          swiperBack.style.transition = "opacity 0.5s ease-in-out";
+          swiperBack.style.opacity = "1";
+      }, 100); // 0.1초 후 back 등장
 
-    setTimeout(() => {
-      swiperFront.style.transition = "opacity 0.5s ease-in-out";
-      swiperFront.style.opacity = "1";
-    }, 600); // 0.6초 후 front 등장
+      setTimeout(() => {
+          swiperFront.style.transition = "opacity 0.5s ease-in-out";
+          swiperFront.style.opacity = "1";
+      }, 600); // 0.6초 후 front 등장
 
-    setTimeout(() => {
-      swiperWrapper.style.transition = "opacity 0.5s ease-in-out";
-      swiperWrapper.style.opacity = "1";
-      swiperInstance.slideTo(index);
-    }, 1100); // 1.1초 후 slide 등장
+      setTimeout(() => {
+          swiperWrapper.style.transition = "opacity 0.5s ease-in-out";
+          swiperWrapper.style.opacity = "1";
+          swiperInstance.slideTo(index);
+      }, 1100); // 1.1초 후 slide 등장
   }
 
+  /** ❌ 팝업 닫기 */
   function hidePopup(clickElement) {
-    clickElement.style.display = "none";
-    popupBackground.style.display = "none";
+      clickElement.style.display = "none";
+      popupBackground.style.display = "none";
 
-    const swiperBack = clickElement.querySelector(".swiper-back");
-    const swiperFront = clickElement.querySelector(".swiper-front");
-    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
+      const swiperBack = clickElement.querySelector(".swiper-back");
+      const swiperFront = clickElement.querySelector(".swiper-front");
+      const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
 
-    if (!swiperBack || !swiperFront || !swiperWrapper) {
-      console.error("swiper 요소를 찾을 수 없음:", clickElement);
-      return;
-    }
+      if (!swiperBack || !swiperFront || !swiperWrapper) {
+          console.error("swiper 요소를 찾을 수 없음:", clickElement);
+          return;
+      }
 
-    swiperBack.style.opacity = "0";
-    swiperFront.style.opacity = "0";
-    swiperWrapper.style.opacity = "0";
+      swiperBack.style.opacity = "0";
+      swiperFront.style.opacity = "0";
+      swiperWrapper.style.opacity = "0";
   }
 
-  Ldown1.addEventListener("click", () => showPopup(0, clickunder, swiper1));
-  Ldown2.addEventListener("click", () => showPopup(1, clickunder, swiper1));
-  Ldown3.addEventListener("click", () => showPopup(2, clickunder, swiper1));
+  /** 🔘 클릭 이벤트 설정 */
+  Ldown1.addEventListener("click", () => animateBorder(() => showPopup(0, clickunder, swiper1)));
+  Ldown2.addEventListener("click", () => animateBorder(() => showPopup(1, clickunder, swiper1)));
+  Ldown3.addEventListener("click", () => animateBorder(() => showPopup(2, clickunder, swiper1)));
 
-  Lup1.addEventListener("click", () => showPopup(0, clickup, swiper2));
-  Lup2.addEventListener("click", () => showPopup(1, clickup, swiper2));
+  Lup1.addEventListener("click", () => animateBorder(() => showPopup(0, clickup, swiper2)));
+  Lup2.addEventListener("click", () => animateBorder(() => showPopup(1, clickup, swiper2)));
 
-  Rimg1.addEventListener("click", () => showPopup(0, clickR, swiper3));
-  Rimg2.addEventListener("click", () => showPopup(1, clickR, swiper3));
-  Rimg3.addEventListener("click", () => showPopup(2, clickR, swiper3));
-  Rimg4.addEventListener("click", () => showPopup(3, clickR, swiper3));
+  Rimg1.addEventListener("click", () => animateBorder(() => showPopup(0, clickR, swiper3)));
+  Rimg2.addEventListener("click", () => animateBorder(() => showPopup(1, clickR, swiper3)));
+  Rimg3.addEventListener("click", () => animateBorder(() => showPopup(2, clickR, swiper3)));
+  Rimg4.addEventListener("click", () => animateBorder(() => showPopup(3, clickR, swiper3)));
 
+  /** 🆑 팝업 닫기 이벤트 */
   popupBackground.addEventListener("click", () => {
-    hidePopup(clickunder);
-    hidePopup(clickup);
-    hidePopup(clickR);
+      hidePopup(clickunder);
+      hidePopup(clickup);
+      hidePopup(clickR);
   });
 
   underclose.addEventListener("click", () => hidePopup(clickunder));
@@ -310,6 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const Lclick = document.querySelector(".L-click");
   const Rclick = document.querySelector(".R-click");
   const popupBackground = document.getElementById("popupBackground");
+  const popupclose = document.querySelector('.popup-close');
   const floorback1 = document.getElementById("floor3-pop-back1");
   const floorback2 = document.getElementById("floor3-pop-back2");
   const street = document.querySelector(".street");
@@ -320,11 +368,13 @@ document.addEventListener("DOMContentLoaded", function () {
   Lclick.addEventListener("click", function () {
     floorback1.style.display = "block";
     popupBackground.style.display = "block";
+    popupclose.style.display = 'none';
     popupBackground.style.pointerEvents = "none";
   });
   Rclick.addEventListener("click", function () {
     floorback2.style.display = "block";
     popupBackground.style.display = "block";
+    popupclose.style.display = 'none';
     popupBackground.style.pointerEvents = "none";
   });
 
@@ -403,197 +453,214 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* 처음 화면 */
-// document.addEventListener("DOMContentLoaded", () => {
-//     const startimg = document.getElementById("startimg");
-//     const gradation = document.querySelector('.gradaition');
-//     const startbtn = document.querySelector('.startbtn');
-//     const startpage = document.querySelector('.startpage');
-//     const door = document.querySelector('.door');
-//     const doorL = document.querySelector('.door-L');
-//     const doorR = document.querySelector('.door-R');
-//     const waterFill = document.querySelector('.water-fill');
-//     const Lodiong = document.querySelector('.Loding');
 
-//     let isClicked = false;
+document.addEventListener("DOMContentLoaded", () => {
 
-//     waterFill.addEventListener('animationend', () => {
-//         Lodiong.style.display = 'none';
-//         startpage.style.display = 'block';
-//         animateBackground();
-//     });
-
-//     let positionY = 0;
-//     let velocity = 0.01; // 초기 속도
-//     const maxVelocity = 6; // 최대 속도
-//     const acceleration = 0.12; // 가속도
-//     const deceleration = 0.99; // 감속 계수
-//     const maxPositionY = 595;
-
-//     gradation.style.display = 'none';
-//     gradation.style.opacity = 0;
-//     gradation.style.transition = 'opacity 1s';
-//     startpage.style.position = 'absolute';
-
-//     function animateBackground() {
-//         if (positionY < maxPositionY) {
-//             if (positionY < maxPositionY / 3) {
-//                 velocity = Math.min(velocity + acceleration, maxVelocity);
-//             } else {
-//                 velocity *= deceleration;
-//             }
-//             positionY += velocity;
-
-//             let translateYValue = -31 + ((-69 + 31.5) * (positionY / maxPositionY));
-//             let doorTranslateY = 100 - ((100 + 20) * (positionY / maxPositionY));
-
-//             startimg.style.transform = `translate(-50%, ${translateYValue}%)`;
-//             door.style.transform = `translate(-50%, ${doorTranslateY}%)`;
-
-//             requestAnimationFrame(animateBackground);
-//         } else {
-//             gradation.style.display = 'block';
-//             setTimeout(() => {
-//                 gradation.style.opacity = 1;
-//             }, 50);
-//         }
-//     }
-
-//     startbtn.addEventListener('mouseenter', function () {
-//         if (!isClicked) {
-//             startbtn.style.background = '#08132f';
-//             startbtn.style.color = 'white';
-//             doorL.style.transition = "transform 0.5s";
-//             doorL.style.transformOrigin = "left";
-//             doorL.style.transform = "rotateY(70deg)";
-//             doorR.style.transition = "transform 0.5s";
-//             doorR.style.transformOrigin = "right";
-//             doorR.style.transform = "rotateY(70deg)";
-//         }
-//     });
-
-//     startbtn.addEventListener('mouseout', function () {
-//         if (!isClicked) {
-//             startbtn.style.color = '#000';
-//             startbtn.style.background = '#fff';
-//             doorL.style.transform = "rotateY(0deg)";
-//             doorR.style.transform = "rotateY(0deg)";
-//         }
-//     });
-
-//     startbtn.addEventListener('click', () => {
-//         isClicked = true;
-//         animateDoorOpen();
-//         animateStartPageScale();
-//     });
-
-//     function animateDoorOpen() {
-//         doorL.style.transition = 'transform 1s ease-in-out';
-//         doorR.style.transition = 'transform 1s ease-in-out';
-
-//         doorL.style.transform = 'rotateY(70deg)';
-//         doorR.style.transform = 'rotateY(70deg)';
-//     }
-
-//     function animateStartPageScale() {
-//         let scaleValue = 1;
-//         let bottomValue = 12;
-//         let opacityValue = 1;
-
-//         function scaleUp() {
-//             if (scaleValue < 2) {
-//                 scaleValue += 0.01;
-//                 bottomValue += (305 - 12) / ((4 - 1) / 0.02);
-
-//                 startpage.style.transform = `scale(${scaleValue})`;
-//                 startpage.style.bottom = `${bottomValue}px`;
-
-//                 requestAnimationFrame(scaleUp);
-//             } else {
-//                 fadeOutStartPage();
-//             }
-//         }
-
-//         function fadeOutStartPage() {
-//             function fade() {
-//                 if (opacityValue > 0) {
-//                     opacityValue -= 0.02;
-//                     startpage.style.opacity = opacityValue;
-//                     requestAnimationFrame(fade);
-//                 } else {
-//                     startpage.style.display = 'none';
-//                 }
-//             }
-//             fade();
-//         }
-
-//         scaleUp();
-//     }
-// });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     const counter = ($counter, max) => {
-//         let now = max;
-
-//         const handle = setInterval(() => {
-//           $counter.innerHTML = Math.ceil(max - now);
-
-//           // 목표수치에 도달하면 정지
-//           if (now < 1) {
-//             clearInterval(handle);
-//           }
-
-//           // 증가되는 값이 계속하여 작아짐
-//           const step = now / 25;
-
-//           // 값을 적용시키면서 다음 차례에 영향을 끼침
-//           now -= step;
-//         }, 50);
-//       }
-
-//       window.onload = () => {
-//         // 카운트를 적용시킬 요소
-//         const $counter = document.querySelector(".loding-number");
-
-//         // 목표 수치
-//         const max = 100;
-
-//         setTimeout(() => counter($counter, max), 2000);
-//       }
-// });
-
-function createWave() {
   const waveElement = document.querySelector(".wave");
   const waveStrokeElement = document.querySelector(".wave-stroke");
-  let phase = 0;
+  const startimg = document.getElementById("startimg");
+  const gradation = document.querySelector('.gradaition');
+  const startbtn = document.querySelector('.startbtn');
+  const startpage = document.querySelector('.startpage');
+  const door = document.querySelector('.door');
+  const doorL = document.querySelector('.door-L');
+  const doorR = document.querySelector('.door-R');
+  const Lodiong = document.querySelector('.Loding');
 
-  function updateWave() {
-    const width = 130;
-    const height = 160;
-    const amplitude = 10;
-    const frequency = 0.05;
+ 
+  let isClicked = false;
+  let positionY = 0;
+  let velocity = 0.01; // 초기 속도
+  const maxVelocity = 6; // 최대 속도
+  const acceleration = 0.12; // 가속도
+  const deceleration = 0.99; // 감속 계수
+  const maxPositionY = 595;
 
-    let path = `M 0 ${height}`;
-    let y;
 
-    // 물결 path 생성
-    for (let x = 0; x <= width; x++) {
-      y = height - 50 + Math.sin(x * frequency + phase) * amplitude;
-      path += ` L ${x} ${y}`;
-    }
+  gradation.style.display = 'none';
+  gradation.style.opacity = 0;
+  gradation.style.transition = 'opacity 1s';
+  startpage.style.position = 'absolute';
 
-    // path 닫기
-    path += ` L ${width} ${height} L 0 ${height}`;
+ 
+  function createWave() {
+      let phase = 0;
+      let hei = 0;
 
-    // path 업데이트
-    waveElement.setAttribute("d", path);
-    waveStrokeElement.setAttribute("d", path);
+      function updateWave() {
+          const width = 130;
+          const height = 160;
+          const amplitude = 10;
+          const frequency = 0.05;
 
-    // 위상 업데이트
-    phase += 0.1;
-    requestAnimationFrame(updateWave);
+          let path = `M 0 ${height}`;
+          let y;
+
+          
+          for (let x = 0; x <= width; x++) {
+              y = height - hei + Math.sin(x * frequency + phase) * amplitude;
+              path += ` L ${x} ${y}`;
+          }
+
+          
+          path += ` L ${width} ${height} L 0 ${height}`;
+
+         
+          waveElement.setAttribute("d", path);
+          waveStrokeElement.setAttribute("d", path);
+
+         
+          phase += 0.1;
+
+          
+          if (hei < 170) {
+              hei += 0.49;
+              requestAnimationFrame(updateWave);
+          } else {
+              
+              Lodiong.style.display = 'none'; 
+              startpage.style.display = 'block'; 
+              animateBackground(); 
+          }
+      }
+
+      updateWave();
   }
 
-  updateWave();
-}
+
+  function animateBackground() {
+    let startimgBottom = -61;
+    let doorBottom = -49;
+
+    function animate() {
+        if (startimgBottom < 0 || doorBottom < 12) {
+            if (startimgBottom < 0) startimgBottom += 0.5;
+            if (doorBottom < 12) doorBottom += 0.5;
+
+
+            startimg.style.bottom = `${startimgBottom}%`;
+            door.style.bottom = `${doorBottom}%`;
+
+            requestAnimationFrame(animate);
+        } else {
+            gradation.style.display = 'block';
+            setTimeout(() => {
+                gradation.style.opacity = 1;
+            }, 50);
+        }
+    }
+
+    animate();
+  }
+
+
+  startbtn.addEventListener('mouseenter', function () {
+      if (!isClicked) {
+          startbtn.style.background = '#08132f';
+          startbtn.style.color = 'white';
+          doorL.style.transition = "transform 0.5s";
+          doorL.style.transformOrigin = "left";
+          doorL.style.transform = "rotateY(70deg)";
+          doorR.style.transition = "transform 0.5s";
+          doorR.style.transformOrigin = "right";
+          doorR.style.transform = "rotateY(70deg)";
+      }
+  });
+
+  startbtn.addEventListener('mouseout', function () {
+      if (!isClicked) {
+          startbtn.style.color = '#000';
+          startbtn.style.background = '#fff';
+          doorL.style.transform = "rotateY(0deg)";
+          doorR.style.transform = "rotateY(0deg)";
+      }
+  });
+
+
+  startbtn.addEventListener('click', () => {
+      isClicked = true;
+      animateDoorOpen();
+      animateStartPageScale();
+  });
+
+
+  function animateDoorOpen() {
+      doorL.style.transition = 'transform 1s ease-in-out';
+      doorR.style.transition = 'transform 1s ease-in-out';
+
+      doorL.style.transform = 'rotateY(70deg)';
+      doorR.style.transform = 'rotateY(70deg)';
+  }
+
+
+  function animateStartPageScale() {
+      let scaleValue = 1;
+      let bottomValue = 12;
+      let opacityValue = 1;
+
+      function scaleUp() {
+          if (scaleValue < 2) {
+              scaleValue += 0.01;
+              bottomValue += (305 - 12) / ((4 - 1) / 0.02);
+
+              startpage.style.transform = `scale(${scaleValue})`;
+              startpage.style.bottom = `${bottomValue}px`;
+
+              requestAnimationFrame(scaleUp);
+          } else {
+              fadeOutStartPage();
+          }
+      }
+
+      function fadeOutStartPage() {
+          function fade() {
+              if (opacityValue > 0) {
+                  opacityValue -= 0.02;
+                  startpage.style.opacity = opacityValue;
+                  requestAnimationFrame(fade);
+              } else {
+                  startpage.style.display = 'none';
+              }
+          }
+          fade();
+      }
+
+      scaleUp();
+  }
+  createWave();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const counter = ($counter, max) => {
+        let now = max;
+
+        const handle = setInterval(() => {
+          $counter.innerHTML = Math.ceil(max - now);
+
+          // 목표수치에 도달하면 정지
+          if (now < 1) {
+            clearInterval(handle);
+          }
+
+          // 증가되는 값이 계속하여 작아짐
+          const step = now / 18;
+
+          // 값을 적용시키면서 다음 차례에 영향을 끼침
+          now -= step;
+        }, 60);
+      }
+
+      window.onload = () => {
+        // 카운트를 적용시킬 요소
+        const $counter = document.querySelector(".loding-number");
+
+        // 목표 수치
+        const max = 100;
+
+        setTimeout(() => counter($counter, max), 1000);
+      }
+});
+
 
 window.addEventListener("load", createWave);

@@ -73,8 +73,8 @@
             <img id="startimg" src="/start/start.jpg" style="
                 position: absolute;
                 left: 50%;
-                top: 50%;
-                transform: translate(-50%, -31%);
+                bottom: -61%;
+                transform: translate(-50%);
                 width: 2120px;
                 height: 1580px;
                 min-width: 2120px;
@@ -83,7 +83,7 @@
                 display: flex;
                 position: absolute;
                 left:50%;
-                bottom: 0%;
+                bottom: -49%;
                 z-index: 2002;
                 width: 326px;
                 height: 462px;
@@ -180,24 +180,38 @@
             </div>
         </div>
         <!-- down -->
+        <div class="openbox" style="    width: 350px;
+        border-bottom: 468px solid #303030;
+        border-left: 0px solid transparent;
+        border-right: 0px solid transparent;
+        position: absolute;
+        top: 87.5%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(180deg);
+        opacity: 1;
+        transform-origin: top;
+        display: none;">
+        
+        <div class="circle" style="width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 238px;
+        left: 125px;
+        background: #303030;
+        border-radius: 100%;">
+        </div>
+</div>
         <div class="swiper mySwiper1 clickunder">
-            <div style="    width: 350px;
-            border-bottom: 300px solid gray;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            position: absolute;
-            z-index: 10;
-            top: 77.5%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotateX(0deg);
-            opacity: 0.5;">
-            <div class="circle" style="width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 238px;
-            left: 125px;
-            background: red;
-            border-radius: 100%;"></div></div>
+            <div class="openbox-f" style="width: 350px; border-bottom: 300px solid rgb(48, 48, 48); border-left: 20px solid transparent; border-right: 20px solid transparent; position: absolute; top: 77.5%; left: 50%; transform: translate(-50%, -50%) rotateX(360deg); opacity: 1; transform-origin: center top; display: block;">
+                <div class="circle" style="width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 238px;
+                left: 125px;
+                background: #303030;
+                border-radius: 100%;">
+                </div>
+      </div>
             <img id="2floor-hover-L-under" style="width: 95px;
             height: 95px;
             position: absolute;
@@ -280,6 +294,26 @@
 
         <!-- up -->
         <div class="swiper mySwiper2 clickup">
+            <div class="openbox" style="    width: 350px;
+            border-bottom: 468px solid #303030;
+            border-left: 0px solid transparent;
+            border-right: 0px solid transparent;
+            position: absolute;
+            top: 87.5%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(180deg);
+            opacity: 1;
+            transform-origin: top;">
+            
+            <div class="circle" style="width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 238px;
+            left: 125px;
+            background: #303030;
+            border-radius: 100%;">
+            </div>
+  </div>
             <img id="2floor-hover-L-up" style="width: 95px;
             height: 95px;
             position: absolute;
@@ -342,6 +376,26 @@
 
         <!-- Right -->
         <div class="swiper mySwiper3 clickR">
+            <div class="openbox" style="    width: 350px;
+            border-bottom: 468px solid #303030;
+            border-left: 0px solid transparent;
+            border-right: 0px solid transparent;
+            position: absolute;
+            top: 87.5%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(180deg);
+            opacity: 1;
+            transform-origin: top;">
+            
+            <div class="circle" style="width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 238px;
+            left: 125px;
+            background: #303030;
+            border-radius: 100%;">
+            </div>
+  </div>
             <img id="2floor-hover-R" style="width: 95px;
             height: 95px;
             position: absolute;
@@ -444,62 +498,75 @@
         <!-- 3층 -->
         <div id="floor3-pop-back1" style="    
         display: none;
-        width: 1100px;
-        height: 700px;
+        width: 100%;
+        height: 100%;
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1000;">
-            <img id="floor3-close1" style="
-            width: 90px;
-            height: 90px;
+            <div class="close-div" style="width: 1100px;
+            height: 620px;
             position: absolute;
-            top: -4px;
-            right: 5px;
-            cursor: pointer;
-            z-index: 1010;" src="/img/close.png" alt="">
-            <div class="street" style="width: 1000px;
-            height: 615px;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 80px;
-            backdrop-filter: blur(50px);">
-                <img style="border-radius: 40px 0 0 40px;" src="/3floor/hover/LABOUTIQUE.png" alt="">
-                <div style="    position: absolute;
-                top: 100px;
-                right: 60px;">
-                    <p style="color: #f5d996; font-size: 40px; margin-bottom: 15px;">LA BOUTIQUE</p>
-                    <p style="color: #ffff; font-size: 24px; margin-bottom: 45px; line-height: 1.2;">딥디크 가로수길<br />플래그십
-                        스토어</p>
-                    <p style="color: #c9d0c8; font-size: 18px; margin-bottom: 72px; line-height: 1.2;">마치 파리의 어느
-                        멋진<br />아파트의 아늑하고 세련된<br />분위기로 여러분을 초대합니다.<br />부티크 만의 익스클루시브 퍼품,<br />장식 소품, 그리고
-                        서비스까지<br />경험해 보세요.</p>
-                    <p style="color: #3dc747; font-size: 18px; margin-bottom: 72px; line-height: 1.2;">MON-SON 11AM -
-                        9AM<br />서울시 강남구 가로수길 15<br />02-3446-7494~5</p>
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+                <img id="floor3-close1" style="
+                width: 90px;
+                height: 90px;
+                position: absolute;
+                top: -42px;
+                right: 5px;
+                cursor: pointer;
+                z-index: 1010;" src="/img/close.png" alt="">
+                <div class="street" style="width: 1000px;
+                height: 615px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 80px;
+                backdrop-filter: blur(50px);">
+                    <img style="border-radius: 40px 0 0 40px;" src="/3floor/hover/LABOUTIQUE.png" alt="">
+                    <div style="    position: absolute;
+                    top: 100px;
+                    right: 60px;">
+                        <p style="color: #f5d996; font-size: 40px; margin-bottom: 15px;">LA BOUTIQUE</p>
+                        <p style="color: #ffff; font-size: 24px; margin-bottom: 45px; line-height: 1.2;">딥디크 가로수길<br />플래그십
+                            스토어</p>
+                        <p style="color: #c9d0c8; font-size: 18px; margin-bottom: 72px; line-height: 1.2;">마치 파리의 어느
+                            멋진<br />아파트의 아늑하고 세련된<br />분위기로 여러분을 초대합니다.<br />부티크 만의 익스클루시브 퍼품,<br />장식 소품, 그리고
+                            서비스까지<br />경험해 보세요.</p>
+                        <p style="color: #3dc747; font-size: 18px; margin-bottom: 72px; line-height: 1.2;">MON-SON 11AM -
+                            9AM<br />서울시 강남구 가로수길 15<br />02-3446-7494~5</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="floor3-pop-back2" style="    
         display: none;
-        width: 1100px;
-        height: 700px;
+        width: 100%;
+        height: 100%;
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1000;">
+        <div class="close-div" style="width: 1100px;
+        height: 620px;
+        position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);">
             <img id="floor3-close2" style="
             width: 90px;
             height: 90px;
             position: absolute;
-            top: -4px;
+            top: -42px;
             right: 5px;
             cursor: pointer;
             z-index: 1010;" src="/img/close.png" alt="">
@@ -526,6 +593,8 @@
                         9AM<br />서울시 성동구 연무장길 20-1<br />02-297-6129</p>
                 </div>
             </div>
+
+        </div>
         </div>
         <div class="floor-3 section ">
             <div class="floor3 ">
