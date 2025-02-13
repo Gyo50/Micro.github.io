@@ -888,7 +888,7 @@ body {
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: var(--swiper-pagination-bottom, 15px);
+  bottom: var(--swiper-pagination-bottom, 21px);
 }
 
 .swiper-pagination {
