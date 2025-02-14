@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function animateBorder(callback, clickElement) {
     let progress = 0;
-    swiper.style.display = "block";
+    // swiper[0].style.display = "block"; //
     transOpenbox.style.display = "block";
     popupBackground.style.display = "block";
     popclose.style.display = "none";
@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function animate() {
       if (progress < 1) {
-        progress += 0.005;
+        progress += 0.01;
 
         const borderBottom = 468 - 168 * progress;
         const borderSide = 20 * progress;

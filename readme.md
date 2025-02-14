@@ -13,4 +13,6 @@ door.style.bottom = `${doorBottom}px`;
 
 ## 2. swiper해결
 
+document.querySelectorAll 이기 때문에 배열로 가져와짐
+
 ## 3. style .css로 옮기기
