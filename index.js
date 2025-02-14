@@ -191,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupBackground = document.getElementById("popupBackground");
   const popclose = document.querySelector('.popup-close')
   const transOpenbox = document.querySelector('.trans-openbox');
-  const swiper = document.querySelectorAll('.swiper')
 
   // L-down 관련 요소
   const Ldown1 = document.querySelector(".L-down1");
@@ -238,28 +237,28 @@ document.addEventListener("DOMContentLoaded", function () {
     popupBackground.style.display = "block";
     popclose.style.display = "none";
 
+    const swiper = clickElement.querySelector(".swiper"); // 클릭된 요소 내의 swiper 찾기
     const swiperBack = clickElement.querySelector(".swiper-back");
     const swiperFront = clickElement.querySelector(".swiper-front");
     const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
 
-    
     clickElement.style.opacity = "0";  
     clickElement.style.display = "none";
 
+    if (swiper) swiper.style.display = "block"; // ✅ 클릭한 swiper만 보이게 설정
     if (swiperBack) swiperBack.style.opacity = "0"; 
     if (swiperFront) swiperFront.style.opacity = "0";
     if (swiperWrapper) swiperWrapper.style.opacity = "0";
 
     function animate() {
         if (progress < 1) {
-          progress += 0.005;
-          swiper.style.display = "block";
-          const borderBottom = 468 - (168 * progress);
-          const borderSide = 20 * progress;
-          const topValue = 83.5 - (10 * progress);
-          const rotation = 180 + (180 * progress);
-          
-          swiperBack.style.opacity = "1"; 
+            progress += 0.005;
+            const borderBottom = 468 - (168 * progress);
+            const borderSide = 20 * progress;
+            const topValue = 83.5 - (10 * progress);
+            const rotation = 180 + (180 * progress);
+            
+            if (swiperBack) swiperBack.style.opacity = "1"; 
             transOpenbox.style.borderBottomWidth = `${borderBottom}px`;
             transOpenbox.style.borderLeftWidth = `${borderSide}px`;
             transOpenbox.style.borderRightWidth = `${borderSide}px`;
@@ -647,11 +646,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           // 증가되는 값이 계속하여 작아짐
-          const step = now / 18;
+          const step = now / 45;
 
           // 값을 적용시키면서 다음 차례에 영향을 끼침
           now -= step;
-        }, 60);
+        }, 10);
       }
 
       window.onload = () => {
