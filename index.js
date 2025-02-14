@@ -646,11 +646,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           // 증가되는 값이 계속하여 작아짐
-          const step = now / 45;
+          const step = now / 15;
 
           // 값을 적용시키면서 다음 차례에 영향을 끼침
           now -= step;
-        }, 10);
+        }, 30);
       }
 
       window.onload = () => {
@@ -660,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 목표 수치
         const max = 100;
 
-        setTimeout(() => counter($counter, max), 1000);
+        setTimeout(() => counter($counter, max), 500);
       }
 });
 
