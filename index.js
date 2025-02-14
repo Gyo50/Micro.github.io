@@ -234,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function animateBorder(callback, clickElement) {
     let progress = 0;
-    swiper.style.display="block";
     transOpenbox.style.display = "block"; 
     popupBackground.style.display = "block";
     popclose.style.display = "none";
