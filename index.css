@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
+
 html,
 body {
   height: 100%;
@@ -732,12 +734,16 @@ body {
   height: 140px;
   margin-bottom: 30px;
   padding-top: 40px;
+  font-family: "Cormorant", serif;
+  font-weight: 900;
 }
 
 .intro-h2 {
   height: 60px;
   font-size: 51px;
   margin-bottom: 210px;
+  font-family: "Cormorant", serif;
+  font-weight: 900;
 }
 
 .intro-p1 {
@@ -791,16 +797,22 @@ body {
   height: 140px;
   margin-bottom: 30px;
   margin-top: 40px;
+  font-family: "Cormorant", serif;
+  font-weight: 900;
 }
 
 .his-h2 {
   height: 60px;
   font-size: 51px;
   margin-bottom: 38px;
+  font-family: "Cormorant", serif;
+  font-weight: 900;
 }
 
 .his-h3 {
   font-size: 34px;
+  font-family: "Cormorant", serif;
+  font-weight: 900;
 }
 
 .his-p1 {
@@ -912,6 +924,11 @@ body {
 /* ------------------------Loding------------------------- */
 .water-fill {
   animation: wave 1.5s infinite linear, fill-up 7s ease-out alternate 1;
+}
+
+.loding-number {
+  font-family: "Cormorant", serif;
+  font-weight: 900;
 }
 
 @keyframes wave {

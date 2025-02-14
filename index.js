@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function animate() {
         if (progress < 1) {
           progress += 0.005;
-          
+          swiper.style.display = "block";
           const borderBottom = 468 - (168 * progress);
           const borderSide = 20 * progress;
           const topValue = 83.5 - (10 * progress);
