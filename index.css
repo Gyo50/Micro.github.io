@@ -45,7 +45,11 @@ body {
   position: relative;
 }
 
-/*----------------------------------------------------*/
+.floor3 .down2{
+  background: url('img/arr_bottom.png'); width: 74px; height: 69px; cursor: pointer;
+}
+
+/*----------------------ligth------------------------------*/
 .floor3 .L-click {
   text-align: center;
   position: absolute;
@@ -254,6 +258,10 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+.floor2 .up-down .up2{background: url('img/arr_top.png'); width: 74px; height: 70px; cursor: pointer;}
+.floor2 .up-down .down1{background: url('img/arr_bottom.png'); width: 74px; height: 69px; cursor: pointer;}
+
 
 .floor2 .L-up1 {
   position: absolute;
@@ -481,6 +489,10 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.floor1 .up-down .up1{
+  background: url('img/arr_top.png'); width: 74px; height: 70px; cursor: pointer;
 }
 
 .L-box {
@@ -780,6 +792,7 @@ body {
   z-index: 1000;
   overflow-y: auto;
   text-align: center;
+  pointer-events: none;
 }
 
 #closehistory {
@@ -921,6 +934,232 @@ body {
   transform: none !important; /* Swiper의 transform 속성 무시 */
 }
 
+.trans-openbox{
+  width: 350px;
+        border-bottom: 468px solid #303030;
+        border-left: 0px solid transparent;
+        border-right: 0px solid transparent;
+        position: absolute;
+        top: 83.5%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(180deg);
+        transform-origin: top;
+        display: none;
+        z-index: 9999;
+}
+.circle{
+  width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 238px;
+            left: 125px;
+            background: #303030;
+            border-radius: 100%;
+}
+
+.hover-close{
+  width: 95px;
+                height: 95px;
+                position: absolute;
+                top: 0;
+                right: 25px;
+                cursor: pointer;
+                z-index: 10;
+}
+
+/*-----------mySwiper1-----------*/
+
+.mySwiper1 .swiper-back img{
+  position: absolute;
+                    top: 60px;
+                    left: 60px;
+}
+
+.mySwiper1 .swiper-front img{
+  z-index: 3;     position: absolute;
+                    top: 131px;
+                    right: 65px;
+}
+
+.slide1-L{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 125px;
+                            left: 140px;
+                            z-index: 2;
+}
+
+.slide2-L{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 128px;
+                            left: 140px;
+}
+
+.slide3-L{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 135px;
+                            left: 140px;
+}
+
+.under1-div{
+  position: absolute; bottom: 80px;
+}
+
+.under2-div{
+  position: absolute; bottom: 80px;
+}
+
+.under3-div{
+  position: absolute; bottom: 75px;
+}
+
+.swiper-Uname{
+  color: #f5d996; font-size: 48px; margin-bottom: 20px;font-family: 'Cormorant', serif;
+                        font-weight: 900;
+}
+
+.swiper-Uintro{
+  color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;
+}
+
+.swiper-Uhis{
+  color: #989898; font-size: 14px; margin-top: 20px; line-height: 1.3;
+}
+.swiper-Uhis2{
+  color: #989898; font-size: 13px; margin-top: 20px; line-height: 1.3;
+}
+
+/*--------------myswiper2----------*/
+
+.mySwiper2 .swiper-back .img{
+  position: absolute;
+                    top: 160px;
+                    right: 65px;
+}
+
+.mySwiper2 .swiper-front img{
+  z-index: 3;    position: absolute;
+                    top: 395px;
+                    left: 60px;
+}
+
+.silde-U1{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 145px;
+                            left: 140px;
+                            z-index: 2;
+}
+
+.silde-U2{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 140px;
+                            left: 140px;
+}
+
+.up1-div{
+  position: absolute; bottom: 80px;
+}
+
+.up2-div{
+  position: absolute; bottom: 65px;
+}
+
+.swiper-Pname{
+  color: #f5d996; font-size: 48px; margin-bottom: 20px;font-family: 'Cormorant', serif;
+                        font-weight: 900;
+}
+
+.swiper-Pname2{
+  color: #f5d996; font-size: 48px; margin-bottom: 20px; line-height: 1.2;font-family: 'Cormorant', serif;
+                        font-weight: 900;
+}
+
+.swiper-Pintro{
+  color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;
+}
+
+.swiper-Phis{
+  color: #989898; font-size: 14px; margin-top: 20px; line-height: 1.3;
+}
+
+/*--------------------myswiper3---------------*/
+
+.mySwiper3 .swiper-back img{
+  position: absolute;
+                    top: 210px;
+                    right: 80px;
+}
+
+.mySwiper3 .swiper-front img{
+  z-index: 3;    position: absolute;
+                    top: 340px;
+                    left: 57px;
+}
+
+.silde-R1{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 130px;
+                            left: 140px;
+                            z-index: 2;
+}
+
+.silde-R2{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 130px;
+                            left: 140px;
+}
+
+.silde-R3{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 130px;
+                            left: 140px;
+}
+
+.silde-R4{
+  width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 130px;
+                            left: 140px;
+}
+
+.R-div{position: absolute; bottom: 70px;}
+
+.swiper-Rname1{color: #f5d996; font-size: 48px; margin-bottom: 20px;font-family: 'Cormorant', serif;
+  font-weight: 900;}
+.swiper-Rname2{color: #f5d996; font-size: 48px; margin-bottom: 20px; line-height: 1.2;font-family: 'Cormorant', serif;
+  font-weight: 900;}
+.swiper-Rname3{color: #f5d996; font-size: 48px; margin-bottom: 20px; line-height: 1.2;font-family: 'Cormorant', serif;
+  font-weight: 900;}
+.swiper-Rname4{color: #f5d996; font-size: 48px; margin-bottom: 20px; line-height: 1.2;font-family: 'Cormorant', serif;
+  font-weight: 900;}
+
+.swiper-Rintro{color: #fff; font-size: 16px; margin-bottom: 20px; line-height: 1.2;}
+
+.swiper-Rhis1{color: #989898; font-size: 14px; margin-top: 20px; line-height: 1.3;}
+.swiper-Rhis2{color: #989898; font-size: 13px; margin-top: 20px; line-height: 1.3;}
+
+
+
+
+
+
+
 /* ------------------------Loding------------------------- */
 .water-fill {
   animation: wave 1.5s infinite linear, fill-up 7s ease-out alternate 1;
@@ -951,3 +1190,225 @@ body {
     y: -50px;
   }
 }
+
+.Loding{
+  background: url(/Loding/Loding-back.jpg); width: 100%; height: 100%;    position: fixed;
+    z-index: 3000;display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Loding-center{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Loding-bottle{
+  width: 145px; height: 240px; overflow: hidden;
+            position: relative;
+            z-index: 2000;
+}
+
+.loding-num{
+  position: absolute;
+            top: 95px;
+            left: 30px;
+            z-index: 10;
+}
+
+.loding-number{
+  position: absolute;
+                font-weight: bold;
+                font-size: 32px;
+                color: white;
+                top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading{
+  position: absolute;
+                top: 75px;
+                left: 8px;
+}
+
+/*---------------startpage-----------*/
+.startpage{
+  width: 100%; height: 100%; position: fixed; z-index: 2000; display: none;
+}
+
+#animatedBackground{
+  width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+}
+
+#startimg{
+  position: absolute;
+                left: 50%;
+                bottom: -61%;
+                transform: translate(-50%);
+                width: 2120px;
+                height: 1580px;
+                min-width: 2120px;
+                min-height: 1580px;
+}
+
+.door{
+  display: flex;
+                position: absolute;
+                left:50%;
+                bottom: -49%;
+                z-index: 2002;
+                width: 326px;
+                height: 462px;
+                transform:translateX(-50%);
+}
+
+.gradaition{
+  position: absolute;
+            top: 65%;
+            left: 50%;
+            z-index:2003;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(0, 0, 255, 0.8) 20%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            width: 500px;
+            height: 500px;
+}
+
+.gradaition-center{
+  position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: #fff;
+}
+.gradaition-p{
+  font-size: 111.5px;
+                    margin-bottom: 20px;
+}
+
+.gradaition-p1{
+  font-size: 83px;
+                    margin-bottom: 40px;
+}
+
+.startbtn{
+  font-size: 16px; padding: 15px 17px; border-radius: 5px; color: #000; cursor: pointer;display: inline-block;background:#fff;
+}
+
+/*-------------------3popup-----------------*/
+
+#floor3-pop-back1{
+  display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+}
+
+.close-div{
+  width: 1100px;
+            height: 620px;
+            position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#floor3-close1{
+  width: 90px;
+                height: 90px;
+                position: absolute;
+                top: -42px;
+                right: 5px;
+                cursor: pointer;
+                z-index: 1010;
+}
+
+.street{
+  width: 1000px;
+                height: 615px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 80px;
+                backdrop-filter: blur(50px);
+}
+
+.street img{
+  border-radius: 40px 0 0 40px;
+}
+.street-div{
+  position: absolute;
+                    top: 100px;
+                    right: 60px;
+}
+.street-p1{color: #f5d996; font-size: 40px; margin-bottom: 15px;font-family: 'Cormorant', serif;
+  font-weight: 900;}
+.street-p2{color: #ffff; font-size: 24px; margin-bottom: 45px; line-height: 1.2;}
+.street-p3{color: #c9d0c8; font-size: 18px; margin-bottom: 72px; line-height: 1.2;}
+.street-p4{color: #3dc747; font-size: 18px; margin-bottom: 72px; line-height: 1.2;}
+
+#floor3-pop-back2{
+  display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+}
+
+#floor3-close2{
+  width: 90px;
+            height: 90px;
+            position: absolute;
+            top: -42px;
+            right: 5px;
+            cursor: pointer;
+            z-index: 1010;
+}
+
+.holywater{
+  width: 1000px;
+            height: 615px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: flex;
+            backdrop-filter: blur(50px);border-radius: 40px;
+            overflow: hidden;
+}
+
+.holywater img{
+  border-radius: 40px 0 0 40px;
+}
+
+.holy-div{
+  position: absolute;
+                top: 100px;
+                right: 60px;
+}
+
+.holy-p1{color: #f5d996; font-size: 40px; margin-bottom: 15px;font-family: 'Cormorant', serif;
+  font-weight: 900;}
+.holy-p2{color: #ffff; font-size: 24px; margin-bottom: 45px; line-height: 1.2;}
+.holy-p3{color: #c9d0c8; font-size: 18px; margin-bottom: 72px; line-height: 1.2;}
+.holy-p4{color: #3dc747; font-size: 18px; margin-bottom: 72px; line-height: 1.2;}

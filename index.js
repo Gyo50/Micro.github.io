@@ -72,9 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 그림자(shadow)의 크기 및 투명도 변경 계산
     const scale = 0.5 + (Math.abs(bounceHeight) / 30) * 0.5; // bounceHeight에 따른 스케일 값 변화
     shadow.style.transform = `scale(${scale})`;
-    shadow.style.backgroundColor = `rgba(0, 0, 0, ${
-      0.2 + (Math.abs(bounceHeight) / 30) * 0.1
-    })`; // 투명도 조정
+    shadow.style.backgroundColor = `rgba(0, 0, 0, ${0.2 + (Math.abs(bounceHeight) / 30) * 0.1
+      })`; // 투명도 조정
 
     // 애니메이션 반복
     animationId = requestAnimationFrame(animate);
@@ -164,10 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
   lImg1.addEventListener("click", function () {
     intro.style.display = "block";
     popupBackground.style.display = "block";
+    closepopup.style.display = "block";
   });
   rImg1.addEventListener("click", function () {
     history.style.display = "block";
     popupBackground.style.display = "block";
+    closepopup.style.display = "block";
   });
 
   closepopup.addEventListener("click", function () {
@@ -200,10 +201,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const clickunder = document.querySelector(".clickunder");
   const underclose = document.getElementById("2floor-hover-L-under");
   const swiper1 = new Swiper(".mySwiper1", {
-      effect: "fade",
-      loop: true,
-      fadeEffect: { crossFade: true },
-      pagination: { el: ".swiper-pagination", clickable: true },
+    effect: "fade",
+    loop: true,
+    fadeEffect: { crossFade: true },
+    pagination: { el: ".swiper-pagination", clickable: true },
   });
 
   // L-up 관련 요소
@@ -212,10 +213,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const clickup = document.querySelector(".clickup");
   const underup = document.getElementById("2floor-hover-L-up");
   const swiper2 = new Swiper(".mySwiper2", {
-      effect: "fade",
-      loop: true,
-      fadeEffect: { crossFade: true },
-      pagination: { el: ".swiper-pagination", clickable: true },
+    effect: "fade",
+    loop: true,
+    fadeEffect: { crossFade: true },
+    pagination: { el: ".swiper-pagination", clickable: true },
   });
 
   // R-img 관련 요소
@@ -226,117 +227,117 @@ document.addEventListener("DOMContentLoaded", function () {
   const clickR = document.querySelector(".clickR");
   const underR = document.getElementById("2floor-hover-R");
   const swiper3 = new Swiper(".mySwiper3", {
-      effect: "fade",
-      loop: true,
-      fadeEffect: { crossFade: true },
-      pagination: { el: ".swiper-pagination", clickable: true },
+    effect: "fade",
+    loop: true,
+    fadeEffect: { crossFade: true },
+    pagination: { el: ".swiper-pagination", clickable: true },
   });
 
   function animateBorder(callback, clickElement) {
     let progress = 0;
-    transOpenbox.style.display = "block"; 
+    transOpenbox.style.display = "block";
     popupBackground.style.display = "block";
     popclose.style.display = "none";
     transOpenbox.style.zIndex = "99";
 
-    
+
     const swiperBack = clickElement.querySelector(".swiper-back");
     const swiperFront = clickElement.querySelector(".swiper-front");
     const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
     const hoverclose = clickElement.querySelector(".hover-close");
 
-    clickElement.style.opacity = "0";  
+    clickElement.style.opacity = "0";
     clickElement.style.display = "none";
 
-    if (swiperBack) swiperBack.style.opacity = "0"; 
+    if (swiperBack) swiperBack.style.opacity = "0";
     if (swiperFront) swiperFront.style.opacity = "0";
     if (swiperWrapper) swiperWrapper.style.opacity = "0";
     if (hoverclose) hoverclose.style.opacity = "0";
 
     function animate() {
-        if (progress < 1) {
-            progress += 0.005;
-            const borderBottom = 468 - (168 * progress);
-            const borderSide = 20 * progress;
-            const topValue = 83.5 - (10 * progress);
-            const rotation = 180 + (180 * progress);
-            
-            if (swiperBack) swiperBack.style.opacity = "1"; 
-            transOpenbox.style.borderBottomWidth = `${borderBottom}px`;
-            transOpenbox.style.borderLeftWidth = `${borderSide}px`;
-            transOpenbox.style.borderRightWidth = `${borderSide}px`;
-            transOpenbox.style.top = `${topValue}%`;
-            transOpenbox.style.borderBottomcolor = "#303030"
-            transOpenbox.style.transform = `translate(-50%, -50%) rotateX(${rotation}deg)`;
+      if (progress < 1) {
+        progress += 0.005;
+        const borderBottom = 468 - (168 * progress);
+        const borderSide = 20 * progress;
+        const topValue = 83.5 - (10 * progress);
+        const rotation = 180 + (180 * progress);
 
-            requestAnimationFrame(animate);
-        } else {
-            setTimeout(() => {
-                clickElement.style.display = "block";
-                requestAnimationFrame(() => {
-                    clickElement.style.transition = "opacity 0.5s ease-in-out";
-                    clickElement.style.opacity = "1";
-                });
+        if (swiperBack) swiperBack.style.opacity = "1";
+        transOpenbox.style.borderBottomWidth = `${borderBottom}px`;
+        transOpenbox.style.borderLeftWidth = `${borderSide}px`;
+        transOpenbox.style.borderRightWidth = `${borderSide}px`;
+        transOpenbox.style.top = `${topValue}%`;
+        transOpenbox.style.borderBottomcolor = "#303030"
+        transOpenbox.style.transform = `translate(-50%, -50%) rotateX(${rotation}deg)`;
 
-                if (typeof callback === "function") {
-                    callback(clickElement); 
-                }
-            }, 10);
-        }
+        requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => {
+          clickElement.style.display = "block";
+          requestAnimationFrame(() => {
+            clickElement.style.transition = "opacity 0.5s ease-in-out";
+            clickElement.style.opacity = "1";
+          });
+
+          if (typeof callback === "function") {
+            callback(clickElement);
+          }
+        }, 10);
+      }
     }
 
     animate();
-}
-
-
-
-function showPopup(index, clickElement, swiperInstance) {
-  const swiperFront = clickElement.querySelector(".swiper-front");
-  const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
-  const hoverclose = clickElement.querySelector(".hover-close");
-
-  if (!swiperFront || !swiperWrapper) {
-      console.error("❌ swiper 요소를 찾을 수 없음:", clickElement);
-      return;
   }
 
 
-  setTimeout(() => {
+
+  function showPopup(index, clickElement, swiperInstance) {
+    const swiperFront = clickElement.querySelector(".swiper-front");
+    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
+    const hoverclose = clickElement.querySelector(".hover-close");
+
+    if (!swiperFront || !swiperWrapper) {
+      console.error("❌ swiper 요소를 찾을 수 없음:", clickElement);
+      return;
+    }
+
+
+    setTimeout(() => {
       swiperFront.style.transition = "opacity 0.5s ease-in-out";
       swiperFront.style.opacity = "1";
-  }, 500);
+    }, 500);
 
-  setTimeout(() => {
+    setTimeout(() => {
       swiperWrapper.style.transition = "opacity 0.5s ease-in-out";
       swiperWrapper.style.opacity = "1";
       hoverclose.style.transition = "opacity 0.5s ease-in-out";
       hoverclose.style.opacity = "1";
       swiperInstance.slideTo(index);
-  }, 1000);
-}
+    }, 1000);
+  }
 
 
   /** ❌ 팝업 닫기 */
   function hidePopup(clickElement) {
-      clickElement.style.display = "none";
-      popupBackground.style.display = "none";
-      transOpenbox.style.display="none";
+    clickElement.style.display = "none";
+    popupBackground.style.display = "none";
+    transOpenbox.style.display = "none";
 
-      const swiperBack = clickElement.querySelector(".swiper-back");
-      const swiperFront = clickElement.querySelector(".swiper-front");
-      const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
+    const swiperBack = clickElement.querySelector(".swiper-back");
+    const swiperFront = clickElement.querySelector(".swiper-front");
+    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
 
-      if (!swiperBack || !swiperFront || !swiperWrapper) {
-          console.error("swiper 요소를 찾을 수 없음:", clickElement);
-          return;
-      }
+    if (!swiperBack || !swiperFront || !swiperWrapper) {
+      console.error("swiper 요소를 찾을 수 없음:", clickElement);
+      return;
+    }
 
-      swiperBack.style.opacity = "0";
-      swiperFront.style.opacity = "0";
-      swiperWrapper.style.opacity = "0";
+    swiperBack.style.opacity = "0";
+    swiperFront.style.opacity = "0";
+    swiperWrapper.style.opacity = "0";
   }
 
-  Ldown1.addEventListener("click", () => animateBorder(() => showPopup(0, clickunder , swiper1), clickunder));
+  Ldown1.addEventListener("click", () => animateBorder(() => showPopup(0, clickunder, swiper1), clickunder));
   Ldown2.addEventListener("click", () => animateBorder(() => showPopup(1, clickunder, swiper1), clickunder));
   Ldown3.addEventListener("click", () => animateBorder(() => showPopup(2, clickunder, swiper1), clickunder));
   Lup1.addEventListener("click", () => animateBorder(() => showPopup(0, clickup, swiper2), clickup));
@@ -344,12 +345,12 @@ function showPopup(index, clickElement, swiperInstance) {
   Rimg1.addEventListener("click", () => animateBorder(() => showPopup(0, clickR, swiper3), clickR));
   Rimg2.addEventListener("click", () => animateBorder(() => showPopup(1, clickR, swiper3), clickR));
   Rimg3.addEventListener("click", () => animateBorder(() => showPopup(2, clickR, swiper3), clickR));
-  Rimg4.addEventListener("click", () => animateBorder(() => showPopup(3, clickR, swiper3), clickR));  
-  
+  Rimg4.addEventListener("click", () => animateBorder(() => showPopup(3, clickR, swiper3), clickR));
+
   popupBackground.addEventListener("click", () => {
-      hidePopup(clickunder);
-      hidePopup(clickup);
-      hidePopup(clickR);
+    hidePopup(clickunder);
+    hidePopup(clickup);
+    hidePopup(clickR);
   });
 
   underclose.addEventListener("click", () => hidePopup(clickunder));
@@ -471,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const doorR = document.querySelector('.door-R');
   const Lodiong = document.querySelector('.Loding');
 
- 
+
   let isClicked = false;
   let positionY = 0;
   let velocity = 0.01; // 초기 속도
@@ -486,49 +487,49 @@ document.addEventListener("DOMContentLoaded", () => {
   gradation.style.transition = 'opacity 1s';
   startpage.style.position = 'absolute';
 
- 
+
   function createWave() {
-      let phase = 0;
-      let hei = 0;
+    let phase = 0;
+    let hei = 0;
 
-      function updateWave() {
-          const width = 130;
-          const height = 160;
-          const amplitude = 10;
-          const frequency = 0.05;
+    function updateWave() {
+      const width = 130;
+      const height = 160;
+      const amplitude = 10;
+      const frequency = 0.05;
 
-          let path = `M 0 ${height}`;
-          let y;
+      let path = `M 0 ${height}`;
+      let y;
 
-          
-          for (let x = 0; x <= width; x++) {
-              y = height - hei + Math.sin(x * frequency + phase) * amplitude;
-              path += ` L ${x} ${y}`;
-          }
 
-          
-          path += ` L ${width} ${height} L 0 ${height}`;
-
-         
-          waveElement.setAttribute("d", path);
-          waveStrokeElement.setAttribute("d", path);
-
-         
-          phase += 0.1;
-
-          
-          if (hei < 170) {
-              hei += 0.49;
-              requestAnimationFrame(updateWave);
-          } else {
-              
-              Lodiong.style.display = 'none'; 
-              startpage.style.display = 'block'; 
-              animateBackground(); 
-          }
+      for (let x = 0; x <= width; x++) {
+        y = height - hei + Math.sin(x * frequency + phase) * amplitude;
+        path += ` L ${x} ${y}`;
       }
 
-      updateWave();
+
+      path += ` L ${width} ${height} L 0 ${height}`;
+
+
+      waveElement.setAttribute("d", path);
+      waveStrokeElement.setAttribute("d", path);
+
+
+      phase += 0.1;
+
+
+      if (hei < 170) {
+        hei += 0.49;
+        requestAnimationFrame(updateWave);
+      } else {
+
+        Lodiong.style.display = 'none';
+        startpage.style.display = 'block';
+        animateBackground();
+      }
+    }
+
+    updateWave();
   }
 
 
@@ -536,140 +537,140 @@ document.addEventListener("DOMContentLoaded", () => {
     let startimgBottom = -590;
     let doorBottom = -466;
 
-    const doorMaxBottom = 113 - (-466); 
+    const doorMaxBottom = 113 - (-466);
     const startImgMaxBottom = 0 - (-590);
 
-    const speedRatio = doorMaxBottom / startImgMaxBottom; 
+    const speedRatio = doorMaxBottom / startImgMaxBottom;
 
     function animate() {
-        if (startimgBottom < 0 || doorBottom < 113) {
-            if (startimgBottom < 0) startimgBottom += 2.5;
-            if (doorBottom < 113) doorBottom += 2.5 * speedRatio;
+      if (startimgBottom < 0 || doorBottom < 113) {
+        if (startimgBottom < 0) startimgBottom += 2.5;
+        if (doorBottom < 113) doorBottom += 2.5 * speedRatio;
 
-            startimg.style.bottom = `${startimgBottom}px`;
-            door.style.bottom = `${doorBottom}px`;
+        startimg.style.bottom = `${startimgBottom}px`;
+        door.style.bottom = `${doorBottom}px`;
 
-            requestAnimationFrame(animate);
-        } else {
-            gradation.style.display = 'block';
-            setTimeout(() => {
-                gradation.style.opacity = 1;
-            }, 50);
-        }
+        requestAnimationFrame(animate);
+      } else {
+        gradation.style.display = 'block';
+        setTimeout(() => {
+          gradation.style.opacity = 1;
+        }, 50);
+      }
     }
 
     animate();
-}
+  }
 
 
 
 
   startbtn.addEventListener('mouseenter', function () {
-      if (!isClicked) {
-          startbtn.style.background = '#08132f';
-          startbtn.style.color = 'white';
-          doorL.style.transition = "transform 0.5s";
-          doorL.style.transformOrigin = "left";
-          doorL.style.transform = "rotateY(70deg)";
-          doorR.style.transition = "transform 0.5s";
-          doorR.style.transformOrigin = "right";
-          doorR.style.transform = "rotateY(70deg)";
-      }
+    if (!isClicked) {
+      startbtn.style.background = '#08132f';
+      startbtn.style.color = 'white';
+      doorL.style.transition = "transform 0.5s";
+      doorL.style.transformOrigin = "left";
+      doorL.style.transform = "rotateY(70deg)";
+      doorR.style.transition = "transform 0.5s";
+      doorR.style.transformOrigin = "right";
+      doorR.style.transform = "rotateY(70deg)";
+    }
   });
 
   startbtn.addEventListener('mouseout', function () {
-      if (!isClicked) {
-          startbtn.style.color = '#000';
-          startbtn.style.background = '#fff';
-          doorL.style.transform = "rotateY(0deg)";
-          doorR.style.transform = "rotateY(0deg)";
-      }
+    if (!isClicked) {
+      startbtn.style.color = '#000';
+      startbtn.style.background = '#fff';
+      doorL.style.transform = "rotateY(0deg)";
+      doorR.style.transform = "rotateY(0deg)";
+    }
   });
 
 
   startbtn.addEventListener('click', () => {
-      isClicked = true;
-      animateDoorOpen();
-      animateStartPageScale();
+    isClicked = true;
+    animateDoorOpen();
+    animateStartPageScale();
   });
 
 
   function animateDoorOpen() {
-      doorL.style.transition = 'transform 1s ease-in-out';
-      doorR.style.transition = 'transform 1s ease-in-out';
+    doorL.style.transition = 'transform 1s ease-in-out';
+    doorR.style.transition = 'transform 1s ease-in-out';
 
-      doorL.style.transform = 'rotateY(70deg)';
-      doorR.style.transform = 'rotateY(70deg)';
+    doorL.style.transform = 'rotateY(70deg)';
+    doorR.style.transform = 'rotateY(70deg)';
   }
 
 
   function animateStartPageScale() {
-      let scaleValue = 1;
-      let bottomValue = 12;
-      let opacityValue = 1;
+    let scaleValue = 1;
+    let bottomValue = 12;
+    let opacityValue = 1;
 
-      function scaleUp() {
-          if (scaleValue < 2) {
-              scaleValue += 0.01;
-              bottomValue += (305 - 12) / ((4 - 1) / 0.02);
+    function scaleUp() {
+      if (scaleValue < 2) {
+        scaleValue += 0.01;
+        bottomValue += (305 - 12) / ((4 - 1) / 0.02);
 
-              startpage.style.transform = `scale(${scaleValue})`;
-              startpage.style.bottom = `${bottomValue}px`;
+        startpage.style.transform = `scale(${scaleValue})`;
+        startpage.style.bottom = `${bottomValue}px`;
 
-              requestAnimationFrame(scaleUp);
-          } else {
-              fadeOutStartPage();
-          }
+        requestAnimationFrame(scaleUp);
+      } else {
+        fadeOutStartPage();
       }
+    }
 
-      function fadeOutStartPage() {
-          function fade() {
-              if (opacityValue > 0) {
-                  opacityValue -= 0.02;
-                  startpage.style.opacity = opacityValue;
-                  requestAnimationFrame(fade);
-              } else {
-                  startpage.style.display = 'none';
-              }
-          }
-          fade();
+    function fadeOutStartPage() {
+      function fade() {
+        if (opacityValue > 0) {
+          opacityValue -= 0.02;
+          startpage.style.opacity = opacityValue;
+          requestAnimationFrame(fade);
+        } else {
+          startpage.style.display = 'none';
+        }
       }
+      fade();
+    }
 
-      scaleUp();
+    scaleUp();
   }
   createWave();
 });
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const counter = ($counter, max) => {
-        let now = max;
+  const counter = ($counter, max) => {
+    let now = max;
 
-        const handle = setInterval(() => {
-          $counter.innerHTML = Math.ceil(max - now);
+    const handle = setInterval(() => {
+      $counter.innerHTML = Math.ceil(max - now);
 
-          // 목표수치에 도달하면 정지
-          if (now < 1) {
-            clearInterval(handle);
-          }
-
-          // 증가되는 값이 계속하여 작아짐
-          const step = now / 15;
-
-          // 값을 적용시키면서 다음 차례에 영향을 끼침
-          now -= step;
-        }, 30);
+      // 목표수치에 도달하면 정지
+      if (now < 1) {
+        clearInterval(handle);
       }
 
-      window.onload = () => {
-        // 카운트를 적용시킬 요소
-        const $counter = document.querySelector(".loding-number");
+      // 증가되는 값이 계속하여 작아짐
+      const step = now / 15;
 
-        // 목표 수치
-        const max = 100;
+      // 값을 적용시키면서 다음 차례에 영향을 끼침
+      now -= step;
+    }, 30);
+  }
 
-        setTimeout(() => counter($counter, max), 500);
-      }
+  window.onload = () => {
+    // 카운트를 적용시킬 요소
+    const $counter = document.querySelector(".loding-number");
+
+    // 목표 수치
+    const max = 100;
+
+    setTimeout(() => counter($counter, max), 500);
+  }
 });
 
 
