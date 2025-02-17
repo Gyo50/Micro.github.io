@@ -157,30 +157,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const intro = document.getElementById("intro");
   const history = document.getElementById("history");
   const popupBackground = document.getElementById("popupBackground");
-  const closepopup = document.querySelector(".popup-close");
+  const closepopupint = document.querySelector(".popup-closeintro");
+  const closepopuphis = document.querySelector(".popup-closehis");
   const lImg1 = document.querySelector(".L-img1");
   const rImg1 = document.querySelector(".R-img-fire");
 
   lImg1.addEventListener("click", function () {
     intro.style.display = "block";
     popupBackground.style.display = "block";
-    closepopup.style.display = "block";
+    closepopupint.style.display = "block";
   });
   rImg1.addEventListener("click", function () {
     history.style.display = "block";
     popupBackground.style.display = "block";
-    closepopup.style.display = "block";
+    closepopuphis.style.display = "block";
   });
 
-  closepopup.addEventListener("click", function () {
+  closepopupint.addEventListener("click", function () {
     intro.style.display = "none";
-    history.style.display = "none";
     popupBackground.style.display = "none";
+    closepopupint.style.display = "none";
   });
-  popupBackground.addEventListener("click", function () {
-    intro.style.display = "none";
+  closepopuphis.addEventListener("click", function () {
     history.style.display = "none";
     popupBackground.style.display = "none";
+    closepopuphis.style.display = "none";
   });
 });
 
@@ -191,9 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // HTML 요소 가져오기
   const popupBackground = document.getElementById("popupBackground");
-  const popclose = document.querySelector('.popup-close')
-  const transOpenbox = document.querySelector('.trans-openbox');
-
 
   // L-down 관련 요소
   const Ldown1 = document.querySelector(".L-down1");
@@ -238,10 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let progress = 0;
     transOpenbox.style.display = "block";
     popupBackground.style.display = "block";
-    popclose.style.display = "none";
-    transOpenbox.style.zIndex = "99";
-
-
+    const swiperbackimg = clickElement.querySelector(".swiper-backimg");
     const swiperBack = clickElement.querySelector(".swiper-back");
     const swiperFront = clickElement.querySelector(".swiper-front");
     const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
@@ -250,7 +245,8 @@ document.addEventListener("DOMContentLoaded", function () {
     clickElement.style.opacity = "0";
     clickElement.style.display = "none";
 
-    if (swiperBack) swiperBack.style.opacity = "1";
+    if (swiperbackimg) swiperBack.style.opacity = "1";
+    if (swiperBack) swiperBack.style.opacity = "0";
     if (swiperFront) swiperFront.style.opacity = "0";
     if (swiperWrapper) swiperWrapper.style.opacity = "0";
     if (hoverclose) hoverclose.style.opacity = "0";
@@ -258,9 +254,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function animate() {
       if (progress < 1) {
         progress += 0.02;
-        const borderBottom = 468 - (168 * progress);
+        const borderBottom = 444 - (168 * progress);
         const borderSide = 20 * progress;
-        const topValue = 83.5 - (10 * progress);
+        const topValue = 87.5 - (10 * progress);
         const rotation = 180 + (180 * progress);
 
         if (swiperBack) swiperBack.style.opacity = "1";
@@ -275,6 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         setTimeout(() => {
           clickElement.style.display = "block";
+          console.log(clickElement)
           requestAnimationFrame(() => {
             clickElement.style.transition = "opacity 0.5s ease-in-out";
             clickElement.style.opacity = "1";
@@ -520,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       if (hei < 170) {
-        hei += 0.49;
+        hei += 1.5;
         requestAnimationFrame(updateWave);
       } else {
 
