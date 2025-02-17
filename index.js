@@ -496,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       if (hei < 170) {
-        hei += 1.5;
+        hei += 0.65;
         requestAnimationFrame(updateWave);
       } else {
 
@@ -616,6 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scaleUp();
   }
   createWave();
+  window.addEventListener("load", createWave);
 });
 
 
@@ -651,4 +652,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-window.addEventListener("load", createWave);
+
