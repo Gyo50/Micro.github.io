@@ -544,8 +544,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animate() {
       if (startimgBottom < 0 || doorBottom < 113) {
-        if (startimgBottom < 0) startimgBottom += 2.5;
-        if (doorBottom < 113) doorBottom += 2.5 * speedRatio;
+        if (startimgBottom < 0) startimgBottom += 3.5;
+        if (doorBottom < 113) doorBottom += 3.5 * speedRatio;
 
         startimg.style.bottom = `${startimgBottom}px`;
         door.style.bottom = `${doorBottom}px`;
@@ -655,11 +655,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // 증가되는 값이 계속하여 작아짐
-      const step = now / 15;
+      const step = now / 27;
 
       // 값을 적용시키면서 다음 차례에 영향을 끼침
       now -= step;
-    }, 30);
+    }, 60);
   }
 
   window.onload = () => {
