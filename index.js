@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return section;
       }
     }
-    // 일단 기본값을 floor1로 해놨습니다.
     return floor1;
   }
 
@@ -190,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const popupBackground = document.getElementById("popupBackground");
 
-  // L-down 관련 요소
   const LdownItems = document.querySelectorAll(".L-down1, .L-down2, .L-down3");
   const clickunder = document.querySelector(".clickunder");
   const underclose = document.getElementById("2floor-hover-L-under");
@@ -201,7 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
     pagination: { el: ".swiper-pagination", clickable: true },
   });
 
-  // L-up 관련 요소
   const LupItems = document.querySelectorAll(".L-up1, .L-up2");
   const clickup = document.querySelector(".clickup");
   const underup = document.getElementById("2floor-hover-L-up");
@@ -212,7 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
     pagination: { el: ".swiper-pagination", clickable: true },
   });
 
-  // R-img 관련 요소
   const RimgItems = document.querySelectorAll(".R-img1, .R-img2, .R-img3, .R-img4");
   const clickR = document.querySelector(".clickR");
   const underR = document.getElementById("2floor-hover-R");
@@ -231,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
       let progress = (time - startTime) / duration;
       if (progress > 1) progress = 1;
   
-      // 🛠️ border & transform 값 변경
       transBox.style.borderBottom = `${444 - progress * 168}px solid #303030`; // 468px → 300px
       transBox.style.borderLeft = `${progress * 20}px solid transparent`; // 0px → 20px
       transBox.style.borderRight = `${progress * 20}px solid transparent`; // 0px → 20px
@@ -269,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
     popupBackground.style.display = "block";
     parentElement.style.display = "block";
 
-    // 🛠️ 해당 parentElement 내부에서 요소 찾기
     const hoverClose = parentElement.querySelector(".hover-close");
     const swiperBackImg = parentElement.querySelector(".swiper-backimg");
     const swiperBack = parentElement.querySelector(".swiper-back");
@@ -287,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
       swiperPagination.style.opacity = "0";
       transBox.style.opacity = "1";
 
-      // 🌀 JavaScript 애니메이션으로 실행
       animateTransBox(transBox, 1000, () => {
         fadeIn(swiperBack, 500);
         setTimeout(() => fadeIn(swiperFront, 500), 300);
@@ -296,7 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => fadeIn(hoverClose,  500), 900);
       });
 
-      // 🔥 Swiper 클릭한 버튼에 맞게 슬라이드 이동
       swiperInstance.slideTo(index, 0);
     }
   }
@@ -306,22 +298,18 @@ document.addEventListener("DOMContentLoaded", () => {
     parentElement.style.display = "none";
   }
 
-  // L-down 이벤트 추가 (클릭한 요소의 인덱스 값 넘김)
   LdownItems.forEach((item, index) => {
     item.addEventListener("click", () => openPopup(swiper1, clickunder, index));
   });
 
-  // L-up 이벤트 추가
   LupItems.forEach((item, index) => {
     item.addEventListener("click", () => openPopup(swiper2, clickup, index));
   });
 
-  // R-img 이벤트 추가
   RimgItems.forEach((item, index) => {
     item.addEventListener("click", () => openPopup(swiper3, clickR, index));
   });
 
-  // 팝업 닫기
   underclose.addEventListener("click", () => closePopup(clickunder));
   underup.addEventListener("click", () => closePopup(clickup));
   underR.addEventListener("click", () => closePopup(clickR));
