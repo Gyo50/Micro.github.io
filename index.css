@@ -714,52 +714,28 @@ body {
   background: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
   text-align: center;
 }
 
-.popup-closeintro {
-  position: sticky;
-  top: 1%;
-  right: 0;
+.popup-close{
+  position: fixed;
+  top: 2%;
+  right: 2%;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  width: 197%;
   z-index: 1001;
+  display: none;
 }
-.popup-closehis {
-  position: sticky;
-  top: 1%;
-  right: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  width: 197%;
-  z-index: 1001;
-}
+
 
 .close {
   width: 40px;
   height: 40px;
   color: #000;
 }
-
-/* #closeintro {
-  position: sticky;
-  top: 3%;
-  left: 95%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-.close {
-  width: 40px;
-} */
 
 .intro-h1 {
   font-size: 120px;
@@ -810,7 +786,7 @@ body {
   background: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  overflow-y: auto;
+  overflow: auto;
   text-align: center;
 }
 
@@ -937,7 +913,6 @@ body {
 
 .swiper-pagination {
   z-index: 99;
-  display: none;
 }
 
 .swiper-backimg{
@@ -957,7 +932,7 @@ body {
 
 .trans-openbox {
   width: 350px;
-  border-bottom: 468px solid #303030;
+  border-bottom: 444px solid #303030;
   border-left: 0px solid transparent;
   border-right: 0px solid transparent;
   position: absolute;
@@ -965,14 +940,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) rotateX(180deg);
   transform-origin: top;
-  display: none;
 }
 
 .circle {
   width: 100px;
   height: 100px;
   position: absolute;
-  top: 238px;
+  top: 220px;
   left: 125px;
   background: #303030;
   border-radius: 100%;
@@ -1030,7 +1004,7 @@ body {
 
 .under1-div {
   position: absolute;
-  bottom: 80px;
+  bottom: 95px;
 }
 
 .under2-div {
@@ -1106,12 +1080,12 @@ body {
 
 .up1-div {
   position: absolute;
-  bottom: 80px;
+  bottom: 95px;
 }
 
 .up2-div {
   position: absolute;
-  bottom: 65px;
+  bottom: 85px;
 }
 
 .swiper-Pname {
@@ -1139,6 +1113,12 @@ body {
 }
 
 .swiper-Phis {
+  color: #989898;
+  font-size: 14px;
+  margin-top: 20px;
+  line-height: 1.3;
+}
+.swiper-Phis2{
   color: #989898;
   font-size: 14px;
   margin-top: 20px;
@@ -1195,7 +1175,7 @@ body {
 
 .R-div {
   position: absolute;
-  bottom: 70px;
+  bottom: 85px;
 }
 
 .swiper-Rname1 {

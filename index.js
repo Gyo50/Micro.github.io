@@ -157,31 +157,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const intro = document.getElementById("intro");
   const history = document.getElementById("history");
   const popupBackground = document.getElementById("popupBackground");
-  const closepopupint = document.querySelector(".popup-closeintro");
-  const closepopuphis = document.querySelector(".popup-closehis");
+  const closepopup = document.querySelector(".popup-close");
   const lImg1 = document.querySelector(".L-img1");
   const rImg1 = document.querySelector(".R-img-fire");
 
   lImg1.addEventListener("click", function () {
     intro.style.display = "block";
     popupBackground.style.display = "block";
-    closepopupint.style.display = "block";
+    closepopup.style.display = "block";
   });
   rImg1.addEventListener("click", function () {
     history.style.display = "block";
     popupBackground.style.display = "block";
-    closepopuphis.style.display = "block";
+    closepopup.style.display = "block";
   });
 
-  closepopupint.addEventListener("click", function () {
+  closepopup.addEventListener("click", function () {
+    intro.scrollTop = 0;
+    history.scrollTop = 0;
     intro.style.display = "none";
-    popupBackground.style.display = "none";
-    closepopupint.style.display = "none";
-  });
-  closepopuphis.addEventListener("click", function () {
     history.style.display = "none";
     popupBackground.style.display = "none";
-    closepopuphis.style.display = "none";
+    closepopup.style.display = "none";
   });
 });
 
@@ -189,14 +186,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /*----------------------------swiper------------------------*/
 
-document.addEventListener("DOMContentLoaded", function () {
-  // HTML 요소 가져오기
+
+document.addEventListener("DOMContentLoaded", () => {
   const popupBackground = document.getElementById("popupBackground");
 
   // L-down 관련 요소
-  const Ldown1 = document.querySelector(".L-down1");
-  const Ldown2 = document.querySelector(".L-down2");
-  const Ldown3 = document.querySelector(".L-down3");
+  const LdownItems = document.querySelectorAll(".L-down1, .L-down2, .L-down3");
   const clickunder = document.querySelector(".clickunder");
   const underclose = document.getElementById("2floor-hover-L-under");
   const swiper1 = new Swiper(".mySwiper1", {
@@ -207,8 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // L-up 관련 요소
-  const Lup1 = document.querySelector(".L-up1");
-  const Lup2 = document.querySelector(".L-up2");
+  const LupItems = document.querySelectorAll(".L-up1, .L-up2");
   const clickup = document.querySelector(".clickup");
   const underup = document.getElementById("2floor-hover-L-up");
   const swiper2 = new Swiper(".mySwiper2", {
@@ -219,10 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // R-img 관련 요소
-  const Rimg1 = document.querySelector(".R-img1");
-  const Rimg2 = document.querySelector(".R-img2");
-  const Rimg3 = document.querySelector(".R-img3");
-  const Rimg4 = document.querySelector(".R-img4");
+  const RimgItems = document.querySelectorAll(".R-img1, .R-img2, .R-img3, .R-img4");
   const clickR = document.querySelector(".clickR");
   const underR = document.getElementById("2floor-hover-R");
   const swiper3 = new Swiper(".mySwiper3", {
@@ -232,129 +223,115 @@ document.addEventListener("DOMContentLoaded", function () {
     pagination: { el: ".swiper-pagination", clickable: true },
   });
 
-  function animateBorder(callback, clickElement) {
-    let progress = 0;
-    transOpenbox.style.display = "block";
-    popupBackground.style.display = "block";
-    const swiperbackimg = clickElement.querySelector(".swiper-backimg");
-    const swiperBack = clickElement.querySelector(".swiper-back");
-    const swiperFront = clickElement.querySelector(".swiper-front");
-    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
-    const hoverclose = clickElement.querySelector(".hover-close");
-
-    clickElement.style.opacity = "0";
-    clickElement.style.display = "none";
-
-    if (swiperbackimg) swiperBack.style.opacity = "1";
-    if (swiperBack) swiperBack.style.opacity = "0";
-    if (swiperFront) swiperFront.style.opacity = "0";
-    if (swiperWrapper) swiperWrapper.style.opacity = "0";
-    if (hoverclose) hoverclose.style.opacity = "0";
-
-    function animate() {
+  function animateTransBox(transBox, duration, callback) {
+    let startTime;
+    
+    function animate(time) {
+      if (!startTime) startTime = time;
+      let progress = (time - startTime) / duration;
+      if (progress > 1) progress = 1;
+  
+      // 🛠️ border & transform 값 변경
+      transBox.style.borderBottom = `${444 - progress * 168}px solid #303030`; // 468px → 300px
+      transBox.style.borderLeft = `${progress * 20}px solid transparent`; // 0px → 20px
+      transBox.style.borderRight = `${progress * 20}px solid transparent`; // 0px → 20px
+      transBox.style.top = `${83.5 - progress * 7.5}%`; // 83.5% → 77.5% 76
+      transBox.style.transform = `translate(-50%, -50%) rotateX(${180 - progress * 180}deg)`; // 180deg → 0deg
+  
       if (progress < 1) {
-        progress += 0.02;
-        const borderBottom = 444 - (168 * progress);
-        const borderSide = 20 * progress;
-        const topValue = 87.5 - (10 * progress);
-        const rotation = 180 + (180 * progress);
-
-        if (swiperBack) swiperBack.style.opacity = "1";
-        transOpenbox.style.borderBottomWidth = `${borderBottom}px`;
-        transOpenbox.style.borderLeftWidth = `${borderSide}px`;
-        transOpenbox.style.borderRightWidth = `${borderSide}px`;
-        transOpenbox.style.top = `${topValue}%`;
-        transOpenbox.style.borderBottomcolor = "#303030"
-        transOpenbox.style.transform = `translate(-50%, -50%) rotateX(${rotation}deg)`;
-
         requestAnimationFrame(animate);
-      } else {
-        setTimeout(() => {
-          clickElement.style.display = "block";
-          console.log(clickElement)
-          requestAnimationFrame(() => {
-            clickElement.style.transition = "opacity 0.5s ease-in-out";
-            clickElement.style.opacity = "1";
-          });
+      } else if (callback) {
+        callback();
+      }
+    }
+  
+    requestAnimationFrame(animate);
+  }
 
-          if (typeof callback === "function") {
-            callback(clickElement);
-          }
-        }, 10);
+  function fadeIn(element, duration) {
+    let startTime;
+
+    function animate(time) {
+      if (!startTime) startTime = time;
+      let progress = (time - startTime) / duration;
+      if (progress > 1) progress = 1;
+      element.style.opacity = progress;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
       }
     }
 
-    animate();
+    requestAnimationFrame(animate);
   }
 
+  function openPopup(swiperInstance, parentElement, index) {
+    popupBackground.style.display = "block";
+    parentElement.style.display = "block";
 
+    // 🛠️ 해당 parentElement 내부에서 요소 찾기
+    const hoverClose = parentElement.querySelector(".hover-close");
+    const swiperBackImg = parentElement.querySelector(".swiper-backimg");
+    const swiperBack = parentElement.querySelector(".swiper-back");
+    const swiperFront = parentElement.querySelector(".swiper-front");
+    const swiperWrapper = parentElement.querySelector(".swiper-wrapper");
+    const swiperPagination = parentElement.querySelector(".swiper-pagination");
+    const transBox = parentElement.querySelector(".trans-openbox");
 
-  function showPopup(index, clickElement, swiperInstance) {
-    const swiperFront = clickElement.querySelector(".swiper-front");
-    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
-    const hoverclose = clickElement.querySelector(".hover-close");
+    if (hoverClose && swiperBackImg && swiperBack && swiperFront && swiperWrapper && swiperPagination && transBox) {
+      hoverClose.style.opacity = "0";
+      swiperBackImg.style.opacity = "1";
+      swiperBack.style.opacity = "0";
+      swiperFront.style.opacity = "0";
+      swiperWrapper.style.opacity = "0";
+      swiperPagination.style.opacity = "0";
+      transBox.style.opacity = "1";
 
-    if (!swiperFront || !swiperWrapper) {
-      console.error("❌ swiper 요소를 찾을 수 없음:", clickElement);
-      return;
+      // 🌀 JavaScript 애니메이션으로 실행
+      animateTransBox(transBox, 1000, () => {
+        fadeIn(swiperBack, 500);
+        setTimeout(() => fadeIn(swiperFront, 500), 300);
+        setTimeout(() => fadeIn(swiperWrapper, 500), 600);
+        setTimeout(() => fadeIn(swiperPagination,  500), 900);
+        setTimeout(() => fadeIn(hoverClose,  500), 900);
+      });
+
+      // 🔥 Swiper 클릭한 버튼에 맞게 슬라이드 이동
+      swiperInstance.slideTo(index, 0);
     }
-
-
-    setTimeout(() => {
-      swiperFront.style.transition = "opacity 0.5s ease-in-out";
-      swiperFront.style.opacity = "1";
-    }, 500);
-
-    setTimeout(() => {
-      swiperWrapper.style.transition = "opacity 0.5s ease-in-out";
-      swiperWrapper.style.opacity = "1";
-      hoverclose.style.transition = "opacity 0.5s ease-in-out";
-      hoverclose.style.opacity = "1";
-      swiperInstance.slideTo(index);
-    }, 1000);
   }
 
-
-  /** ❌ 팝업 닫기 */
-  function hidePopup(clickElement) {
-    clickElement.style.display = "none";
+  function closePopup(parentElement) {
     popupBackground.style.display = "none";
-    transOpenbox.style.display = "none";
-
-    const swiperBack = clickElement.querySelector(".swiper-back");
-    const swiperFront = clickElement.querySelector(".swiper-front");
-    const swiperWrapper = clickElement.querySelector(".swiper-wrapper");
-
-    if (!swiperBack || !swiperFront || !swiperWrapper) {
-      console.error("swiper 요소를 찾을 수 없음:", clickElement);
-      return;
-    }
-
-    swiperBack.style.opacity = "0";
-    swiperFront.style.opacity = "0";
-    swiperWrapper.style.opacity = "0";
+    parentElement.style.display = "none";
   }
 
-  Ldown1.addEventListener("click", () => animateBorder(() => showPopup(0, clickunder, swiper1), clickunder));
-  Ldown2.addEventListener("click", () => animateBorder(() => showPopup(1, clickunder, swiper1), clickunder));
-  Ldown3.addEventListener("click", () => animateBorder(() => showPopup(2, clickunder, swiper1), clickunder));
-  Lup1.addEventListener("click", () => animateBorder(() => showPopup(0, clickup, swiper2), clickup));
-  Lup2.addEventListener("click", () => animateBorder(() => showPopup(1, clickup, swiper2), clickup));
-  Rimg1.addEventListener("click", () => animateBorder(() => showPopup(0, clickR, swiper3), clickR));
-  Rimg2.addEventListener("click", () => animateBorder(() => showPopup(1, clickR, swiper3), clickR));
-  Rimg3.addEventListener("click", () => animateBorder(() => showPopup(2, clickR, swiper3), clickR));
-  Rimg4.addEventListener("click", () => animateBorder(() => showPopup(3, clickR, swiper3), clickR));
-
-  popupBackground.addEventListener("click", () => {
-    hidePopup(clickunder);
-    hidePopup(clickup);
-    hidePopup(clickR);
+  // L-down 이벤트 추가 (클릭한 요소의 인덱스 값 넘김)
+  LdownItems.forEach((item, index) => {
+    item.addEventListener("click", () => openPopup(swiper1, clickunder, index));
   });
 
-  underclose.addEventListener("click", () => hidePopup(clickunder));
-  underup.addEventListener("click", () => hidePopup(clickup));
-  underR.addEventListener("click", () => hidePopup(clickR));
+  // L-up 이벤트 추가
+  LupItems.forEach((item, index) => {
+    item.addEventListener("click", () => openPopup(swiper2, clickup, index));
+  });
+
+  // R-img 이벤트 추가
+  RimgItems.forEach((item, index) => {
+    item.addEventListener("click", () => openPopup(swiper3, clickR, index));
+  });
+
+  // 팝업 닫기
+  underclose.addEventListener("click", () => closePopup(clickunder));
+  underup.addEventListener("click", () => closePopup(clickup));
+  underR.addEventListener("click", () => closePopup(clickR));
+  popupBackground.addEventListener("click", () => {
+    closePopup(clickunder);
+    closePopup(clickup);
+    closePopup(clickR);
+  });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const Lclick = document.querySelector(".L-click");
@@ -454,6 +431,8 @@ document.addEventListener("DOMContentLoaded", function () {
     Rlight.style.display = "none";
   });
 });
+
+
 
 /* 처음 화면 */
 
