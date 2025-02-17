@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   downButton2.addEventListener("click", () => {
     floor2.scrollIntoView({ behavior: "smooth" });
     updateCurrentSection(floor2);
+    
   });
 });
 
@@ -249,14 +250,14 @@ document.addEventListener("DOMContentLoaded", function () {
     clickElement.style.opacity = "0";
     clickElement.style.display = "none";
 
-    if (swiperBack) swiperBack.style.opacity = "0";
+    if (swiperBack) swiperBack.style.opacity = "1";
     if (swiperFront) swiperFront.style.opacity = "0";
     if (swiperWrapper) swiperWrapper.style.opacity = "0";
     if (hoverclose) hoverclose.style.opacity = "0";
 
     function animate() {
       if (progress < 1) {
-        progress += 0.005;
+        progress += 0.02;
         const borderBottom = 468 - (168 * progress);
         const borderSide = 20 * progress;
         const topValue = 83.5 - (10 * progress);
@@ -655,11 +656,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // 증가되는 값이 계속하여 작아짐
-      const step = now / 27;
+      const step = now / 10;
 
       // 값을 적용시키면서 다음 차례에 영향을 끼침
       now -= step;
-    }, 60);
+    }, 30);
   }
 
   window.onload = () => {

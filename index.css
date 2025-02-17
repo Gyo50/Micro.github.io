@@ -699,9 +699,9 @@ body {
 #intro {
   display: none;
   position: fixed;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 1920px;
   height: 980px;
   background: white;
@@ -782,9 +782,9 @@ body {
 #history {
   display: none;
   position: fixed;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 1920px;
   height: 980px;
   background: white;
@@ -1259,13 +1259,13 @@ body {
 
 .door{
   display: flex;
-                position: absolute;
-                left:50%;
-                bottom: -49%;
-                z-index: 2002;
-                width: 326px;
-                height: 462px;
-                transform:translateX(-50%);
+    position: absolute;
+    left:50%;
+    bottom: -49%;
+    z-index: 2002;
+    width: 328px;
+    height: 462px;
+    transform:translateX(-50%);
 }
 
 .gradaition{
