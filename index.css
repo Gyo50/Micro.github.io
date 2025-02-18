@@ -38,7 +38,7 @@ body {
 .floor3 .img-flex-3 {
   width: 1920px;
   height: 980px;
-  background-image: url(/3floor/dip3.png);
+  background-image: url(3floor\dip3.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -46,7 +46,7 @@ body {
 }
 
 .floor3 .down2 {
-  background: url('img/arr_bottom.png');
+  background: url(img\arr_bottom.png);
   width: 74px;
   height: 69px;
   cursor: pointer;
@@ -165,7 +165,7 @@ body {
 .floor2-3 .img {
   width: 1920px;
   height: 800px;
-  background-image: url(/2-3floor.png);
+  background-image: url(2-3floor.png);
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
@@ -252,21 +252,21 @@ body {
 .floor2 .img-flex-2 {
   width: 1920px;
   height: 980px;
-  background-image: url(/2floor/dip2.png);
+  background-image: url(2floor\dip2.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .floor2 .up-down .up2 {
-  background: url('img/arr_top.png');
+  background: url(img\arr_top.png);
   width: 74px;
   height: 70px;
   cursor: pointer;
 }
 
 .floor2 .up-down .down1 {
-  background: url('img/arr_bottom.png');
+  background: url(img\arr_bottom.png);
   width: 74px;
   height: 69px;
   cursor: pointer;
@@ -469,7 +469,7 @@ body {
 .floor1-2 .img {
   width: 1920px;
   height: 800px;
-  background-image: url(/1-2floor.png);
+  background-image: url(1-2floor.png);
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
@@ -495,14 +495,14 @@ body {
 .floor1 .img-flex-1 {
   width: 1920px;
   height: 980px;
-  background-image: url(/1floor/dip1.png);
+  background-image: url(1floor\dip1.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .floor1 .up-down .up1 {
-  background: url('img/arr_top.png');
+  background: url(img\arr_top.png);
   width: 74px;
   height: 70px;
   cursor: pointer;
@@ -916,7 +916,7 @@ body {
 }
 
 .swiper-backimg{
-  background: url(/2floor/hover/2floor-hover-up.png);
+  background: url(2floor\hover\2floor-hover-up.png);
   position: absolute;
   top: 55%;
   left: 50%;
@@ -1273,7 +1273,7 @@ body {
 }
 
 .Loding {
-  background: url(/Loding/Loding-back.jpg);
+  background: url(Loding\Loding-back.jpg);
   width: 100%;
   height: 100%;
   position: fixed;
