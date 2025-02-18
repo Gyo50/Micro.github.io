@@ -1340,7 +1340,7 @@ body {
 #startimg {
   position: absolute;
   left: 50%;
-  bottom: -61%;
+  bottom: -590px;
   transform: translate(-50%);
   width: 2120px;
   height: 1580px;
