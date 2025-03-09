@@ -966,7 +966,7 @@ body {
 
 .mySwiper1 .swiper-back{
   position: absolute;
-  top: 60px;
+  top: 105px;
   left: 60px;
 }
 
@@ -1050,7 +1050,7 @@ body {
 
 .mySwiper2 .swiper-back{
   position: absolute;
-  top: 160px;
+  top: 200px;
   right: 65px;
 }
 
@@ -1129,7 +1129,7 @@ body {
 
 .mySwiper3 .swiper-back{
   position: absolute;
-  top: 210px;
+  top: 250px;
   right: 80px;
 }
 
