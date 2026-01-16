@@ -823,6 +823,10 @@ body {
   font-weight: 900;
 }
 
+.space{
+    letter-spacing: 1px;
+}
+
 .his-p1 {
   font-size: 26px;
   line-height: 1.2;

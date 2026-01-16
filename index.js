@@ -621,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // 증가되는 값이 계속하여 작아짐
-      const step = now / 10;
+      const step = now / 25;
 
       // 값을 적용시키면서 다음 차례에 영향을 끼침
       now -= step;
