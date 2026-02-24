@@ -2,13 +2,13 @@
 
 고급 향수 브랜드 '딥티크'의 웹사이트를 모티브로 한 프론트엔드 클론 코딩 프로젝트입니다. 브랜드 특유의 신비롭고 고급스러운 감성을 전달하기 위해 고해상도 이미지 활용과 부드러운 층별(Floor) 전환 인터랙션 구현에 집중했습니다.
 
-## 🔗 Project Links
+## 🔗 프로젝트 링크
 * **Live Demo**: [데모링크](https://gyo50.github.io/Micro.github.io/)
 * **Original Site**: [딥티크 공식 홈페이지](https://www.diptyqueparis.com/)
 
 ---
 
-## 🛠 Tech Stack
+## 🛠 기술스택
 * **Language**: HTML5, CSS3, JavaScript (Vanilla JS)
 * **Animation**: 
   * [GSAP](https://greensock.com/gsap/) (Smooth Scrolling & Transitions)
@@ -17,7 +17,7 @@
 
 ---
 
-## 🚀 Key Features
+## 🚀 주요특징
 
 ### 1. 스토리텔링형 로딩 시퀀스
 - 페이지 진입 시 브랜드 아이덴티티를 담은 로딩 애니메이션을 구현하여 리소스 로딩 대기 시간을 사용자 경험으로 승화시켰습니다.
@@ -36,7 +36,7 @@
 
 ---
 
-## 🔍 Troubleshooting & Learning
+## 🔍 문제 해결 및 학습
 
 ### 1. 고해상도 이미지로 인한 렌더링 지연 해결
 - **문제**: 배경 및 제품 이미지가 고화질이라 페이지 로드 직후 레이아웃이 깨지거나 이미지가 뒤늦게 뜨는 현상 발생.
@@ -51,7 +51,7 @@
 
 ---
 
-## 📂 Project Structure
+## 📂 프로젝트 구조
 ```text
 ├── 1floor/         # 1층 관련 이미지 및 리소스
 ├── 2floor/         # 2층 제품 및 호버 이미지
