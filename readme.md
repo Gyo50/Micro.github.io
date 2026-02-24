@@ -1,93 +1,64 @@
-## 1. 1층 팝업
-1) 클릭 시에 닫히지 않게
-2) 스크롤 안되는거 확인
+# 🕯️ 프로젝트: 딥티크(Diptyque) 브랜드 클론 코딩
 
-## 2. 2층 팝업
-1) BOX보여있는 상태에서 열리게
+고급 향수 브랜드 '딥티크'의 웹사이트를 모티브로 한 프론트엔드 클론 코딩 프로젝트입니다. 브랜드 특유의 신비롭고 고급스러운 감성을 전달하기 위해 고해상도 이미지 활용과 부드러운 층별(Floor) 전환 인터랙션 구현에 집중했습니다.
 
-## 3. 로딩
+## 🔗 Project Links
+* **Live Demo**: [데모링크](https://gyo50.github.io/Micro.github.io/)
+* **Original Site**: [딥티크 공식 홈페이지](https://www.diptyqueparis.com/)
 
+---
 
-        <!-- 
-            <div>
-                <swiper>
-                    <div 뒤box></div>
-                    <div>
-                        꽃들
-                    </div>
+## 🛠 Tech Stack
+* **Language**: HTML5, CSS3, JavaScript (Vanilla JS)
+* **Animation**: 
+  * [GSAP](https://greensock.com/gsap/) (Smooth Scrolling & Transitions)
+  * CSS3 Transitions & Keyframes
+* **Tools**: VS Code, Git
 
-                    <swiper-slide>
-                        <div>
-                            <img 향수 />
-                            글씨드릳른ㅇㅎ....................
-                        </div>
-                    </swiper-slide>
+---
 
-                    <div 3D transform>
-                        <rec 검정박스 div>
-                        </rec>
-                        <circle>
-                            <swiper-pagination><swiper-pagination>>
-                        </circle>
-                    </div>
-                </swiper>
-            </div>
-        
+## 🚀 Key Features
 
+### 1. 스토리텔링형 로딩 시퀀스
+- 페이지 진입 시 브랜드 아이덴티티를 담은 로딩 애니메이션을 구현하여 리소스 로딩 대기 시간을 사용자 경험으로 승화시켰습니다.
+- **이미지 프리로딩**: 고해상도 리소스가 많은 특성을 고려하여, 메인 비주얼이 준비된 후 화면이 열리도록 제어했습니다.
 
+### 2. 층별(Floor-based) 레이아웃 전환
+- 1층부터 3층까지 구성된 독특한 수직 구조를 구현했습니다.
+- **Z-index & Opacity 제어**: 사용자의 내비게이션 클릭에 따라 각 층의 레이어를 부드럽게 전환하며 공간감을 부여했습니다.
 
-<div id="swiper-popupBack">
-            <div class="swiper mySwiper1 clickunder swiperall">
-                <img id="2floor-hover-L-under" class="hover-close" src="/img/close.png" alt="">
-                <div class="swiper-backimg"></div>
-                <div>
-                    <img class="swiper-back" src="/2floor/hover/2floor-hover-L-flower.png" alt="">
-                    <img class="swiper-front" src="/2floor/hover/2floor-hover-R-flower.png" alt="">
-                </div>
+### 3. 제품 호버(Hover) 인터랙션
+- 향수 제품 라인업에 마우스를 올리면 제품의 상세 이미지나 호버 전용 아트워크로 교체되는 효과를 적용했습니다.
+- 단순한 이미지 교체가 아닌, 페이드 효과를 주어 브랜드의 부드러운 이미지를 유지했습니다.
 
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img class="slide1-L" src="/2floor/L-under-1/EAUROSE-hover.png" alt="">
-                        <div class="under1-div" >
-                            <p class="swiper-Uname">EAU ROSE</p>
-                            <p class="swiper-Uintro">다마스케나 로즈, 센티폴리아
-                                로즈,<br />리치
-                                아코드, 암브록산</p>
-                            <hr style="width: 250px;" />
-                            <p class="swiper-Uhis">오 로즈 오 드 뚜왈렛은 향수
-                                제조사의 상징인<br /> 꽃에 대한 후각적 깊이 탐구 입니다.<br />가장 사랑스러운 두 장미인 다마스케나와<br />센티폴리아를 주입하여 예상치 못한 향을
-                                만들어냅니다.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="slide2-L" src="/2floor/L-under-2/L'Ombredansl'Eau-hover.png" alt="">
-                        <div class="under2-div">
-                            <p class="swiper-Uname">
-                                L'Ombre<br />dans l'Eau</p>
-                            <p class="swiper-Uintro">장미, 블랙커런트
-                                새싹,<br />페티그레인, 블랙커런트 잎</p>
-                            <hr style="width: 185px;" />
-                            <p class="swiper-Uhis2" >코에는 꽃이 만발한 장미의
-                                향이 오래 남습니다.<br />진하고 관능적이며, 블랙커런트 꽃봉오리의 신맛을 간접적으로<br />강조합니다. 덧없고 자연으로 가득 찬 순간이 향수로 변모합니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="slide3-L" src="/2floor/L-under-3/doson-hover.png" alt="">
-                        <div class="under3-div">
-                            <p class="swiper-Uname">DOSON</p>
-                            <p class="swiper-Uintro">튜버로즈, 오렌지
-                                블로섬<br />재스민, 앰버우드</p>
-                            <hr style="width: 180px;" />
-                            <p class="swiper-Uhis">황혼의 시간을 떠올리게 하는
-                                향의 튜버로즈,<br />어둠 속에서 하얀 꽃이 돋보입니다.<br />재스민과 오렌지 꽃의 노트,<br />관능미로 가득 찬 꽃에 대한 추억입니다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="trans-openbox">
-                    <div class="circle">
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+### 4. 시각적 몰입감을 위한 배경 효과
+- `sky.jpg` 등 배경 요소에 미세한 움직임을 주어 정적인 페이지에 생동감을 불어넣었습니다.
+
+---
+
+## 🔍 Troubleshooting & Learning
+
+### 1. 고해상도 이미지로 인한 렌더링 지연 해결
+- **문제**: 배경 및 제품 이미지가 고화질이라 페이지 로드 직후 레이아웃이 깨지거나 이미지가 뒤늦게 뜨는 현상 발생.
+- **해결**: `window.onload`와 로딩 스크린을 연동하여 모든 리소스가 로드된 시점에 인트로 애니메이션이 시작되도록 로직을 설계했습니다.
+
+### 2. 절대 위치(Absolute) 요소들의 반응형 대응
+- **문제**: 이미지 기반의 고정 배치(`position: absolute`)가 많아 화면 해상도가 바뀔 때 요소들이 겹치는 문제 발생.
+- **해결**: `px` 단위 대신 `vw`, `vh` 등 뷰포트 상대 단위를 도입하고, 주요 중단점마다 미디어 쿼리를 세분화하여 레이아웃 무너짐을 방지했습니다.
+
+### 3. 복잡한 층별 전환 로직 최적화
+- **학습**: 여러 개의 `.floor` 클래스를 관리하며 자바스크립트로 클래스를 토글할 때, 스타일 시트와 애니메이션 라이브러리 간의 간섭을 최소화하는 상태 관리 방식을 익혔습니다.
+
+---
+
+## 📂 Project Structure
+```text
+├── 1floor/         # 1층 관련 이미지 및 리소스
+├── 2floor/         # 2층 제품 및 호버 이미지
+├── 3floor/         # 3층 상세 정보 리소스
+├── Loding/         # 로딩 시퀀스 전용 자원
+├── intro/          # 인트로 슬라이드 이미지
+├── index.html      # 메인 레이아웃
+├── index.js        # 인터랙션 및 층 제어 로직
+├── index.css       # 메인 스타일 및 애니메이션
+└── reset.css       # 브라우저 스타일 초기화
